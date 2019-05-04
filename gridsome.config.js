@@ -23,7 +23,7 @@ function addStyleResource (rule) {
 }
 
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: '▇▇▇▇▇▇▇▇▇▇',
   plugins: [
     {
       use: '@gridsome/source-filesystem',
