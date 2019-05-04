@@ -1,8 +1,8 @@
 ---
 slug: first-post
-title: This is my first post!
+title: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇!
 image: ""
-desc: "A post I made to test my website"
+desc: "▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇"
 ---
 
 # This is some first level title
