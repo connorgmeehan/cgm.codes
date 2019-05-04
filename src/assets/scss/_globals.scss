@@ -1,0 +1,32 @@
+@import "../vendor/main.scss";
+
+$layout-width-xs: 38em;
+$layout-width-sm: $layout-width-xs;
+$layout-width-md: $layout-width-sm;
+$layout-width-lg: $layout-width-md;
+
+$title-height-xs: 18em;
+$title-height-sm: 20em;
+$title-height-md: 25em;
+$title-height-lg: 35em;
+
+$title-color: #222;
+$copy-color: #444;
+$sub-color: #666;
+
+a {
+  text-decoration: none;
+  color: $title-color;
+}
+
+body {
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  margin:0;
+  padding:0;
+  line-height: 1.5;
+  color: $copy-color;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: $copy-color;
+}
