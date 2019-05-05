@@ -11,8 +11,9 @@ console.log(thisfont);
 const options = {
   fieldType: 'sdf',
   outputType: "json",
-  fontSize: 65,
-}
+  fontSize: 130,
+  textureSize: [1024, 1024],
+};
 
 generateBMFont(thisfont, options, (error, textures, font) => {
   if (error) throw error;

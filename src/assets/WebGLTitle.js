@@ -193,7 +193,7 @@ class WebGLTitle {
       gl.pixelStorei(gl.UNPACK_COLORSPACE_CONVERSION_WEBGL, gl.NONE);
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
     };
-    image.src = 'font.png';
+    image.src = '/font.png';
 
     var ratio = window.devicePixelRatio || 1;
 
@@ -230,7 +230,7 @@ class WebGLTitle {
           1, 0, 0, 0,
           0, -1, 0, 0,
           1, 0, 1, 0,
-          0, 0, -400, 1,
+          0, 0, -600, 1,
         ]);
         gl.uniform1f(metaProgram.uniforms.time, now);
         gl.uniform2f(metaProgram.uniforms.uFontSize, totalWidth, baseHeight);
@@ -281,7 +281,9 @@ class WebGLTitle {
     frame();
   }
 
-   
+  cleanup() {
+
+  }
 }
 
 export default WebGLTitle;
