@@ -12,13 +12,9 @@ class WebGLTitle {
     const vertShaderSource = require(`raw-loader!~/assets/shaders/SDF.vert`).default;
     const fragShaderSource = require(`raw-loader!~/assets/shaders/SDF.frag`).default;
 
-    const vertWarpShaderSource = require(`raw-loader!~/assets/shaders/warp.vert`).default;
-    const fragWarpShaderSource = require(`raw-loader!~/assets/shaders/warp.frag`).default;
-
     // Setup program
     this._gl.getExtension('OES_standard_derivatives');
     this.metaProgram = new MetaProgram(this._gl, vertShaderSource, fragShaderSource);
-    this.warpMetaProgram = new MetaProgram(this._gl, vertWarpShaderSource, fragWarpShaderSource);
     this.metaProgram.addAttributes(this._gl, "vertex");
     this.metaProgram.addUniforms(this._gl, ["projection", "modelview", "texture", "time"]);
 
