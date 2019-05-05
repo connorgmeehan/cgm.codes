@@ -16,10 +16,10 @@ class WebGLTitle {
     this._gl.getExtension('OES_standard_derivatives');
     this.metaProgram = new MetaProgram(this._gl, vertShaderSource, fragShaderSource);
     this.metaProgram.addAttributes(this._gl, "vertex");
-    this.metaProgram.addUniforms(this._gl, ["projection", "modelview", "texture", "time"]);
+    this.metaProgram.addUniforms(this._gl, ["projection", "modelview", "texture", "time", "uFontSize", "uResolution"]);
 
     // setup fontmap
-    this.charTexture = loadTexture(this._gl, "./font.png");
+    this.charTexture = loadTexture(this._gl, "/font.png");
     this.fontMap = new FontMap(fontData);
     
     this._drawScene(this._gl, targetCanvas, this.metaProgram, this._title)
@@ -96,7 +96,8 @@ class WebGLTitle {
   
     // Center the text at the origin
     var x = -totalAdvance / 2;    // var x = this._gl.canvas.width/2;
-    var y = this.fontMap.tallest.height/2;
+    var baseHeight = this.fontMap._data.common.base;
+    var y = -baseHeight/2;
     // var y = this._gl.canvas.height/2;
     var tex = {
       width: this.fontMap._data.common.scaleW,
@@ -123,26 +124,6 @@ class WebGLTitle {
       var cheight = mychar.height;
       var fwidth = this.fontMap.getTextureWidth();
       var fheight = this.fontMap.getTextureHeight();
-      
-      // var coriginX = c.originX;
-      // var coriginY = c.originY;
-      // var cposX = c.x;
-      // var cposY = c.y;
-      // var cwidth = c.width;
-      // var cheight = c.height;
-      // var fwidth = this.fontMap.getTextureWidth();
-      // var fheight = this.fontMap.getTextureHeight();
-
-      console.log(
-        coriginX,
-        coriginY,
-        cposX,
-        cposY,
-        cwidth,
-        cheight,
-        fwidth,
-        fheight,
-      );
   
       var x0 = x - coriginX;
       var y0 = y - coriginY;
@@ -229,19 +210,26 @@ class WebGLTitle {
   
       var now = (window.performance ? performance.now() : +new Date) / 1000;
       var angle = now / 2;
-      gl.uniform1f(metaProgram.uniforms.time, now);
       angle -= Math.floor(angle / Math.PI) * Math.PI;
       var c = Math.cos(angle);
       var s = Math.sin(angle);
-  
+
+      
+
+      // DRAW FONT INTO FRAME BUFFER
+      gl.uniform1f(metaProgram.uniforms.time, now);
+      gl.uniform2f(metaProgram.uniforms.uFontSize, totalAdvance, baseHeight);
+      gl.uniform2f(metaProgram.uniforms.uResolution, width, height);
+
       gl.uniformMatrix4fv(metaProgram.uniforms.modelview, false, [
         1, 0, 0, 0,
-        0, 1, 0, 0,
+        0, -1, 0, 0,
         1, 0, 1, 0,
         0, 0, -400, 1,
       ]);
   
       gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 4);
+      // END DRAW FONT INTO FRAME BUFFER
       requestAnimationFrame(frame);
     }
 

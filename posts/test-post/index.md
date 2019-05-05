@@ -1,6 +1,6 @@
 ---
 slug: first-post
-title: ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇!
+title: Test post!
 image: ""
 desc: "▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇"
 ---

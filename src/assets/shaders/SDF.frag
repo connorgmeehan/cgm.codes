@@ -71,14 +71,15 @@ varying vec2 coord;
 const float smoothing = 2.0/16.0;
 
 void main() {
-  float noiseScale = sin(time*0.5)*0.5;
-  vec2 uv = vec2(
-    coord.x + snoise(coord.xy)*noiseScale,
-    coord.y + snoise(coord.yx)*noiseScale
-  );
+  // float noiseScale = sin(time*0.5)*0.5;
+  // vec2 uv = vec2(
+  //   coord.x + snoise(coord.xy)*noiseScale,
+  //   coord.y + snoise(coord.yx)*noiseScale
+  // );
   
-  float distance = texture2D(texture, uv).a;
+  float distance = texture2D(texture, coord).a;
 
-    float alpha = smoothstep(0.5 - smoothing, 0.5 + smoothing, distance);
-    gl_FragColor = vec4(0.0, 0.0, 0.0, alpha);
+  float alpha = smoothstep(0.5 - smoothing, 0.5 + smoothing, distance);
+  
+  gl_FragColor = vec4(0.0, 0.0, 0.0, alpha);
 }

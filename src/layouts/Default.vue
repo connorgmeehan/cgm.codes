@@ -51,7 +51,7 @@ export default {
     console.log(`DefaultLayout::methods.updated() -> shouldDisplayWebGl: ${this.shouldDisplayWebGl}`)
     if(this.shouldDisplayWebGl) {
       var canvas = document.getElementById('canvas')
-      var title = new WebGLTitle(canvas, "connorgmeehan.com", fontData)
+      var title = new WebGLTitle(canvas, this.bigTitle, fontData)
     }
   },
 }

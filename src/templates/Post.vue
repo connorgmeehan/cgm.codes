@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout :bigTitle="$page.post.title">
     <div v-html="$page.post.content">
     </div>
   </Layout>
