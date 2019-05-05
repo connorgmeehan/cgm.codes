@@ -2,58 +2,6 @@ import MetaProgram from './gl/MetaProgram';
 import loadTexture from './gl/loadTexture';
 import FontMap from './gl/FontMap';
 const WebGLDebugUtil = require('webgl-debug');
-1
-var fragShaderSource, vertShaderSource;
-{
-  vertShaderSource = `
-  uniform mat4 modelview;
-  uniform mat4 projection;
-  attribute vec4 vertex;
-  varying vec2 coord;
-  
-  void main() {
-    coord = vertex.zw;
-    gl_Position = projection * modelview * vec4(vertex.xy, 0, 1);
-  }`;
-
-  // fragShaderSource = `
-  // #extension GL_OES_standard_derivatives : enable
-  
-  // precision highp float;
-  // uniform sampler2D texture;
-  // varying vec2 coord;
-  
-  // void main() {
-  //   float sample = texture2D(texture, coord).r;
-    
-  //   // Use fwidth() to figure out the scale factor between the encodedn
-  //   // distance and screen pixels. This uses finite differences withn
-  //   // neighboring fragment shaders to see how fast "sample" is changing.n
-  //   // This transform gives us signed distance in screen space.n
-  //   float scale = 1.0 / fwidth(sample);
-  //   float signedDistance = (sample - 0.5) * scale;
-    
-  //   // Use two different distance thresholds to get dynamically stroked textn
-  //   float color = clamp(signedDistance + 0.5, 0.0, 1.0);
-  //   float alpha = clamp(signedDistance + 0.5 + scale * 0.125, 0.0, 1.0);
-  //   gl_FragColor = vec4(color, color, color, 1) * alpha;
-  // }`;
-
-  fragShaderSource = `
-  // LibGDX Docs
-  precision mediump float;
-  uniform sampler2D texture;
-
-  varying vec2 coord;
-
-  const float smoothing = 3.0/16.0;
-
-  void main() {
-      float distance = texture2D(texture, coord).a;
-      float alpha = smoothstep(0.5 - smoothing, 0.5 + smoothing, distance);
-      gl_FragColor = vec4(0.0, 0.0, 0.0, alpha);
-  }`;
-}
 
 class WebGLTitle {
   constructor(targetCanvas, title, fontData) {
@@ -61,11 +9,18 @@ class WebGLTitle {
     this._gl = this._initGL(targetCanvas);
     this._title = title;
 
+    const vertShaderSource = require(`raw-loader!~/assets/shaders/SDF.vert`).default;
+    const fragShaderSource = require(`raw-loader!~/assets/shaders/SDF.frag`).default;
+
+    const vertWarpShaderSource = require(`raw-loader!~/assets/shaders/warp.vert`).default;
+    const fragWarpShaderSource = require(`raw-loader!~/assets/shaders/warp.frag`).default;
+
     // Setup program
     this._gl.getExtension('OES_standard_derivatives');
     this.metaProgram = new MetaProgram(this._gl, vertShaderSource, fragShaderSource);
+    this.warpMetaProgram = new MetaProgram(this._gl, vertWarpShaderSource, fragWarpShaderSource);
     this.metaProgram.addAttributes(this._gl, "vertex");
-    this.metaProgram.addUniforms(this._gl, ["projection", "modelview", "texture"]);
+    this.metaProgram.addUniforms(this._gl, ["projection", "modelview", "texture", "time"]);
 
     // setup fontmap
     this.charTexture = loadTexture(this._gl, "./font.png");
@@ -278,15 +233,16 @@ class WebGLTitle {
   
       var now = (window.performance ? performance.now() : +new Date) / 1000;
       var angle = now / 2;
+      gl.uniform1f(metaProgram.uniforms.time, now);
       angle -= Math.floor(angle / Math.PI) * Math.PI;
       var c = Math.cos(angle);
       var s = Math.sin(angle);
   
       gl.uniformMatrix4fv(metaProgram.uniforms.modelview, false, [
         1, 0, 0, 0,
-        0, -1, 0, 0,
+        0, 1, 0, 0,
         1, 0, 1, 0,
-        0, 0, -300, 1,
+        0, 0, -400, 1,
       ]);
   
       gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 4);
