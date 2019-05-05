@@ -45,10 +45,8 @@ export default class MetaProgram {
 
     if(Array.isArray(attributes)) {
       for(var attribute in attributes)
-        console.log(`\tGetting attribute: ${attribute}`)
         this.attributes[`${attribute}`] = gl.getAttribLocation(this.program, attribute);
     } else {
-        console.log(`\tGetting attribute: ${attributes}`)
         this.attributes[`${attributes}`] = gl.getAttribLocation(this.program, attributes);
     }
     console.log("\tAttributes: ");
@@ -64,11 +62,9 @@ export default class MetaProgram {
 
     if(Array.isArray(uniforms)) {
       for(var i = 0; i < uniforms.length; i++){
-        console.log(`\tGetting uniform: ${uniforms[i]}`);
         this.uniforms[`${uniforms[i]}`] = gl.getUniformLocation(this.program, uniforms[i]);
       }
     } else {
-      console.log(`\tGetting uniform: ${uniforms}`)
       this.uniforms[`${uniforms}`] = gl.getUniformLocation(this.program, uniforms);
     }
 

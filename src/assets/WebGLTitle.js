@@ -1,6 +1,8 @@
 import MetaProgram from './gl/MetaProgram';
 import loadTexture from './gl/loadTexture';
 import FontMap from './gl/FontMap';
+import FBO from './gl/FBO';
+import Rect from './gl/Rect';
 const WebGLDebugUtil = require('webgl-debug');
 
 class WebGLTitle {
@@ -12,17 +14,26 @@ class WebGLTitle {
     const vertShaderSource = require(`raw-loader!~/assets/shaders/SDF.vert`).default;
     const fragShaderSource = require(`raw-loader!~/assets/shaders/SDF.frag`).default;
 
+    const vertWarpShaderSource = require(`raw-loader!~/assets/shaders/warp.vert`).default;
+    const fragWarpShaderSource = require(`raw-loader!~/assets/shaders/warp.frag`).default;
+
     // Setup program
     this._gl.getExtension('OES_standard_derivatives');
+    this._gl.getExtension('OES_texture_float');
+
     this.metaProgram = new MetaProgram(this._gl, vertShaderSource, fragShaderSource);
     this.metaProgram.addAttributes(this._gl, "vertex");
     this.metaProgram.addUniforms(this._gl, ["projection", "modelview", "texture", "time", "uFontSize", "uResolution"]);
+
+    this.frameBufferProgram = new MetaProgram(this._gl, vertWarpShaderSource, fragWarpShaderSource);
+    this.frameBufferProgram.addAttributes(this._gl, "vertex");
+    this.frameBufferProgram.addUniforms(this._gl, ["projection", "modelview", "uResolution", "texture", "time"]);
 
     // setup fontmap
     this.charTexture = loadTexture(this._gl, "/font.png");
     this.fontMap = new FontMap(fontData);
     
-    this._drawScene(this._gl, targetCanvas, this.metaProgram, this._title)
+    this._drawScene(this._gl, targetCanvas, this.metaProgram, this.frameBufferProgram, this._title)
   }
 
   _initGL(targetCanvas) {
@@ -76,7 +87,7 @@ class WebGLTitle {
    * @param {!WebGLRenderingContext) gl The WebGL context.
    * @param {MetaProgram} metaProgram class containing WebGL program + attr/unfiform locations.
    */
-  _drawScene(gl, canvas, metaProgram, title) {
+  _drawScene(gl, canvas, metaProgram, frameBufferProgram, title) {
     
     // clear scene 
     gl.clearColor(0, 0, 0, 0);
@@ -84,14 +95,14 @@ class WebGLTitle {
 
     // use program 
     gl.useProgram(metaProgram.program);
-
-
     var totalAdvance = 0;
+    var totalWidth = 0;
     // Measure how wide the text is
     for (var i = 0; i < title.length; i++) {
       var thischar = this.fontMap.getChar(title[i]);
   
       totalAdvance += thischar.xadvance;
+      totalWidth += thischar.width;
     }
   
     // Center the text at the origin
@@ -104,8 +115,9 @@ class WebGLTitle {
       height: this.fontMap._data.common.scaleH
     };
     console.log(tex);
+
+    // Build character quads
     var vertices = [];
-    
     var font = this.font;
     for(var i = 0; i < title.length; i++) {
       var mychar = this.fontMap.getChar(title[i]);
@@ -159,14 +171,13 @@ class WebGLTitle {
     // Use premultiplied alpha blending
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
-
-    // initialise char quad buffers
+    
+    // initialise character quad buffers as GL
     var buffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
-    gl.vertexAttribPointer(0, 4, gl.FLOAT, false, 0, 0);
-    gl.enableVertexAttribArray(0);
-
+    gl.enableVertexAttribArray(metaProgram.attributes.vertex);
+    gl.vertexAttribPointer(metaProgram.attributes.vertex, 4, gl.FLOAT, false, 0, 0);
     // Load fontmap textures
     var texture = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, texture);
@@ -175,7 +186,6 @@ class WebGLTitle {
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
-    // gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([0,0,255,255]));
     var image = new Image;
     image.onload = function() {
       gl.bindTexture(gl.TEXTURE_2D, texture);
@@ -187,50 +197,85 @@ class WebGLTitle {
 
     var ratio = window.devicePixelRatio || 1;
 
-    function frame () {
+    var fbo = new FBO(gl, canvas);
+
+    var rect = new Rect(gl, frameBufferProgram.attributes.vertex, -canvas.width, -canvas.height, canvas.width*2, canvas.height*2);
+
+    var renderCount = 0;
+    function frame (now) {
+      // 1. Setup variables for frame
+      var width = canvas.width;
+      var height = canvas.height;
+
+      fbo.bind(gl);
+        gl.clearColor(1, 1, 1, 1);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+
+        gl.useProgram(metaProgram.program);
+
+        var near = 1;
+        var far = 1000;
+        var top = Math.tan(60 / 2 * Math.PI / 180) * near;
+        var right = top * width / height;
+        var bottom = -top;
+        var left = -right;
+        
+        gl.uniformMatrix4fv(metaProgram.uniforms.projection, false, [
+          2 * near / (right - left), 0, 0, 0,
+          0, 2 * near / (top - bottom), 0, 0,
+          (right + left) / (right - left), (top + bottom) / (top - bottom), -(far + near) / (far - near), -1,
+          0, 0, -2 * far * near / (far - near), 0,
+        ]);
+        gl.uniformMatrix4fv(metaProgram.uniforms.modelview, false, [
+          1, 0, 0, 0,
+          0, -1, 0, 0,
+          1, 0, 1, 0,
+          0, 0, -400, 1,
+        ]);
+        gl.uniform1f(metaProgram.uniforms.time, now);
+        gl.uniform2f(metaProgram.uniforms.uFontSize, totalWidth, baseHeight);
+        gl.uniform2f(metaProgram.uniforms.uResolution, width, height);
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.vertexAttribPointer(metaProgram.attributes.vertex, 4, gl.FLOAT, false, 0, 0);
+        gl.enableVertexAttribArray(metaProgram.attributes.vertex);
+
+        gl.bindTexture(gl.TEXTURE_2D, texture);
+        gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 4);      
+      fbo.unbind(gl);
+
+      gl.viewport(0, 0, canvas.width, canvas.height);
+
+      // gl.clearColor(1, 1, 1, 1);
+      // gl.clear(gl.COLOR_BUFFER_BIT);
       
-      var width = gl.canvas.width;
-      var height = gl.canvas.height;
-      gl.clearColor(1, 1, 1, 1);
-      gl.clear(gl.COLOR_BUFFER_BIT);
-  
-      var near = 1;
-      var far = 1000;
-      var top = Math.tan(60 / 2 * Math.PI / 180) * near;
-      var right = top * width / height;
-      var bottom = -top;
-      var left = -right;
-  
-      gl.uniformMatrix4fv(metaProgram.uniforms.projection, false, [
+      gl.useProgram(frameBufferProgram.program);
+      gl.uniformMatrix4fv(frameBufferProgram.uniforms.projection, false, [
         2 * near / (right - left), 0, 0, 0,
         0, 2 * near / (top - bottom), 0, 0,
         (right + left) / (right - left), (top + bottom) / (top - bottom), -(far + near) / (far - near), -1,
         0, 0, -2 * far * near / (far - near), 0,
       ]);
-  
-      var now = (window.performance ? performance.now() : +new Date) / 1000;
-      var angle = now / 2;
-      angle -= Math.floor(angle / Math.PI) * Math.PI;
-      var c = Math.cos(angle);
-      var s = Math.sin(angle);
-
-      
-
       // DRAW FONT INTO FRAME BUFFER
-      gl.uniform1f(metaProgram.uniforms.time, now);
-      gl.uniform2f(metaProgram.uniforms.uFontSize, totalAdvance, baseHeight);
-      gl.uniform2f(metaProgram.uniforms.uResolution, width, height);
-
-      gl.uniformMatrix4fv(metaProgram.uniforms.modelview, false, [
+      // gl.enableVertexAttribArray(metaProgram.attributes.vertex);
+      // gl.bindTexture(gl.ARRAY_BUFFER, texture);
+      gl.uniformMatrix4fv(frameBufferProgram.uniforms.modelview, false, [
         1, 0, 0, 0,
         0, -1, 0, 0,
         1, 0, 1, 0,
         0, 0, -400, 1,
       ]);
-  
-      gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 4);
-      // END DRAW FONT INTO FRAME BUFFER
-      requestAnimationFrame(frame);
+      gl.activeTexture(gl.TEXTURE1);
+      gl.bindTexture(gl.TEXTURE_2D, fbo.getTexture());
+      gl.uniform1i(frameBufferProgram.uniforms.texture, 1);
+      gl.uniform1f(frameBufferProgram.uniforms.time, now);
+      gl.uniform2f(frameBufferProgram.uniforms.uResolution, width, height);
+
+      rect.draw(gl);
+      // if(renderCount < 10) {
+        // renderCount++;
+        requestAnimationFrame(frame);
+      // }
     }
 
     frame();
