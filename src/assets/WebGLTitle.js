@@ -206,7 +206,7 @@ class WebGLTitle {
     var ratio = window.devicePixelRatio || 1;
     
     var fontFboScale = 1;
-    var fboWidth = totalWidth*fontFboScale + 200;
+    var fboWidth = totalWidth*fontFboScale + 200  ;
     var fboHeight = lineHeight*fontFboScale;
     var fbo = new FBO(gl, fboWidth, fboHeight);
 
