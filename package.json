@@ -7,6 +7,7 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
+    "gl-matrix": "^3.0.0",
     "glslify": "^7.0.0",
     "gridsome": "^0.5.0",
     "three": "^0.104.0"

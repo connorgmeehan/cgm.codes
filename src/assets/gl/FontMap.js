@@ -3,6 +3,7 @@ export default class FontMap {
     this._data = data;
     this.widest = data.chars.reduce((acc, el) => (el.width < acc.width ? acc : el));
     this.tallest = data.chars.reduce((acc, el) => (el.height < acc.height ? acc : el));
+    console.log(data);
   }
 
   getChar(char) {

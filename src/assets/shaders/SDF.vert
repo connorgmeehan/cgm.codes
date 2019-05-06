@@ -13,9 +13,9 @@ uniform float time;
 
 void main() {
   vec4 newVert = vertex;
-  newVert.x *= uResolution.x/uFontSize.x;
+  // newVert.x *= uResolution.x/uFontSize.x;
   // newVert.x *= 1.5;
-  newVert.y *= uResolution.y/uFontSize.y;  
-  coord = vertex.zw;
+  // newVert.y *= uResolution.y/uFontSize.y;  
+  coord = newVert.zw;
   gl_Position = projection * modelview * vec4(newVert.xyz, 1);
 }

@@ -3,6 +3,8 @@ import loadTexture from './gl/loadTexture';
 import FontMap from './gl/FontMap';
 import FBO from './gl/FBO';
 import Rect from './gl/Rect';
+import {mat4} from 'gl-matrix';
+
 const WebGLDebugUtil = require('webgl-debug');
 
 class WebGLTitle {
@@ -27,7 +29,7 @@ class WebGLTitle {
 
     this.frameBufferProgram = new MetaProgram(this._gl, vertWarpShaderSource, fragWarpShaderSource);
     this.frameBufferProgram.addAttributes(this._gl, "vertex");
-    this.frameBufferProgram.addUniforms(this._gl, ["projection", "modelview", "uResolution", "texture", "time"]);
+    this.frameBufferProgram.addUniforms(this._gl, ["projection", "modelview", "uResolution", "texture", "time", "uTexResolution"]);
 
     // setup fontmap
     this.charTexture = loadTexture(this._gl, "/font.png");
@@ -97,6 +99,7 @@ class WebGLTitle {
     gl.useProgram(metaProgram.program);
     var totalAdvance = 0;
     var totalWidth = 0;
+    var lineHeight = this.fontMap._data.common.lineHeight;
     // Measure how wide the text is
     for (var i = 0; i < title.length; i++) {
       var thischar = this.fontMap.getChar(title[i]);
@@ -106,9 +109,11 @@ class WebGLTitle {
     }
   
     // Center the text at the origin
-    var x = -totalAdvance / 2;    // var x = this._gl.canvas.width/2;
+    var x = 0;    // var x = this._gl.canvas.width/2;
+    // var x = -totalAdvance / 2;    // var x = this._gl.canvas.width/2;
     var baseHeight = this.fontMap._data.common.base;
-    var y = -baseHeight/2;
+    var y = 0;
+    // var y = -baseHeight/2;
     // var y = this._gl.canvas.height/2;
     var tex = {
       width: this.fontMap._data.common.scaleW,
@@ -195,9 +200,15 @@ class WebGLTitle {
     };
     image.src = '/font.png';
 
-    var ratio = window.devicePixelRatio || 1;
 
-    var fbo = new FBO(gl, canvas);
+    var mvMatrix = mat4.create();
+    var pMatrix = mat4.create();
+    var ratio = window.devicePixelRatio || 1;
+    
+    var fontFboScale = 1;
+    var fboWidth = totalWidth*fontFboScale + 200;
+    var fboHeight = lineHeight*fontFboScale;
+    var fbo = new FBO(gl, fboWidth, fboHeight);
 
     var rect = new Rect(gl, frameBufferProgram.attributes.vertex, -canvas.width, -canvas.height, canvas.width*2, canvas.height*2);
 
@@ -208,68 +219,51 @@ class WebGLTitle {
       var height = canvas.height;
 
       fbo.bind(gl);
+        // prepare gl context
         gl.clearColor(1, 1, 1, 1);
         gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.viewport(0, 0, fboWidth, fboHeight);
 
+        // bind font program
         gl.useProgram(metaProgram.program);
-
-        var near = 1;
-        var far = 1000;
-        var top = Math.tan(60 / 2 * Math.PI / 180) * near;
-        var right = top * width / height;
-        var bottom = -top;
-        var left = -right;
         
-        gl.uniformMatrix4fv(metaProgram.uniforms.projection, false, [
-          2 * near / (right - left), 0, 0, 0,
-          0, 2 * near / (top - bottom), 0, 0,
-          (right + left) / (right - left), (top + bottom) / (top - bottom), -(far + near) / (far - near), -1,
-          0, 0, -2 * far * near / (far - near), 0,
-        ]);
-        gl.uniformMatrix4fv(metaProgram.uniforms.modelview, false, [
-          1, 0, 0, 0,
-          0, -1, 0, 0,
-          1, 0, 1, 0,
-          0, 0, -600, 1,
-        ]);
-        gl.uniform1f(metaProgram.uniforms.time, now);
-        gl.uniform2f(metaProgram.uniforms.uFontSize, totalWidth, baseHeight);
-        gl.uniform2f(metaProgram.uniforms.uResolution, width, height);
+        // build and bind projections/modelview matrices
+        var near = 0.1;
+        var far = 1000;
+        mat4.ortho(pMatrix, 0, fboWidth, -fboHeight-lineHeight, lineHeight, near, far);
+        gl.uniformMatrix4fv(metaProgram.uniforms.projection, false, pMatrix);
+        mat4.lookAt(mvMatrix, [0, 0, -999], [0, 0, 1], [0,-1,0]);
+        gl.uniformMatrix4fv(metaProgram.uniforms.modelview, false, mvMatrix);
 
+        // bind time uniform
+        gl.uniform1f(metaProgram.uniforms.time, now);
+
+        // bind vertex buffer
         gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
         gl.vertexAttribPointer(metaProgram.attributes.vertex, 4, gl.FLOAT, false, 0, 0);
         gl.enableVertexAttribArray(metaProgram.attributes.vertex);
 
+        // bind textures
         gl.bindTexture(gl.TEXTURE_2D, texture);
+
+        // draw vertex buffer with texture
         gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 4);      
       fbo.unbind(gl);
 
       gl.viewport(0, 0, canvas.width, canvas.height);
-
-      // gl.clearColor(1, 1, 1, 1);
-      // gl.clear(gl.COLOR_BUFFER_BIT);
-      
       gl.useProgram(frameBufferProgram.program);
-      gl.uniformMatrix4fv(frameBufferProgram.uniforms.projection, false, [
-        2 * near / (right - left), 0, 0, 0,
-        0, 2 * near / (top - bottom), 0, 0,
-        (right + left) / (right - left), (top + bottom) / (top - bottom), -(far + near) / (far - near), -1,
-        0, 0, -2 * far * near / (far - near), 0,
-      ]);
-      // DRAW FONT INTO FRAME BUFFER
-      // gl.enableVertexAttribArray(metaProgram.attributes.vertex);
-      // gl.bindTexture(gl.ARRAY_BUFFER, texture);
-      gl.uniformMatrix4fv(frameBufferProgram.uniforms.modelview, false, [
-        1, 0, 0, 0,
-        0, -1, 0, 0,
-        1, 0, 1, 0,
-        0, 0, -400, 1,
-      ]);
+
+      mat4.ortho(pMatrix, 0, width, -height, 0, near, far);
+      gl.uniformMatrix4fv(frameBufferProgram.uniforms.projection, false, pMatrix);
+      mat4.lookAt(mvMatrix, [0, 0, -400], [0, 0, 1], [0,-1,0]);
+      gl.uniformMatrix4fv(frameBufferProgram.uniforms.modelview, false, mvMatrix);
+
       gl.activeTexture(gl.TEXTURE1);
       gl.bindTexture(gl.TEXTURE_2D, fbo.getTexture());
       gl.uniform1i(frameBufferProgram.uniforms.texture, 1);
       gl.uniform1f(frameBufferProgram.uniforms.time, now/1000);
       gl.uniform2f(frameBufferProgram.uniforms.uResolution, width, height);
+      gl.uniform2f(frameBufferProgram.uniforms.uTexResolution, fboWidth, fboHeight);
 
       rect.draw(gl);
       // if(renderCount < 10) {

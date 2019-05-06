@@ -1,8 +1,7 @@
 export default class FBO {
-  constructor(gl, canvas) {
+  constructor(gl, width, height) {
     this.canvas = canvas;
-    var width = canvas.width;
-    var height = canvas.height;
+    console.log(`FBO::constructor(gl: ${gl}, width: ${width}, height: ${height})`);
     // var width = 512;
     // var height = 512;
     // Build output texture

@@ -65,6 +65,7 @@ float snoise(vec2 v)
 
 uniform sampler2D texture;
 uniform vec2 uResolution;
+uniform vec2 uTexResolution;
 uniform float time;
 
 const float scrollScale = 20.;
@@ -77,10 +78,11 @@ const float subNoiseScale = 1.5;
 const float subNoiseAmp = 0.002;
 const float subNoiseTimeScale = 0.00005;
 
+
 void main() {
   // float subNoiseAmp = 1. / (time*timeSubNoiseScale);
   vec2 uv = vec2(
-    mod(time * scrollScale + gl_FragCoord.x, uResolution.x)/uResolution.x,
+    mod(time * scrollScale + gl_FragCoord.x, uTexResolution.x)/uTexResolution.x,
     gl_FragCoord.y/uResolution.y
   );
   float t = time * noiseTimeScale;
