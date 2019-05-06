@@ -67,24 +67,29 @@ uniform sampler2D texture;
 uniform vec2 uResolution;
 uniform float time;
 
-const float timeScale = 0.00005;
-const float scrollScale = 0.005;
-const float noiseScale = 0.02;
+const float scrollScale = 20.;
 
-const float subNoiseScale = 2.;
+const float noiseTimeScale = 0.02;
+const float noiseScale = 0.8;
+const float noiseAmp = 0.02;
+
+const float subNoiseScale = 1.5;
+const float subNoiseAmp = 0.002;
 const float subNoiseTimeScale = 0.00005;
 
 void main() {
+  // float subNoiseAmp = 1. / (time*timeSubNoiseScale);
   vec2 uv = vec2(
     mod(time * scrollScale + gl_FragCoord.x, uResolution.x)/uResolution.x,
     gl_FragCoord.y/uResolution.y
   );
-  float t = time * timeScale;
-  uv.x += snoise(vec2(uv.x, uv.y + t))*noiseScale;
-  uv.y += snoise(vec2(uv.x + t, uv.y))*noiseScale;
+  float t = time * noiseTimeScale;
+  uv.x += snoise(vec2(uv.x * noiseScale - t, uv.y * noiseScale + t))*noiseAmp;
+  uv.y += snoise(vec2(uv.x * noiseScale + t, uv.y * noiseScale - t))*noiseAmp;
   float st = time * subNoiseTimeScale;
-  uv.x += snoise(vec2(uv.x*subNoiseScale, uv.y*subNoiseScale + st))*noiseScale/subNoiseScale;
-  uv.y += snoise(vec2(uv.x*subNoiseScale + st, uv.y*subNoiseScale))*noiseScale/subNoiseScale;
+  float innerNoise = snoise(vec2(-uv.x * subNoiseScale - st, -uv.y * subNoiseScale + st));
+  uv.x += snoise(vec2(innerNoise - st, innerNoise + st))*subNoiseAmp;
+  uv.y += snoise(vec2(innerNoise + st, innerNoise - st))*subNoiseAmp;
   vec4 col;
     
   col = texture2D(texture, uv);

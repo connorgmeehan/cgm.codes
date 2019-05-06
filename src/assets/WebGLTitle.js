@@ -268,7 +268,7 @@ class WebGLTitle {
       gl.activeTexture(gl.TEXTURE1);
       gl.bindTexture(gl.TEXTURE_2D, fbo.getTexture());
       gl.uniform1i(frameBufferProgram.uniforms.texture, 1);
-      gl.uniform1f(frameBufferProgram.uniforms.time, now);
+      gl.uniform1f(frameBufferProgram.uniforms.time, now/1000);
       gl.uniform2f(frameBufferProgram.uniforms.uResolution, width, height);
 
       rect.draw(gl);
