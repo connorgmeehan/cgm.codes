@@ -1,0 +1,130 @@
+@include plumber-set-defaults(
+  $grid-height: $base-grid-height,
+  $baseline: $primary-baseline,
+  $font-size: $base-grid-font-ratio,
+  $line-height: $base-grid-line-height-ratio,
+  $leading-top: $base-leading-top,
+  $leading-bottom: $base-leading-bottom,
+);
+
+.heading {
+  font-family: $secondary-font;
+  color: $header-color;
+  font-weight: 400;
+}
+
+.base-text {
+  font-family: $primary-font;
+  font-weight: 400;
+  letter-spacing: -0.05rem;
+  @include plumber();
+}
+
+body {
+  // Styles
+  @extend .base-text;
+  color: $body-color;
+
+  // Reset
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+p {
+  @extend .base-text;
+  color: $body-color;
+}
+
+h1, .heading-1 {
+  @extend .heading;
+  @include plumber(
+    $grid-height: $h1-grid-height,
+    $baseline: $secondary-baseline,
+    $font-size: $h1-grid-font-ratio,
+    $line-height: $h1-grid-line-height-ratio,
+    $leading-top: $h1-leading-top,
+    $leading-bottom: $h1-leading-bottom,
+  );
+  font-weight: 500;
+}
+
+h2, .heading-2 {
+  @extend .heading;
+  @include plumber(
+    $grid-height: $h2-grid-height,
+    $baseline: $secondary-baseline,
+    $font-size: $h2-grid-font-ratio,
+    $line-height: $h2-grid-line-height-ratio,
+    $leading-top: $h2-leading-top,
+    $leading-bottom: $h2-leading-bottom,
+  );}
+
+h3, .heading-3 {
+  @extend .heading;
+  @include plumber(
+    $grid-height: $h3-grid-height,
+    $baseline: $secondary-baseline,
+    $font-size: $h3-grid-font-ratio,
+    $line-height: $h3-grid-line-height-ratio,
+    $leading-top: $h3-leading-top,
+    $leading-bottom: $h3-leading-bottom,
+  );
+}
+
+h4, .heading-4 {
+  @extend .heading;
+  @include plumber(
+    $grid-height: $h4-grid-height,
+    $baseline: $secondary-baseline,
+    $font-size: $h4-grid-font-ratio,
+    $line-height: $h4-grid-line-height-ratio,
+    $leading-top: $h4-leading-top,
+    $leading-bottom: $h4-leading-bottom,
+  );
+}
+
+.meta {
+  @extend .heading;
+  @include plumber(
+    $grid-height: $meta-grid-height,
+    $baseline: $secondary-baseline,
+    $font-size: $meta-grid-font-ratio,
+    $line-height: $meta-grid-line-height-ratio,
+    $leading-top: $meta-leading-top,
+    $leading-bottom: $meta-leading-bottom,
+  );
+}
+
+.feature-copy {
+  @extend .base-text;
+  @include plumber(
+    $grid-height: $featurecopy-grid-height,
+    $baseline: $primary-baseline,
+    $font-size: $featurecopy-grid-font-ratio,
+    $line-height: $featurecopy-grid-line-height-ratio,
+    $leading-top: $featurecopy-leading-top,
+    $leading-bottom: $featurecopy-leading-bottom,
+  )
+}
+
+.feature-heading {
+  @extend .heading;
+  @include plumber(
+    $grid-height: $featuretitle-grid-height,
+    $baseline: $secondary-baseline,
+    $font-size: $featuretitle-grid-font-ratio,
+    $line-height: $featuretitle-grid-line-height-ratio,
+    $leading-top: $featuretitle-leading-top,
+    $leading-bottom: $featuretitle-leading-bottom,
+  );
+  font-weight: 500;
+}
+

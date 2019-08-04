@@ -1,17 +1,37 @@
 <template>
-  <div class="layout">
-    <header class="header">
-      <strong>
-        <g-link to="/">{{ $static.metaData.siteName }}</g-link>
-      </strong>
-      <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about">About</g-link>
-      </nav>
+  <div class= "Layout" :class="modifierClass">
+    <header class="Header_Wrapper">
+      <div class="Header">
+        <div class="Header_TextBlock">
+          <span class="Header_Title">
+            <g-link to="/">{{ $static.metaData.siteNameShort }}</g-link>
+          </span>
+          <nav class="Header_Nav">
+            <g-link to="/"><h3 class="Header_NavLink">Home</h3></g-link>
+            <g-link to="/about"><h3 class="Header_NavLink">About</h3></g-link>
+          </nav>
+        </div>
+      </div>
     </header>
+
     <slot/>
+    
+    <div class="Footer">
+    </div>
   </div>
 </template>
+<script>
+export default {
+  name: "layout",
+  props: ["pageContext"],
+  computed: {
+    modifierClass: function() {
+      console.log(this);
+      return this.pageContext ? `Layout--${this.pageContext}` : "";
+    }
+  }
+}
+</script>
 
 <static-query>
 query {
@@ -20,31 +40,3 @@ query {
   }
 }
 </static-query>
-
-<style>
-body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
-  line-height: 1.5;
-}
-
-.layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
-}
-
-.nav__link {
-  margin-left: 20px;
-}
-</style>

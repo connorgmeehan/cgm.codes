@@ -1,0 +1,50 @@
+$navbar-margin: 15px;
+
+body {
+  background: $body-background-color;
+}
+
+.Header {
+  margin: 0 auto;
+  &_Wrapper {
+    width: 100%;
+    top: 0;
+    position: fixed;
+    mix-blend-mode: difference;
+    pointer-events: none;
+  }  
+
+  &_Title {
+    a {
+      @extend .heading-2;
+      font-weight: 900;
+      margin: 0;
+      padding: 0;
+      color: white;
+    }
+  }
+  &_Nav {
+    margin-left: 4px;
+  }
+  &_NavLink {
+    @extend .heading-4;
+    margin: 0;
+    padding: 0;  
+    color: white;
+    width: fit-content;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &_TextBlock {
+    width: fit-content;
+    margin: $spacing-2;
+    pointer-events: all;
+  }
+}
+
+.Footer {
+  height: 300px;
+}

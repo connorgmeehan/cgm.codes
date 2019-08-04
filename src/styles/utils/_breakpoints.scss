@@ -1,0 +1,52 @@
+$small-width-max        : 700px;
+$medium-width-max       : 900px;
+$large-width-max        : 1200px;
+$xlarge-width-max       : 1400px;
+$breakpoints: (
+  'small':  600px,
+  'medium': 1000px,
+  'large':  1400px,
+  'xlarge': 1920px,
+) !default;
+
+// Mixin
+/// Mixin to manage responsive breakpoints
+/// @author Hugo Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin breakpoint($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+ 
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  @include breakpoint('small') {
+    width: $small-width-max;
+  }
+
+  @include breakpoint('medium') {
+    width: $medium-width-max;
+  }
+
+  @include breakpoint('large') {
+    width: $large-width-max;
+  }
+
+  @include breakpoint('xlarge') {
+    width: $xlarge-width-max;
+  }
+}

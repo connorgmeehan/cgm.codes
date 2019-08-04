@@ -5,3 +5,11 @@ node_modules
 # Do not track gridsome cache
 .cache/
 .cache
+
+dist
+dist/
+./dist/
+dist/**
+
+src/.temp
+src/.temp/**

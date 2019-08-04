@@ -1,0 +1,18 @@
+// Main SASS entry point for all styles
+
+// Vendor
+@import 'node_modules/plumber-sass/plumber';
+
+@import './utils/utils';
+@import './utils/breakpoints';
+
+// Setup variables to be used accross website;
+@import "./variables/basetheme";  // Default variables for theme
+@import "./variables/theme";      // Override variables to modify theme
+@import "./variables/basetypography";
+
+// Sitewide styles
+@import "./global/typography"; 
+
+// Component Styles
+@import './components/Layout.scss';
