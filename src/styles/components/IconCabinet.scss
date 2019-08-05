@@ -1,8 +1,42 @@
+$selected-class: '.IconCabinet__selected';
+
 .IconCabinet {
+    position: relative;
     &_Title {
         @extend .history-title;
+        display: inline-block;
         color: $primary-color;
         mix-blend-mode: exclusion;
+
+        white-space:nowrap; 
+        overflow:hidden;
+        opacity: 1;
+        transition: all ease-in-out 0.2s;
+
+        #{$selected-class} & {
+            opacity: 0;
+        }
+    }
+
+    &_TechnologyTitle {
+        @extend .history-title;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        
+        color: $primary-color;
+        mix-blend-mode: color-dodge;
+
+        max-width: 0;
+        white-space:nowrap; 
+        overflow:hidden;
+        opacity: 0.5;
+        transition: all ease-in-out 0.2s;
+
+        #{$selected-class} & {
+            max-width: 400px;
+            opacity: 1;
+        }
     }
 
     &_Track {
@@ -26,16 +60,5 @@
                 opacity: 1;
             }
         }
-    }
-
-    &_Name {
-        position: absolute;
-        display: inline-block;
-        max-width: 0;
-        white-space:nowrap; 
-        overflow:hidden;
-        opacity: 0.5;
-        transition: all ease-in-out 0.4s;
-        bottom: 0;
     }
 }
