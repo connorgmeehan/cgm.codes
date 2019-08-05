@@ -2,7 +2,7 @@
   <Layout>
 
     <div class="Hero_Wrapper">
-      <div class="Hero">
+      <div class="Hero container">
         <div class="Hero_Copy">
           <h1>
             Hello my name is Connor and I'm interested in the intersection between humans and technology.

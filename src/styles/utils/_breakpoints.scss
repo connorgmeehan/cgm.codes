@@ -1,12 +1,12 @@
-$small-width-max        : 700px;
+$small-width-max        : 100%;
 $medium-width-max       : 900px;
-$large-width-max        : 1200px;
-$xlarge-width-max       : 1400px;
+$large-width-max        : 1100px;
+$xlarge-width-max       : 1350px;
 $breakpoints: (
   'small':  600px,
   'medium': 1000px,
-  'large':  1400px,
-  'xlarge': 1920px,
+  'large':  1200px,
+  'xlarge': 1400px,
 ) !default;
 
 // Mixin
