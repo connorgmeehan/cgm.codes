@@ -7,9 +7,10 @@
 
     &_Track {
         display: flex;
+        width: 100%;
     }
 
-    &_Element {
+    &_Icon {
         margin-right: $spacing-1;
         @extend .history-title;
         mix-blend-mode: exclusion;
@@ -17,7 +18,24 @@
         color: $primary-color;
 
         &:hover {
-            color: lighten($primary-color, 10%);
+            mix-blend-mode: color-dodge;
+            text-decoration: none;
+
+            .IconCabinet_Name {
+                max-width: 200px;
+                opacity: 1;
+            }
         }
+    }
+
+    &_Name {
+        position: absolute;
+        display: inline-block;
+        max-width: 0;
+        white-space:nowrap; 
+        overflow:hidden;
+        opacity: 0.5;
+        transition: all ease-in-out 0.4s;
+        bottom: 0;
     }
 }

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="70mm"
+   height="70mm"
+   viewBox="0 0 70 70"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   sodipodi:docname="opencv-logo.svg">
+  <defs
+     id="defs2">
+    <path
+       id="A"
+       d="M-69.65 120.638a139.301 139.301 120 1 1 139.301 0L27.71 47.993a55.418 55.418 120 1 0-55.418 0z" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="-70.024423"
+     inkscape:cy="82.674197"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1026"
+     inkscape:window-x="0"
+     inkscape:window-y="26"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-227)"
+     style="display:inline">
+    <path
+       id="use16"
+       style="fill:#000000;fill-opacity:1;stroke-width:0.11287068;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 32.945996,277.51916 a 15.722998,15.722998 0 1 1 -7.861522,-13.61651 l -4.733999,8.19944 a 6.2550672,6.2550672 0 1 0 3.127543,5.41704 z M 60.638602,263.9035 a 15.722794,15.722794 0 1 1 -15.722794,0 l 4.733847,8.19939 a 6.2549859,6.2549859 0 1 0 6.254986,0 z m -33.669558,-3.807 a 15.722794,15.722794 0 1 1 15.722794,0 l -4.733848,-8.19939 a 6.2549859,6.2549859 0 1 0 -6.254985,0 z"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
