@@ -7,6 +7,7 @@ $selected-class: '.IconCabinet__selected';
         display: inline-block;
         color: $primary-color;
         mix-blend-mode: exclusion;
+        margin-bottom: -1.3rem;
 
         white-space:nowrap; 
         overflow:hidden;
@@ -23,7 +24,7 @@ $selected-class: '.IconCabinet__selected';
         display: inline-block;
         position: absolute;
         left: 0;
-        
+
         color: $primary-color;
         mix-blend-mode: color-dodge;
 
@@ -45,20 +46,16 @@ $selected-class: '.IconCabinet__selected';
     }
 
     &_Icon {
-        margin-right: $spacing-1;
         @extend .history-title;
-        mix-blend-mode: exclusion;
+        margin-right: $spacing-1;
+        padding-top: 0;
 
         color: $primary-color;
+        mix-blend-mode: exclusion;
 
         &:hover {
             mix-blend-mode: color-dodge;
             text-decoration: none;
-
-            .IconCabinet_Name {
-                max-width: 200px;
-                opacity: 1;
-            }
         }
     }
 }
