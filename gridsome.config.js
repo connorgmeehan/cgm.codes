@@ -12,6 +12,25 @@ module.exports = {
   metaData: {
     contactEmail: 'connorgmeehan23@gmail.com',
     siteNameShort: 'cgm.codes',
+    technologies: [
+      {
+        name: 'React',
+        icon: 'icon-react',
+        link: 'https://reactjs.org/'
+      }
+    ],
+    socials: [
+      {
+        name: 'Twitter',
+        icon: 'icon-twitter',
+        link: 'https://twitter.com/connorgm'
+      },
+      {
+        name: 'Github',
+        icon: 'icon-github',
+        link: 'https://github.com/connorgmeehan'
+      }
+    ]
   },
   plugins: [
     {

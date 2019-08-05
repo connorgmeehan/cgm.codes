@@ -1,0 +1,23 @@
+.IconCabinet {
+    &_Title {
+        @extend .history-title;
+        color: $primary-color;
+        mix-blend-mode: exclusion;
+    }
+
+    &_Track {
+        display: flex;
+    }
+
+    &_Element {
+        margin-right: $spacing-1;
+        @extend .history-title;
+        mix-blend-mode: exclusion;
+
+        color: $primary-color;
+
+        &:hover {
+            color: lighten($primary-color, 10%);
+        }
+    }
+}

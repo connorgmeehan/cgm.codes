@@ -1,5 +1,4 @@
 .History {
-    padding-top: 0.35rem;
     &_Element {
         position: relative;
         margin-top: $base-grid-height;
@@ -14,13 +13,17 @@
         color: $secondary-color;
         mix-blend-mode: exclusion;
         width: 100%;
+        font-weight: 500;
     }
     &_Workplace {
         @extend .history-title;
         text-decoration: inherit;
-        mix-blend-mode: color-dodge;
         flex-grow: 1;
         color: $secondary-color;
+        mix-blend-mode: exclusion;
+        &:hover {
+            mix-blend-mode: color-dodge;
+        }
     }
     &_Date {
         @extend .meta;
