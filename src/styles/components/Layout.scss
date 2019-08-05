@@ -10,17 +10,17 @@ body {
     width: 100%;
     top: 0;
     position: fixed;
-    mix-blend-mode: difference;
+    mix-blend-mode: exclusion;
     pointer-events: none;
   }  
 
   &_Title {
     a {
       @extend .heading-2;
-      font-weight: 900;
+      font-weight: 700;
       margin: 0;
       padding: 0;
-      color: white;
+      color: $secondary-color;
     }
   }
   &_Nav {
@@ -28,9 +28,10 @@ body {
   }
   &_NavLink {
     @extend .heading-4;
-    margin: 0;
+    display: inline-block;
+    margin: 0 $spacing-1;
     padding: 0;  
-    color: white;
+    color: $secondary-color;
     width: fit-content;
 
     &:hover {
@@ -39,7 +40,8 @@ body {
   }
 
   &_TextBlock {
-    width: fit-content;
+    display: flex;
+    justify-content: space-between;
     margin: $spacing-2;
     pointer-events: all;
   }
@@ -47,4 +49,30 @@ body {
 
 .Footer {
   height: 300px;
+}
+
+.CopySandbox {
+  padding: $spacing-1;
+  &_Wrapper {
+    display: none;
+
+    background: lighten($primary-color, 10%);
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: $spacing-3;
+
+    &__display {
+      display: inline-block;
+    }
+
+    &:hover {
+      background: lighten($primary-color, 15%);
+      cursor: pointer;
+    }
+  }  
+}
+
+#CopySandbox_Input {
+  display: none;
 }

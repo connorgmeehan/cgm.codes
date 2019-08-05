@@ -38,6 +38,10 @@ a {
   font-weight: 500;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 p {
   @extend .base-text;
   color: $body-color;
@@ -103,28 +107,14 @@ h4, .heading-4 {
   );
 }
 
-.feature-copy {
-  @extend .base-text;
-  @include plumber(
-    $grid-height: $featurecopy-grid-height,
-    $baseline: $primary-baseline,
-    $font-size: $featurecopy-grid-font-ratio,
-    $line-height: $featurecopy-grid-line-height-ratio,
-    $leading-top: $featurecopy-leading-top,
-    $leading-bottom: $featurecopy-leading-bottom,
-  )
-}
-
-.feature-heading {
+.history-title {
   @extend .heading;
   @include plumber(
-    $grid-height: $featuretitle-grid-height,
+    $grid-height: $history-grid-height,
     $baseline: $secondary-baseline,
-    $font-size: $featuretitle-grid-font-ratio,
-    $line-height: $featuretitle-grid-line-height-ratio,
-    $leading-top: $featuretitle-leading-top,
-    $leading-bottom: $featuretitle-leading-bottom,
+    $font-size: $history-grid-font-ratio,
+    $line-height: $history-grid-line-height-ratio,
+    $leading-top: $history-leading-top,
+    $leading-bottom: $history-leading-bottom,
   );
-  font-weight: 500;
 }
-

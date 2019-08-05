@@ -12,7 +12,10 @@
 @import "./variables/basetypography";
 
 // Sitewide styles
+@import "./global/reset";
 @import "./global/typography"; 
 
 // Component Styles
 @import './components/Layout.scss';
+@import './components/Index.scss';
+@import './components/HeroHistory.scss';

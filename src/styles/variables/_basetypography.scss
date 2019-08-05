@@ -8,28 +8,28 @@ $base-leading-bottom                    : 0;    // Grid spacing from bottom of t
 
 // h1
 $h1-grid-height                         : $base-grid-height; // Base size of grid
-$h1-grid-font-ratio                     : 3;  // How many times the grid should the text be
-$h1-grid-line-height-ratio              : 3;    // How many times the grid should the lineheight be
-$h1-leading-top                         : 2;    // Grid spacing from top of text block
+$h1-grid-font-ratio                     : 6;  // How many times the grid should the text be
+$h1-grid-line-height-ratio              : 6;    // How many times the grid should the lineheight be
+$h1-leading-top                         : 0;    // Grid spacing from top of text block
 $h1-leading-bottom                      : 1;    // Grid spacing from bottom of text block
 
 // h2
 $h2-grid-height                         : $base-grid-height; // Base size of grid
-$h2-grid-font-ratio                     : 2.4;  // How many times the grid should the text be
-$h2-grid-line-height-ratio              : 2;    // How many times the grid should the lineheight be
-$h2-leading-top                         : 1;    // Grid spacing from top of text block
+$h2-grid-font-ratio                     : 2.5;  // How many times the grid should the text be
+$h2-grid-line-height-ratio              : 3;    // How many times the grid should the lineheight be
+$h2-leading-top                         : 2;    // Grid spacing from top of text block
 $h2-leading-bottom                      : 1;    // Grid spacing from bottom of text block
 
 // h3
 $h3-grid-height                         : $base-grid-height; // Base size of grid
 $h3-grid-font-ratio                     : 2;  // How many times the grid should the text be
 $h3-grid-line-height-ratio              : 2;    // How many times the grid should the lineheight be
-$h3-leading-top                         : 2;    // Grid spacing from top of text block
+$h3-leading-top                         : 1;    // Grid spacing from top of text block
 $h3-leading-bottom                      : 1;    // Grid spacing from bottom of text block
 
 // h4
 $h4-grid-height                         : $base-grid-height; // Base size of grid
-$h4-grid-font-ratio                     : 1.25;  // How many times the grid should the text be
+$h4-grid-font-ratio                     : 1.5;  // How many times the grid should the text be
 $h4-grid-line-height-ratio              : 2;    // How many times the grid should the lineheight be
 $h4-leading-top                         : 1;    // Grid spacing from top of text block
 $h4-leading-bottom                      : 1;    // Grid spacing from bottom of text block
@@ -37,17 +37,17 @@ $h4-leading-bottom                      : 1;    // Grid spacing from bottom of t
 
 // Meta text
 $meta-grid-height                       : $base-grid-height;
-$meta-grid-font-ratio                   : 0.8;
-$meta-grid-line-height-ratio            : 1;
+$meta-grid-font-ratio                   : 2;
+$meta-grid-line-height-ratio            : 2;
 $meta-leading-top                       : 0;
 $meta-leading-bottom                    : 0;
 
-// Feature copy text
-$featurecopy-grid-height                : $base-grid-height;
-$featurecopy-grid-font-ratio            : 1.85;
-$featurecopy-grid-line-height-ratio     : 2;
-$featurecopy-leading-top                : 0;
-$featurecopy-leading-bottom             : 1;
+// history text
+$history-grid-height                : $base-grid-height;
+$history-grid-font-ratio            : 2;
+$history-grid-line-height-ratio     : 2;
+$history-leading-top                : 0;
+$history-leading-bottom             : 0;
 
 // Feature title text
 $featuretitle-grid-height                 : $base-grid-height;
