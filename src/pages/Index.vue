@@ -1,7 +1,7 @@
 <template>
   <Layout>
 
-    <div class="Hero_Wrapper">
+    <div class="Hero_Wrapper" id="Hero_CanvasContainer">
       <div class="Hero container">
         <div class="Hero_Copy">
           <h1>
@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import PerlinBackground from '../classes/PerlinBackground';
+
 import HeroHistory from '../components/HeroHistory';
 import IconCabinet from '../components/IconCabinet';
 export default {
@@ -42,6 +44,11 @@ export default {
   components: {
     HeroHistory,
     IconCabinet
+  },
+  mounted: function () {
+    const perlinTarget = document.getElementById('Hero_CanvasContainer');
+    const backgroundColor = '#F88379';
+    const perlinBackground = new PerlinBackground(perlinTarget, backgroundColor);
   }
 }
 </script>

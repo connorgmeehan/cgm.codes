@@ -3,6 +3,14 @@
         background: $primary-color;
         width: 100%;
         min-height: 100vh;
+
+        canvas {
+            top: 0;
+            position: absolute;
+            min-height: 100vh;
+            width: 100%;
+            background: $primary-color;
+        }
     }
     
     padding-top: $spacing-4;
