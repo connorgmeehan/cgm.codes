@@ -30,6 +30,7 @@
         }
 
         @include breakpoint('xlarge') {
+            margin-top: 0;
             width: 38%;
             flex-direction: column;
             justify-content: flex-end;
@@ -40,6 +41,9 @@
         @include breakpoint('medium') {
             width: 45%;
         }
+        @include breakpoint('xlarge') {
+            width: 100%;
+        }
         padding-top: 0.35rem;
         margin-bottom: auto;
     }
@@ -47,6 +51,9 @@
     &_CabinetWrapper {
         @include breakpoint('medium') {
             width: 45%;
+        }
+        @include breakpoint('xlarge') {
+            width: 100%;
         }
         margin-top: 1.2rem;
     }

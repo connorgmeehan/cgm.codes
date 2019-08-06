@@ -12,11 +12,13 @@
           <div class="Hero_History">
             <HeroHistory />
           </div>
-          <div class="Hero_IconCabinet">
-            <IconCabinet title="Technologies" :data="$static.metaData.technologies" />
-          </div>
-          <div class="Hero_IconCabinet">
-            <IconCabinet title="Socials" :data="$static.metaData.socials" />
+          <div class="Hero_CabinetWrapper">
+            <div class="Hero_IconCabinet">
+              <IconCabinet title="Technologies" :data="$static.metaData.technologies" />
+            </div>
+            <div class="Hero_IconCabinet">
+              <IconCabinet title="Socials" :data="$static.metaData.socials" />
+            </div>
           </div>
         </div>
       </div>
