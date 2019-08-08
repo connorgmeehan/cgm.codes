@@ -10,8 +10,8 @@ export default class MetaProgram {
     
         // setup member objects
         this.program = {};
-        this._uniforms = {};
-        this._attributes = {};
+        this.uniforms = {};
+        this.attributes = {};
     
         // create a program.
         this.program = gl.createProgram();
@@ -35,6 +35,12 @@ export default class MetaProgram {
         }
       }
     
+      /**
+       * Adds an attribute location
+       * @param {WebGLRenderingContext} gl
+       * @param {String | Array} attributes
+       * @memberof MetaProgram
+       */
       addAttributes(gl, attributes) {
         console.log(`MetaProgram::addAttributes(gl: ${gl}, attributes: ${attributes}) ->  attributes.length: ${attributes.length}`);
         if(!this.attributes) {
@@ -42,8 +48,9 @@ export default class MetaProgram {
         }
     
         if(Array.isArray(attributes)) {
-          for(var attribute in attributes)
-            this.attributes[`${attribute}`] = gl.getAttribLocation(this.program, attribute);
+          for(var i = 0; i < attributes.length; i++){
+            this.attributes[`${attributes[i]}`] = gl.getAttribLocation(this.program, attributes[i]);
+          }
         } else {
             this.attributes[`${attributes}`] = gl.getAttribLocation(this.program, attributes);
         }

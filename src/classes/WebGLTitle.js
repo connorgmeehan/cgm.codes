@@ -22,6 +22,7 @@ class WebGLTitle {
     // Setup program
     this._gl.getExtension('OES_standard_derivatives');
     this._gl.getExtension('OES_texture_float');
+    this._gl.
 
     this.metaProgram = new MetaProgram(this._gl, vertShaderSource, fragShaderSource);
     this.metaProgram.addAttributes(this._gl, "vertex");

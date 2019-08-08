@@ -1,12 +1,4 @@
-
-export const fragShaderSource = `
-precision mediump float;
-
-uniform vec3 color;
-uniform vec2 resolution;
-uniform float time;
-
-const int marchCount = 50;
+int marchCount = 100;
 float rayCollisionDistance = 0.01;
 
 float smin( float a, float b, float k )
@@ -27,8 +19,8 @@ float map(vec3 rp) {
     float sphere3Dist = distance(rp, sphere3) - sphere3Size;
     float sphere4Dist = distance(rp, sphere4) - sphere4Size;
     float waveScale = clamp(distance(vec2(rp.x, rp.z), vec2(0.0)) * waveHeight, 0.1, 20.);
-    float planeDist = (sin(length(vec2(rp.x, rp.z))+time)*waveHeight - rp.y) * (cos(length(vec2(rp.x, rp.z))+time)*waveHeight - rp.y) - waveScale;
-    // float planeDist = length(sin(rp.x / waveScale / 2. + time) * cos(rp.z /waveScale/4. + time) * waveScale - rp.y) - 0.001;
+    float planeDist = (sin(length(vec2(rp.x, rp.z))+iTime)*waveHeight - rp.y) * (cos(length(vec2(rp.x, rp.z))+iTime)*waveHeight - rp.y) - waveScale;
+    // float planeDist = length(sin(rp.x / waveScale / 2. + iTime) * cos(rp.z /waveScale/4. + iTime) * waveScale - rp.y) - 0.001;
     return smin(
         smin(
             smin(
@@ -83,17 +75,18 @@ vec4 applyFog(vec4 color, float dist) {
 }
 
 // Fresnel
+vec4 rimCol = vec4(.973, .514, .475, 1.0);
 float rimPow = .7;
 float rimAmount = .5;
 float F = 2.;
 
-void main() {
+void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     // Normalise screen coords
-    vec2 uv = gl_FragCoord.xy / resolution.xy;
+    vec2 uv = fragCoord.xy / iResolution.xy;
     uv -= 0.5;
-    uv.y /= resolution.x / resolution.y;
+    uv.y /= iResolution.x / iResolution.y;
 
-    float t = time * 0.25;
+    float t = iTime * 0.25;
     // Update sphere locations
     sphere1 = vec3(sin(t + 0.25), 1. + cos(t), sin(t));
     sphere2 = vec3(cos(t), 1. + cos(t + 0.5), sin(t));
@@ -102,8 +95,8 @@ void main() {
 
     // camera setup
     vec3 upDirection = vec3(0.0, -1.0, 0.0);
-    vec3 cameraOrigin = vec3(cos(t * 0.25)*5., 5., sin(t * 0.25)*5. + 5.);
-    vec3 cameraTarget = vec3(.0, 1., 0.);
+    vec3 cameraOrigin = vec3(cos(iMouse.x/iResolution.x + t * 0.25)*5., iMouse.y/iResolution.y * 2. + 2., sin(t * 0.25)*5. + 5.);
+    vec3 cameraTarget = vec3(.0);
 
     vec3 cameraDir = normalize(cameraTarget - cameraOrigin);
     vec3 cameraRight = normalize(cross(upDirection, cameraOrigin));
@@ -127,23 +120,8 @@ void main() {
     rimd = clamp(rimd, 0.0, 1.0);
     rimd = pow(rimd, rimPow);
 
-    vec4 rimCol = vec4(color.rgb, 1.0);
     float frn = rimd + F * (1.0 - rimd);
     color += frn * rimCol * rimAmount * d;
 
-    gl_FragColor = applyFog(color, hit);
+    fragColor = applyFog(color, hit);
 }
-`;
-
-export const vertShaderSource = `
-precision mediump float;
-
-attribute vec4 vertex;
-
-uniform mat4 modelview;
-uniform mat4 projection;
-
-void main() {
-  gl_Position = projection * modelview * vec4(vertex.xyz, 1);
-}
-`;
