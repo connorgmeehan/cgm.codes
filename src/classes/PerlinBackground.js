@@ -159,6 +159,11 @@ class PerlinBackground {
         }
         draw();
     }
+
+    kill() {
+        this._gl.getExtension('WEBGL_lose_context').loseContext();
+        this._canvas.remove();
+    }
 };
 
 export default PerlinBackground;

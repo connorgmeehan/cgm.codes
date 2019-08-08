@@ -45,11 +45,26 @@ export default {
     HeroHistory,
     IconCabinet
   },
+  data: function() {
+    return {
+      perlinBackground: null,
+    };
+  },
   mounted: function () {
+    console.log("mounted again");
     const perlinTarget = document.getElementById('Hero_CanvasContainer');
     const backgroundColor = '#F88379';
-    const perlinBackground = new PerlinBackground(perlinTarget, backgroundColor);
+    if (this.perlinBackground === null) {
+      this.perlinBackground = new PerlinBackground(perlinTarget, backgroundColor);
+    }
+  },
+  beforeDestroy: function () {
+    if (this.perlinBackground !== null) {
+      this.perlinBackground.kill();
+      this.perlinBackground = null;
+    }
   }
+  
 }
 </script>
 
