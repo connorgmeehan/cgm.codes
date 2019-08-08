@@ -4,7 +4,7 @@
         width: 100%;
         min-height: 100vh;
 
-        canvas {
+        .PerlinCanvas {
             top: 0;
             position: absolute;
             min-height: 100vh;
@@ -21,18 +21,24 @@
     }
 
     &_Copy {
+        padding: $spacing-1;
+        @include breakpoint('small') {
+            padding: 0;
+        }
         @include breakpoint('xlarge') {
             width: 60%;
         }
         h1 {
-            color: $secondary-color;
-            mix-blend-mode: exclusion;
+            color: #FFF;
+            mix-blend-mode: $text-mix-blend-mode;
         }
     }
 
     &_Sidebar {
         margin-top: $spacing-2;
+        padding: 0 $spacing-1 $spacing-3 $spacing-1;
         @include breakpoint('medium') {
+            padding: 0;
             display: flex;
             justify-content: space-between;
         }
@@ -64,17 +70,18 @@
             width: 100%;
         }
         margin-top: 1.2rem;
+        margin-bottom:  -0.35rem;
     }
     
     &_IconCabinet {
-        margin-bottom: 1.85rem;
+        margin-bottom: 2rem;;
     }
 }
 
 .Works {
     h2 {
-        mix-blend-mode: exclusion;
-        color: $secondary-color;
+        mix-blend-mode: $text-mix-blend-mode;
+        color: #FFF;
     }
     &_Wrapper {
         background: $primary-color;

@@ -1,5 +1,5 @@
 int marchCount = 100;
-float rayCollisionDistance = 0.01;
+float rayCollisionDistance = 0.0005;
 
 float smin( float a, float b, float k )
 {
@@ -18,7 +18,7 @@ float map(vec3 rp) {
     float sphere2Dist = distance(rp, sphere2) - sphere2Size;
     float sphere3Dist = distance(rp, sphere3) - sphere3Size;
     float sphere4Dist = distance(rp, sphere4) - sphere4Size;
-    float waveScale = clamp(distance(vec2(rp.x, rp.z), vec2(0.0)) * waveHeight, 0.1, 20.);
+    float waveScale = clamp(distance(vec2(rp.x, rp.z), vec2(0.0)) * waveHeight, 0.1, 1.0);
     float planeDist = (sin(length(vec2(rp.x, rp.z))+iTime)*waveHeight - rp.y) * (cos(length(vec2(rp.x, rp.z))+iTime)*waveHeight - rp.y) - waveScale;
     // float planeDist = length(sin(rp.x / waveScale / 2. + iTime) * cos(rp.z /waveScale/4. + iTime) * waveScale - rp.y) - 0.001;
     return smin(
@@ -95,7 +95,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     // camera setup
     vec3 upDirection = vec3(0.0, -1.0, 0.0);
-    vec3 cameraOrigin = vec3(cos(iMouse.x/iResolution.x + t * 0.25)*5., iMouse.y/iResolution.y * 2. + 2., sin(t * 0.25)*5. + 5.);
+    vec3 cameraOrigin = vec3(cos(iMouse.x/iResolution.x + t * 0.25)*5., iMouse.y/iResolution.y * 2. + 4., sin(t * 0.25)*5. + 5.);
     vec3 cameraTarget = vec3(.0);
 
     vec3 cameraDir = normalize(cameraTarget - cameraOrigin);

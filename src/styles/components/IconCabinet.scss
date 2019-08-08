@@ -5,8 +5,8 @@ $selected-class: '.IconCabinet__selected';
     &_Title {
         @extend .history-title;
         display: inline-block;
-        color: $primary-color;
-        mix-blend-mode: exclusion;
+        color: #FFF;
+        mix-blend-mode: $text-mix-blend-mode;
         margin-bottom: -1.3rem;
 
         white-space:nowrap; 
@@ -50,8 +50,8 @@ $selected-class: '.IconCabinet__selected';
         margin-right: $spacing-1;
         padding-top: 0;
 
-        color: $primary-color;
-        mix-blend-mode: exclusion;
+        color: #FFF;
+        mix-blend-mode: $text-mix-blend-mode;
 
         &:hover {
             mix-blend-mode: color-dodge;

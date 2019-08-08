@@ -1,6 +1,8 @@
 <template>
   <div class= "Layout" :class="modifierClass">
-    <header class="Header_Wrapper">
+     <slot/>
+
+     <header class="Header_Wrapper">
       <div class="Header">
         <div class="Header_TextBlock">
           <span class="Header_Title">
@@ -13,8 +15,6 @@
         </div>
       </div>
     </header>
-
-    <slot/>
     
     <div class="Footer">
     </div>

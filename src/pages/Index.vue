@@ -2,6 +2,7 @@
   <Layout>
 
     <div class="Hero_Wrapper" id="Hero_CanvasContainer">
+      <!-- <video src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" style="position: absolute; top: 0; width: 100%;"/> -->
       <div class="Hero container">
         <div class="Hero_Copy">
           <h1>
@@ -52,7 +53,7 @@ export default {
   },
   mounted: function () {
     console.log("mounted again");
-    const perlinTarget = document.getElementById('Hero_CanvasContainer');
+    const perlinTarget = document.querySelector('.Hero_Wrapper');
     const backgroundColor = '#F88379';
     if (this.perlinBackground === null) {
       this.perlinBackground = new PerlinBackground(perlinTarget, backgroundColor);

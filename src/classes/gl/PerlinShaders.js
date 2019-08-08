@@ -15,6 +15,7 @@ float smin( float a, float b, float k )
     return mix( b, a, h ) - k*h*(1.0-h);
 }
 
+float t;
 vec3 sphere1 = vec3(0., 0., 0.); float sphere1Size = 0.5;
 vec3 sphere2 = vec3(0., 0., 0.); float sphere2Size = 0.4;
 vec3 sphere3 = vec3(0., 0., 0.); float sphere3Size = 0.3;
@@ -26,9 +27,9 @@ float map(vec3 rp) {
     float sphere2Dist = distance(rp, sphere2) - sphere2Size;
     float sphere3Dist = distance(rp, sphere3) - sphere3Size;
     float sphere4Dist = distance(rp, sphere4) - sphere4Size;
-    float waveScale = clamp(distance(vec2(rp.x, rp.z), vec2(0.0)) * waveHeight, 0.1, 20.);
-    float planeDist = (sin(length(vec2(rp.x, rp.z))+time)*waveHeight - rp.y) * (cos(length(vec2(rp.x, rp.z))+time)*waveHeight - rp.y) - waveScale;
-    // float planeDist = length(sin(rp.x / waveScale / 2. + time) * cos(rp.z /waveScale/4. + time) * waveScale - rp.y) - 0.001;
+    float xzDist = length(vec2(rp.x, rp.z));
+    float waveScale = clamp(xzDist * waveHeight, 0.0, 20.);
+    float planeDist = (sin(xzDist+t)*waveHeight - rp.y) * (cos(xzDist+t)*waveHeight - rp.y) - waveScale;
     return smin(
         smin(
             smin(
@@ -83,8 +84,8 @@ vec4 applyFog(vec4 color, float dist) {
 }
 
 // Fresnel
-float rimPow = .7;
-float rimAmount = .5;
+float rimPow = .3;
+float rimAmount = .3;
 float F = 2.;
 
 void main() {
@@ -93,16 +94,16 @@ void main() {
     uv -= 0.5;
     uv.y /= resolution.x / resolution.y;
 
-    float t = time * 0.25;
+    t = time * 0.075;
     // Update sphere locations
     sphere1 = vec3(sin(t + 0.25), 1. + cos(t), sin(t));
     sphere2 = vec3(cos(t), 1. + cos(t + 0.5), sin(t));
     sphere3 = vec3(sin(t), 1. + cos(t), cos(t + 1.));
-    sphere4 = vec3(sin(t), sin(t), sin(t));
+    sphere4 = vec3(cos(t), cos(t), sin(t));
 
     // camera setup
     vec3 upDirection = vec3(0.0, -1.0, 0.0);
-    vec3 cameraOrigin = vec3(cos(t * 0.25)*5., 5., sin(t * 0.25)*5. + 5.);
+    vec3 cameraOrigin = vec3(cos(t)*5., 5., sin(t)*5. + 5.);
     vec3 cameraTarget = vec3(.0, 1., 0.);
 
     vec3 cameraDir = normalize(cameraTarget - cameraOrigin);

@@ -6,12 +6,10 @@
         display: flex;
         flex-wrap: nowrap;
     }
-    &_MainBlock {
-    }
     &_Title {
         @extend .history-title;
-        color: $secondary-color;
-        mix-blend-mode: exclusion;
+        color: #FFF;
+        mix-blend-mode: $text-mix-blend-mode;
         width: 100%;
         font-weight: 500;
     }
@@ -19,17 +17,16 @@
         @extend .history-title;
         text-decoration: inherit;
         flex-grow: 1;
-        color: $secondary-color;
-        mix-blend-mode: exclusion;
+        color: #FFF;
+        mix-blend-mode: $text-mix-blend-mode;
         &:hover {
             mix-blend-mode: color-dodge;
         }
     }
     &_Date {
         @extend .meta;
-        mix-blend-mode: exclusion;
-        color: $secondary-color;
-        z-index: 1;
+        mix-blend-mode: $text-mix-blend-mode;
+        color: #FFF;
         margin-right: $spacing-1;
     }
 }
