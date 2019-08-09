@@ -25,10 +25,23 @@
       </div>
     </div>
     <div class="Works_Wrapper">
-      <div class="Works">
-        <h2>My Works</h2>
+      <video class="Works_VideoBackground"
+        v-if="this.videoBackground !== null"
+        :src="this.videoBackground" muted autoplay/>
+      <g-image class="Works_VideoBackground"
+        v-if="this.videoBackground === null && this.imageBackground !== null"
+        :src="this.imageBackground" />
+      <div lcass="Works container">
+        <div class="Works">
 
-      </div>  
+          <div class="Works_PostPreview" v-for="post in this.posts" :key="post.id">
+            <PostPreview
+              :postdata="post"
+              @handleNewBackground="handleNewBackground"/>
+          </div>
+
+        </div>  
+      </div>
     </div>
   </Layout>
 </template>
@@ -38,18 +51,33 @@ import PerlinBackground from '../classes/PerlinBackground';
 
 import HeroHistory from '../components/HeroHistory';
 import IconCabinet from '../components/IconCabinet';
+import PostPreview from '../components/PostPreview';
 export default {
   metaInfo: {
     title: 'Hello, world!'
   },
   components: {
     HeroHistory,
-    IconCabinet
+    IconCabinet,
+    PostPreview
   },
   data: function() {
     return {
       perlinBackground: null,
+      videoBackground: null,
+      imageBackground: null,
     };
+  },
+  computed: {
+    posts: function () {
+      return this.$static.allPost.edges.map(el => el.node);
+    }
+  },
+  methods: {
+    handleNewBackground (videoPath = null, imagePath = null) {
+      this.videoBackground = videoPath;
+      this.imageBackground = imagePath;
+    }
   },
   mounted: function () {
     console.log("mounted again");
@@ -78,6 +106,19 @@ export default {
 
 <static-query>
 query {
+  allPost {
+    edges {
+      node {
+        id
+        title
+        shortdescription
+        image
+        video
+        path
+        date
+      }
+    }
+  }
   metaData {
     technologies {
       name
