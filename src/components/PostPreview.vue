@@ -10,6 +10,7 @@
       <g-link :to="postdata.path">
         <h1 class="PostPreview_Title__Stroke">{{postdata.title}}</h1>
         <h1 class="PostPreview_Title"
+          :ref="'title'"
           @scroll="this.handleMouseLeave"
           @mouseover="this.handleMouseOver"
           @mouseleave="this.handleMouseLeave">
@@ -26,6 +27,7 @@
 
 <script>
 import DateFormatter from '~/helpers/DateFormatter';
+import MouseHelper from '~/helpers/MouseHelper';
 
 export default {
   name: "PostPreview",
@@ -43,7 +45,9 @@ export default {
       window.removeEventListener('scroll', this.handleScroll);
     },
     handleScroll(e) {
-      this.handleMouseLeave();
+      if(!MouseHelper.isMouseInsideBounds(this.$refs['title'])) {
+        this.handleMouseLeave();
+      }
     }
   },
   computed: {

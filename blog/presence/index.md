@@ -3,7 +3,7 @@ title: "Presence"
 shortdescription: Lighting display from winning a hackathon at the University of Sydney
 date: 2018-05-10
 image: ''
-video: 'presence-showcase.mp4'
+video: '/presence-showcase.mp4'
 ---
 
 Don't build a website with last decade's tech. The future of the web is mobile,

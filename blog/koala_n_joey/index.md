@@ -2,8 +2,8 @@
 title: 'Koala & Joey'
 shortdescription: 'Aged care sucks.  User focused design project to optimise the aged care industry and promote active aging.'
 date: 2018-11-15
-image: 'koalajoey-glamour.png'
-video: 'koalajoey-showcase.mp4'
+image: '/koalajoey-glamour.png'
+video: '/koalajoey-showcase.mp4'
 template: 'KoalaJoeyLanding'
 team: ["Soomin Lee"]
 tools: ["hand sketching", "proto.io", "sketch", "invision"]
