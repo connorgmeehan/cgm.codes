@@ -25,19 +25,12 @@
       </div>
     </div>
     <div class="Works_Wrapper">
-      <video class="Works_VideoBackground"
-        v-if="this.videoBackground !== null"
-        :src="this.videoBackground" muted autoplay/>
-      <g-image class="Works_VideoBackground"
-        v-if="this.videoBackground === null && this.imageBackground !== null"
-        :src="this.imageBackground" />
       <div lcass="Works container">
         <div class="Works">
 
           <div class="Works_PostPreview" v-for="post in this.posts" :key="post.id">
             <PostPreview
-              :postdata="post"
-              @handleNewBackground="handleNewBackground"/>
+              :postdata="post"/>
           </div>
 
         </div>  
@@ -64,19 +57,11 @@ export default {
   data: function() {
     return {
       perlinBackground: null,
-      videoBackground: null,
-      imageBackground: null,
     };
   },
   computed: {
     posts: function () {
       return this.$static.allPost.edges.map(el => el.node);
-    }
-  },
-  methods: {
-    handleNewBackground (videoPath = null, imagePath = null) {
-      this.videoBackground = videoPath;
-      this.imageBackground = imagePath;
     }
   },
   mounted: function () {
