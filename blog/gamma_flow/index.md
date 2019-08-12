@@ -3,7 +3,7 @@ title: "Gamma Flow"
 shortdescription: Audio reactive visuals built in openFrameworks
 date: 2018-03-06
 image: ''
-video: 'gammaflow-showcase.mp4'
+video: '/gammaflow-showcase.mp4'
 ---
 
 Don't build a website with last decade's tech. The future of the web is mobile,

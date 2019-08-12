@@ -7,13 +7,19 @@
       <g-image v-if="postdata.video === null && postdata.image !== null"
         class="PostPreview_MediaBackground"
         :src="postdata.image" > </g-image>
-      <g-link :to="postdata.path"><h1 class="PostPreview_Title__Stroke">{{postdata.title}}</h1>
-      <h1 class="PostPreview_Title" @mouseover="this.handleMouseOver" @mouseleave="this.handleMouseLeave">{{postdata.title}}</h1>
+      <g-link :to="postdata.path">
+        <h1 class="PostPreview_Title__Stroke">{{postdata.title}}</h1>
+        <h1 class="PostPreview_Title"
+          @scroll="this.handleMouseLeave"
+          @mouseover="this.handleMouseOver"
+          @mouseleave="this.handleMouseLeave">
+            {{postdata.title}}
+          </h1>
       </g-link>
     </div>
     <div class="PostPreview_DescriptionBlock container">
-      <h2 class="PostPreview_ShortDescription">{{postdata.shortdescription}}</h2>
-      <h2 class="PostPreview_Date">{{month}}<br>{{year}}</h2>
+      <h3 class="PostPreview_ShortDescription">{{postdata.shortdescription}}</h3>
+      <h3 class="PostPreview_Date">{{month}}<br>{{year}}</h3>
     </div>
   </div>
 </template>
@@ -30,9 +36,14 @@ export default {
   methods: {
     handleMouseOver() {
       this.isHover = true;
+      window.addEventListener('scroll', this.handleScroll);
     },
     handleMouseLeave() {
       this.isHover = false;
+      window.removeEventListener('scroll', this.handleScroll);
+    },
+    handleScroll(e) {
+      this.handleMouseLeave();
     }
   },
   computed: {

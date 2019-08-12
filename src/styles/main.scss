@@ -17,9 +17,12 @@
 @import "./global/reset";
 @import "./global/typography";
 
+// Page Styles
+@import './pages/Layout.scss';
+@import './pages/Index.scss';
+@import './pages/Post.scss';
+
 // Component Styles
-@import './components/Layout.scss';
-@import './components/Index.scss';
 @import './components/HeroHistory.scss';
 @import './components/IconCabinet.scss';
 @import './components/PostPreview.scss';
