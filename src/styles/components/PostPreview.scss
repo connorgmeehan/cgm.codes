@@ -11,10 +11,6 @@ $element-height: 400px;
     width: fit-content;
     text-align: center;
 
-    &:hover {
-        cursor: pointer;
-    }
-
     &_Wrapper {
         width: 100%;
         position: relative;
@@ -27,6 +23,10 @@ $element-height: 400px;
         color: $primary-color;
         width: fit-content;
         mix-blend-mode: exclusion;
+
+        &:hover {
+            cursor: pointer;
+        }
 
         &__Stroke {
             mix-blend-mode: hard-light;
@@ -42,10 +42,13 @@ $element-height: 400px;
     }
 
     &_DescriptionBlock {
+        display: flex;
+        justify-content: space-between;
+
         overflow:hidden;
-        transition: max-height 0.3s ease-out; // note that we're transitioning max-height, not height!
+        transition: max-height 0.3s ease-out;
         height:auto;
-        max-height:0; // still have to hard-code a value!
+        max-height:0;
 
         #{$hoverModifier} & {
             max-height: 400px;
@@ -53,20 +56,24 @@ $element-height: 400px;
     }
 
     &_ShortDescription {
-        width: 80%;
         transition: all ease-in-out 0.2s;
-        // transform: translateY(-50%);
         
-        padding-left: $spacing-3;
         color: $primary-color;
         mix-blend-mode: exclusion;
         opacity: 0.5;
         
         #{$hoverModifier} & {
-            // transform: translateY(0%);
             opacity: 1;
             max-height: 9999px;
         }
+    }
+
+    &_Date {
+        color: $primary-color;
+        mix-blend-mode: exclusion;
+
+        width: 20%;
+        margin-left: $spacing-2;
     }
 
     &_MediaBackground {

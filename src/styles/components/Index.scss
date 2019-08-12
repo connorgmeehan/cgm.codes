@@ -13,6 +13,8 @@
     }
     
     padding-top: $spacing-4;
+    padding-bottom: $spacing-2;
+    
     @include breakpoint('xlarge') {
         display: flex;
         flex-wrap: nowrap;
