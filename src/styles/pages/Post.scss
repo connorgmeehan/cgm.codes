@@ -33,8 +33,10 @@
     padding-right: 0;
   }
 
-  color: white;
-  mix-blend-mode: difference2;
+  &_Title {
+    color: white;
+    mix-blend-mode: difference;
+  }
 
   &_Wrapper {
     background: $primary-color;
