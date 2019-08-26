@@ -79,7 +79,7 @@ float trace(inout vec3 rp, in vec3 rd, inout vec3 closestPoint) {
 float density = 20.;
 vec4 applyFog(vec4 color, float dist) {
     float fogAmount = 1.0 - clamp(exp(-density * dist), 0.0, 1.0);
-    vec4 fogColor = vec4(.973, .514, .475, 1.0);
+    vec4 fogColor = vec4(.5, .5, .5, 1.0);
     return mix(color, fogColor, fogAmount);
 }
 
@@ -114,7 +114,7 @@ void main() {
 
     vec3 closestPoint = vec3(0);
     float hit = trace(cameraOrigin, rayDir, closestPoint);
-    vec4 color = vec4(0.9529, 0.502, 0.4588, 1.0);
+    vec4 color = vec4(.8, .8, .8, 1.0);
     
     // lighting
     vec3 ld = normalize( vec3(14.0, 5.0, -2.0) - cameraOrigin);

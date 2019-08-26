@@ -1,5 +1,6 @@
-$selected-class: '.TextCabinet__selected';
-
+$selector: '.TextCabinet';
+$selected-class: '#{$selector}__selected';
+$titlefont-modifer: '#{selector}__TitleFont';
 .TextCabinet {
   position: relative;
 
@@ -27,7 +28,6 @@ $selected-class: '.TextCabinet__selected';
     left: 0;
 
     color: $primary-color;
-    mix-blend-mode: color-dodge;
 
     max-width: 0;
     white-space:nowrap; 
@@ -47,7 +47,7 @@ $selected-class: '.TextCabinet__selected';
   }
 
   &_Element {
-    @extend .heading-4;
+    font-weight: 400;
     margin-right: $spacing-1;
     padding-top: 0;
 
@@ -55,9 +55,12 @@ $selected-class: '.TextCabinet__selected';
     mix-blend-mode: $text-mix-blend-mode;
     &__Linked {
       &:hover {
-        mix-blend-mode: color-dodge;
         text-decoration: none;
       }
+    }
+
+    #{$titlefont-modifer} & {
+      @extend .heading-4;
     }
   }
 }

@@ -12,12 +12,12 @@
 
           <h1 class="PostInfo_Title">{{$page.post.title}}</h1>
 
-          <h4 class="PostInfo_Description">{{$page.post.description}}</h4>
+          <p class="PostInfo_Description">{{$page.post.description}}</p>
           <div class="PostInfo_TextCabinet">
-            <TextCabinet title="My Role" :elements="$page.post.myrole" />
+            <TextCabinet title="My Role" :elements="$page.post.myrole" :useTitleFont="true"/>
           </div>
           <div class="PostInfo_TextCabinet">
-            <TextCabinet title="Team" :elements="$page.post.team" />
+            <TextCabinet title="Team" :elements="$page.post.team" :useTitleFont="true"/>
           </div>
         </div>
       </div>

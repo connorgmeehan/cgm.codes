@@ -19,9 +19,6 @@
         flex-grow: 1;
         color: #FFF;
         mix-blend-mode: $text-mix-blend-mode;
-        &:hover {
-            mix-blend-mode: color-dodge;
-        }
     }
     &_Date {
         @extend .meta;

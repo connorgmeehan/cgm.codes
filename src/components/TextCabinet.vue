@@ -1,5 +1,5 @@
 <template>
-  <div class="TextCabinet">
+  <div :class="['TextCabinet', useBodyFont ? 'TextCabinet__TitleFont' : '']">
     <h3 class="TextCabinet_Title">{{title}}</h3>
 
     <div class="TextCabinet_Track">
@@ -23,7 +23,7 @@
 <script>
 export default {
   name: "TextCabinet",
-  props: ["title", "elements"],
+  props: ["title", "elements", "useBodyFont"],
   data: () => ({
     selectedName: '',
   }),
