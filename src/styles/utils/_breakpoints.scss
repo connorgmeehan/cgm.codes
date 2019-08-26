@@ -50,3 +50,14 @@ $breakpoints: (
     width: $xlarge-width-max;
   }
 }
+
+.container-narrow {
+  width: 100%;
+  margin: 0 auto;
+  @include breakpoint('small') {
+    width: $small-width-max;
+  }
+  @include breakpoint('medium') {
+    width: $medium-width-max;
+  }
+}

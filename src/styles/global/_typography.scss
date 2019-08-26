@@ -118,3 +118,81 @@ h4, .heading-4 {
     $leading-bottom: $history-leading-bottom,
   );
 }
+
+.article-heading-1 {
+  @extend .heading;
+  @include plumber(
+    $grid-height: $h1-grid-height,
+    $baseline: $secondary-baseline,
+    $font-size: $h1-grid-font-ratio,
+    $line-height: $h1-grid-line-height-ratio,
+    $leading-top: $h1-leading-top,
+    $leading-bottom: $h1-leading-bottom,
+  );
+  font-weight: 500;
+}
+
+
+.article-heading-1 {
+  @extend .heading;
+  @include plumber(
+    $grid-height: $h1-article-grid-height,
+    $baseline: $secondary-baseline,
+    $font-size: $h1-article-grid-font-ratio,
+    $line-height: $h1-article-grid-line-height-ratio,
+    $leading-top: $h1-article-leading-top,
+    $leading-bottom: $h1-article-leading-bottom,
+  );
+  font-weight: 500;
+}
+
+.article-heading-2 {
+  @extend .heading;
+  @include plumber(
+    $grid-height: $h2-article-grid-height,
+    $baseline: $secondary-baseline,
+    $font-size: $h2-article-grid-font-ratio,
+    $line-height: $h2-article-grid-line-height-ratio,
+    $leading-top: $h2-article-leading-top,
+    $leading-bottom: $h2-article-leading-bottom,
+  );
+  font-weight: 500;
+}
+
+.article-heading-3 {
+  @extend .heading;
+  @include plumber(
+    $grid-height: $h3-article-grid-height,
+    $baseline: $secondary-baseline,
+    $font-size: $h3-article-grid-font-ratio,
+    $line-height: $h3-article-grid-line-height-ratio,
+    $leading-top: $h3-article-leading-top,
+    $leading-bottom: $h3-article-leading-bottom,
+  );
+  font-weight: 500;
+}
+
+.article-heading-4 {
+  @extend .heading;
+  @include plumber(
+    $grid-height: $h4-article-grid-height,
+    $baseline: $secondary-baseline,
+    $font-size: $h4-article-grid-font-ratio,
+    $line-height: $h4-article-grid-line-height-ratio,
+    $leading-top: $h4-article-leading-top,
+    $leading-bottom: $h4-article-leading-bottom,
+  );
+  font-weight: 500;
+}
+
+.article-list {
+  @extend .heading;
+  @include plumber(
+    $grid-height: $list-article-grid-height,
+    $baseline: $secondary-baseline,
+    $font-size: $list-article-grid-font-ratio,
+    $line-height: $list-article-grid-line-height-ratio,
+    $leading-top: $list-article-leading-top,
+    $leading-bottom: $list-article-leading-bottom,
+  );
+}
