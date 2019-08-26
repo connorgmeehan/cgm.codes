@@ -46,16 +46,20 @@ $element-height: 400px;
         justify-content: space-between;
 
         overflow:hidden;
-        transition: max-height 0.3s ease-out;
+        transition: all 0.3s ease-out;
         height:auto;
         max-height:0;
+        padding: 0 0;
 
         #{$hoverModifier} & {
+            padding: 1rem 0;
             max-height: 400px;
         }
     }
 
     &_ShortDescription {
+        @extend .history-title;
+
         transition: all ease-in-out 0.2s;
         
         color: $primary-color;
@@ -69,6 +73,7 @@ $element-height: 400px;
     }
 
     &_Date {
+        @extend .meta;
         color: $primary-color;
         mix-blend-mode: exclusion;
 

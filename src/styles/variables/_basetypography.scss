@@ -41,6 +41,14 @@ $meta-grid-line-height-ratio            : 2;
 $meta-leading-top                       : 0;
 $meta-leading-bottom                    : 0;
 
+// Small Meta text
+$meta-small-grid-height                 : $base-grid-height;
+$meta-small-grid-font-ratio             : 1.1;
+$meta-small-grid-line-height-ratio      : 2;
+$meta-small-leading-top                 : 0;
+$meta-small-leading-bottom              : 0;
+
+
 // history text
 $history-grid-height                : $base-grid-height;
 $history-grid-font-ratio            : 2;

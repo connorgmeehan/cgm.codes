@@ -22,6 +22,7 @@
     }
 
     &_Copy {
+        font-weight: 600;
         padding: $spacing-1;
         @include breakpoint('small') {
             padding: 0;

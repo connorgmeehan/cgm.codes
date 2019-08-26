@@ -49,6 +49,7 @@
   }
 
   &_Date {
+    @extend .meta-small;
     color: $primary-color;
     mix-blend-mode: exclusion;
   }

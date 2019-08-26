@@ -99,7 +99,7 @@ h4, .heading-4 {
 }
 
 .meta {
-  @extend .heading;
+  font-family: $secondary-font;
   @include plumber(
     $grid-height: $meta-grid-height,
     $baseline: $secondary-baseline,
@@ -107,6 +107,18 @@ h4, .heading-4 {
     $line-height: $meta-grid-line-height-ratio,
     $leading-top: $meta-leading-top,
     $leading-bottom: $meta-leading-bottom,
+  );
+}
+
+.meta-small {
+  font-family: $secondary-font;
+  @include plumber(
+    $grid-height: $meta-small-grid-height,
+    $baseline: $secondary-baseline,
+    $font-size: $meta-small-grid-font-ratio,
+    $line-height: $meta-small-grid-line-height-ratio,
+    $leading-top: $meta-small-leading-top,
+    $leading-bottom: $meta-small-leading-bottom,
   );
 }
 
