@@ -1,10 +1,10 @@
 <template>
   <Layout>
 
-    <div class="Hero_Wrapper" id="Hero_CanvasContainer">
+    <div class="Hero_Wrapper">
       <!-- <video src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" style="position: absolute; top: 0; width: 100%;"/> -->
       <div class="Hero container">
-        <div class="Hero_Copy">
+        <div class="Hero_Copy" id="Hero_CanvasContainer">
           <h1>
             Hello my name is Connor and I'm interested in the intersection between humans and technology.
           </h1>
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import PerlinBackground from '../classes/PerlinBackground';
+import PerlinBackground, { PerlinBackgroundSettings } from '../classes/PerlinBackground';
 
 import HeroHistory from '../components/HeroHistory';
 import IconCabinet from '../components/IconCabinet';
@@ -66,10 +66,12 @@ export default {
   },
   mounted: function () {
     console.log("mounted again");
-    const perlinTarget = document.querySelector('.Hero_Wrapper');
-    const backgroundColor = '#F88379';
+    const perlinTarget = document.getElementById('Hero_CanvasContainer');
+    const perlinBackgroundSettings = PerlinBackgroundSettings;
+    perlinBackgroundSettings.padding = 50;
+
     if (this.perlinBackground === null) {
-      this.perlinBackground = new PerlinBackground(perlinTarget, backgroundColor);
+      this.perlinBackground = new PerlinBackground(perlinTarget, perlinBackgroundSettings);
     }
   },
   beforeDestroy: function () {

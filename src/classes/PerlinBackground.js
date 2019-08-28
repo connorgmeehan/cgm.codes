@@ -1,10 +1,29 @@
 import Color from './Color';
-import MetaProgram from './gl/MetaProgram';
-import Rect from './gl/Rect';
-import {mat4} from 'gl-matrix';
+import {ShaderCanvas} from 'shader-canvas';
+import { vec3 } from "gl-matrix";
+import {fragShaderSource} from '../classes/gl/PerlinShaders_2';
+import signedRandom from '../helpers/signedRandom';
 
-import {vertShaderSource, fragShaderSource} from '../classes/gl/PerlinShaders';
+export const PerlinBackgroundSettings = {
+    baseColor: '#999999',
+    lightColor: '#DDDDDD',
+    fogColor: '#FFFFFF',
+    padding: 100,
+    metaballCount: 4,
+    metaballMin: 0.3,
+    metaballMax: 0.5,
+    gravity: 200,
+};
 
+class Metaball {
+    constructor(x, y, z, radius) {
+        console.log(x,y,z);
+        this.pos = vec3.fromValues(x,y,z);
+        console.log(...this.pos);
+        this.velocity = vec3.fromValues(signedRandom(-0.05, 0.05), signedRandom(-0.05, 0.05), signedRandom(-0.05, 0.05));
+        this.radius = radius;
+    }
+};
 
 class PerlinBackground {
     /**
@@ -13,156 +32,90 @@ class PerlinBackground {
      * @param {String} backgroundColor - as hex
      * @memberof PerlinBackground
      */
-    constructor(target, backgroundColor) {
-        this._color = new Color().fromHex(backgroundColor).makeFloat();
-        // Initialse canvas
-        this._canvas = this._buildCanvas(target);
-        this._gl = this._initWebGL(target, this._canvas);
-
-        this._metaProgram = new MetaProgram(this._gl, vertShaderSource, fragShaderSource);
-        this._metaProgram.addAttributes(this._gl, "vertex");
-        this._metaProgram.addUniforms(this._gl, ["projection", "modelview", "resolution", "time", "color"]);
-
-        this._bindEvents();
-        this._calculateCanvasSize();
-
-        this._drawScene(this._gl, this._canvas, this._metaProgram);
-        console.log(this);
-    }
-
-    /**
-     * Appends child canvas element to html element
-     * @param {HTMLElement} target
-     * @returns {HTMLCanvasElement}
-     * @memberof PerlinBackground
-     */
-    _buildCanvas(target) {
+    constructor(target, settings) {
+        this._settings = settings;
+        const { lightColor, baseColor, fogColor, padding } = settings;
         this._parent = target;
-        this._canvas = document.createElement('canvas');
-        this._canvas.classList.add('PerlinCanvas');
-        this._parent.prepend(this._canvas);
-        return this._canvas;
-    }
+        this._padding = padding;
+        this._baseColor = new Color().fromHex(baseColor).makeFloat();
+        this._lightColor = new Color().fromHex(lightColor).makeFloat();
+        this._fogColor = new Color().fromHex(fogColor).makeFloat();
+        
+        // Initialse canvas
+        this._shaderCanvas = new ShaderCanvas;
+        this._shaderCanvas.setShader(fragShaderSource(this._lightColor, this._baseColor, this._fogColor));
+        this._resizeCanvas(target, this._shaderCanvas, this._padding);
+        this._shaderCanvas.setUniform('resolution', [this._width, this._height]);
+        this._shaderCanvas.domElement.classList.add('PerlinCanvas');
+        target.prepend(this._shaderCanvas.domElement);
 
-    /**
-     * Gets WebGL context and sets up widths and heights
-     * @param {HTMLCanvasElement} targetCanvas
-     * @returns {WebGLRenderingContext}
-     * @memberof PerlinBackground
-     */
-    _initWebGL(parent, targetCanvas) {
-        console.log(`WebGLTitle::_initGL(targetCanvas: ${targetCanvas})`);
-        var gl;
-
-        try {
-        var options = {antialias: false, alpha: false, depth: false, stencil: false, preserveDrawingBuffer: false};
-
-        try { var gl = targetCanvas.getContext('experimental-webgl', options); } catch (e) {}
-        try { gl = gl || targetCanvas.getContext('webgl', options); } catch (e) {}
-        gl = WebGLDebugUtil.makeDebugContext(gl, this.throwOnGLError);
-
-        console.log(`\ttargetCanvas.width: ${targetCanvas.width}, height: ${targetCanvas.height}`);
-
-        gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-        gl.enable(gl.BLEND);
-        gl.disable(gl.DEPTH_TEST);
-
-        this._calculateCanvasSize();
-
-        gl.viewport(0, 0, targetCanvas.width, targetCanvas.height);
-        gl.clearColor(this._color.r, this._color.g, this._color.b, 1.0);
-        gl.clear(gl.COLOR_BUFFER_BIT);
-
-        console.log(`\ttargetCanvas.width: ${targetCanvas.width}, height: ${targetCanvas.height}`);
-
-
-        } catch (e) {
-        console.log(`_initCanvas caught on error ${e}`);
-        }
-        if (!gl) {
-            alert("Could not initialise WebGL, sorry :-(");
-            return null;
+        // Generate metaballs
+        this._metaballs = [];
+        console.log(this);
+        for (var i = 0; i < this._settings.metaballCount; i++) {
+            const newMetaball = new Metaball(
+                signedRandom(settings.metaballMin, settings.metaballMax) * 5.0,
+                signedRandom(settings.metaballMin, settings.metaballMax) * 5.0,
+                signedRandom(settings.metaballMin, settings.metaballMax) * 5.0,
+                signedRandom(settings.metaballMin, settings.metaballMax)
+            );
+            this._shaderCanvas.setUniform(`metaball${i+1}`, [newMetaball.pos[0], newMetaball.pos[1], newMetaball.pos[2]]); // Pass new data to shader
+            this._shaderCanvas.setUniform(`metaball${i+1}Size`, newMetaball.radius);
+            this._metaballs.push(newMetaball);
         }
 
-        return gl;
+        console.log(this._metaballs);
+
+        // 
+        this._bindEvents();
+        this._shaderCanvas.render();
+
+        this._update.bind(this);
+        requestAnimationFrame(now => this._update(now));
     }
 
     _bindEvents() {
-        document.addEventListener('resize', this._calculateCanvasSize);
-    }
-
-    _calculateCanvasSize() {
-        // get width and height
-        this._width = this._parent.clientWidth;
-        this._height = this._parent.clientHeight;
-
-        // update canvas width and height
-        this._canvas.width = this._width;
-        this._canvas.height = this._height;
-
-        // update canvas width and height
-        this._canvas.style.width = this._width;
-        this._canvas.style.height = this._height;
+        window.addEventListener('resize', (e) => {
+            this._resizeCanvas(this._parent, this._shaderCanvas, this._padding);
+        }, false);
     }
 
     /**
-     *
-     *
-     * @param {WebGLRenderingContext} gl
-     * @param {HTMLCanvasElement} canvas
-     * @param {MetaProgram} metaProgram
+     * _resizeCanvas - resizes the canvas size, useful on window resize
+     * @param {HTMLElement} parent
+     * @param {ShaderCanvas} canvas
+     * @param {Number} padding
      * @memberof PerlinBackground
      */
-    _drawScene(gl, canvas, metaProgram) {
-        // Clear scene
-        gl.clearColor(1.0 - this._color.r, this._color.g, this._color.b, 1.0);
-        gl.clear(gl.COLOR_BUFFER_BIT);    
-
-        gl.useProgram(metaProgram.program);
-        console.log(gl, canvas, metaProgram);
-        const rect = new Rect(gl, metaProgram.attributes.vertex, -canvas.width, -canvas.height, canvas.width*2, canvas.height*2);
-
-        const mvMatrix = mat4.create();
-        const pMatrix = mat4.create();
-        const color = this._color;
-        const width = this._width;
-        const height = this._height;
-
-        let mx = 0;
-        let my = 0;
-
-        document.addEventListener('mousemove', e => {
-            mx = e.clientY / width;
-            my = e.clientY / height;
-        })
-    
-        function draw(now) {
-            gl.clearColor(color.r, color.g, color.b, 1.0);
-            gl.clear(gl.COLOR_BUFFER_BIT);    
-            gl.viewport(0, 0, width, height);
-            gl.useProgram(metaProgram.program);
-
-            // build and bind projections/modelview matrices
-            const near = 0.1;
-            const far = 1000;
-            mat4.ortho(pMatrix, 0, canvas.width, -canvas.height, 0, near, far);
-            gl.uniformMatrix4fv(metaProgram.uniforms.projection, false, pMatrix);            
-            mat4.lookAt(mvMatrix, [0, 0, -50], [0, 0, 1], [0, 1, 0]);
-            gl.uniformMatrix4fv(metaProgram.uniforms.modelview, false, mvMatrix);
-            
-            gl.uniform4f(metaProgram.uniforms.color, color.r, color.g, color.b, 1.0);
-            gl.uniform2f(metaProgram.uniforms.resolution, width, height);
-            gl.uniform1f(metaProgram.uniforms.time, now / 1000);
-            rect.draw(gl);
-
-            requestAnimationFrame(draw);
-        }
-        draw();
+    _resizeCanvas(parent, canvas, padding) {
+        this._width = parent.clientWidth;
+        this._height = parent.clientHeight;
+        canvas.domElement.style.left = `-${padding}px`;
+        canvas.domElement.style.top = `-${padding}px`;
+        canvas.setSize(this._width + padding * 2, this._height + padding * 2);
     }
 
+    _update(now) {
+        const origin = new vec3.fromValues(0, 0, 0);
+        const gravity = new vec3.fromValues(this._settings.gravity, this._settings.gravity, this._settings.gravity);
+        this._metaballs.forEach((metaball, i) => {
+            let diff = vec3.create();
+            vec3.subtract(diff, metaball.pos, origin); // Direct vector to origin
+            vec3.multiply(diff, diff, gravity); // Scale by gravity
+            vec3.subtract(metaball.velocity, metaball.velocity, diff); // Adjust metaball velocity
+            vec3.subtract(metaball.pos, metaball.pos, metaball.velocity); // Update metaball position
+            this._shaderCanvas.setUniform(`metaball${i+1}`, [metaball.pos[0], metaball.pos[1], metaball.pos[2]]); // Pass new data to shader
+        });
+        this._shaderCanvas.setUniform('time', now / 1000); // Pass new data to shader
+        requestAnimationFrame(now => this._update(now));
+    }
+
+    /**
+     * kill
+     * destroys gl instance and deletes HTMLElement
+     * @memberof PerlinBackground
+     */
     kill() {
-        this._gl.getExtension('WEBGL_lose_context').loseContext();
-        this._canvas.remove();
     }
 };
 

@@ -5,10 +5,7 @@
         min-height: 100vh;
 
         .PerlinCanvas {
-            top: 0;
             position: absolute;
-            min-height: 100vh;
-            width: 100%;
         }
     }
     
@@ -22,6 +19,7 @@
     }
 
     &_Copy {
+        position: relative;
         font-weight: 600;
         padding: $spacing-1;
         @include breakpoint('small') {
