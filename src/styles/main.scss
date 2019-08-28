@@ -1,0 +1,30 @@
+// Main SASS entry point for all styles
+
+// Vendor
+@import 'node_modules/plumber-sass/plumber';
+
+@import './utils/utils';
+@import './utils/breakpoints';
+@import './font/inter.css';
+@import './utils/cgmicons.css';
+@import './utils/cgmicons-codes.css';
+
+// Setup variables to be used accross website;
+@import "./variables/basetheme";  // Default variables for theme
+@import "./variables/theme";      // Override variables to modify theme
+@import "./variables/basetypography";
+
+// Sitewide styles
+@import "./global/reset";
+@import "./global/typography";
+
+// Page Styles
+@import './pages/Layout.scss';
+@import './pages/Index.scss';
+@import './pages/Post.scss';
+
+// Component Styles
+@import './components/HeroHistory.scss';
+@import './components/IconCabinet.scss';
+@import './components/TextCabinet.scss';
+@import './components/PostPreview.scss';

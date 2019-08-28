@@ -1,0 +1,123 @@
+.PostHeader {
+  position: relative;
+  height: 400px;
+
+  &_Media {
+    position: absolute;
+    top:0; left:0; right:0;  bottom:0;
+    width: 100%;
+    height: 400px;
+    pointer-events: none;
+    object-fit: cover;
+  }
+  &_Title {
+    @include center-absolute();
+    color: $primary-color;
+    width: fit-content;
+    mix-blend-mode: exclusion;
+
+    &__Stroke {
+      @include center-absolute();
+      mix-blend-mode: hard-light;
+      color: transparent;
+      -webkit-text-stroke: 1px white;
+    }
+  }
+}
+
+.PostInfo {
+  padding: $spacing-3 $spacing-1;
+
+  @include breakpoint('medium') {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &_Title {
+    color: white;
+    mix-blend-mode: difference;
+  }
+
+  &_Wrapper {
+    background: $primary-color;
+  }
+
+  &_Description {
+    color: $primary-color;
+    mix-blend-mode: exclusion;
+    margin-bottom: 2rem;
+  }
+
+  &_Date {
+    @extend .meta-small;
+    color: $primary-color;
+    mix-blend-mode: exclusion;
+  }
+
+  &_TextCabinet {
+    margin-bottom: 2rem;
+  }
+}
+
+.Post {
+  background: white;
+  &_Content {
+    padding: $spacing-1;
+    @include breakpoint('medium') {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    hr {
+      border-top: $color-grey;
+    }
+
+    h1 {
+      @extend .article-heading-1;
+    }
+
+    h2 {
+      @extend .article-heading-2;
+    }
+
+    h3 {
+      @extend .article-heading-3;
+    }
+
+    h4 {
+      @extend .article-heading-4;
+    }
+
+    ol, ul {
+      list-style-type: decimal;
+    }
+
+    li {
+      @extend .article-list;
+    }
+
+    p { 
+      color: $color-grey;
+    }
+
+    blockquote {
+      &:before {
+        position: absolute;
+        content: open-quote;
+        font-size: 4em;
+        margin-left: -0.6em;
+        margin-top: -0.4em;
+      }
+      &:after {
+        position: absolute;
+        content: close-quote;
+        font-size: 4em;
+        bottom: 0;
+        right: 0;
+        margin-right: -0.6em;
+        margin-bottom: -0.8em;
+      }
+    }
+
+    img { width: 100%; }
+  }
+}

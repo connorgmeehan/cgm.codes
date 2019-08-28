@@ -1,0 +1,78 @@
+$navbar-margin: 15px;
+
+body {
+  background: $body-background-color;
+}
+
+.Header {
+  margin: 0 auto;
+  &_Wrapper {
+    width: 100%;
+    top: 0;
+    position: fixed;
+    mix-blend-mode: exclusion;
+    pointer-events: none;
+  }  
+
+  &_Title {
+    a {
+      @extend .heading-2;
+      font-weight: 700;
+      margin: 0;
+      padding: 0;
+      color: $secondary-color;
+    }
+  }
+  &_Nav {
+    margin-left: 4px;
+  }
+  &_NavLink {
+    @extend .heading-4;
+    display: inline-block;
+    margin: 0 $spacing-1;
+    padding: 0;  
+    color: $secondary-color;
+    width: fit-content;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &_TextBlock {
+    display: flex;
+    justify-content: space-between;
+    margin: $spacing-2;
+    pointer-events: all;
+  }
+}
+
+.Footer {
+  height: 300px;
+}
+
+.CopySandbox {
+  padding: $spacing-1;
+  &_Wrapper {
+    display: none;
+
+    background: lighten($primary-color, 10%);
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: $spacing-3;
+
+    &__display {
+      display: inline-block;
+    }
+
+    &:hover {
+      background: lighten($primary-color, 15%);
+      cursor: pointer;
+    }
+  }  
+}
+
+#CopySandbox_Input {
+  display: none;
+}

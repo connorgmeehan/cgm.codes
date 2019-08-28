@@ -1,106 +1,70 @@
 <template>
-  <div>
-    <canvas v-if="shouldDisplayWebGl" class="Title" id="canvas"></canvas>
-    <div v-if="!shouldDisplayWebGl" class="Title">
-      <h1 class="Title_Text" id="canvas-fallback">{{bigTitle}}</h1>
+  <div class= "Layout" :class="modifierClass">
+     <slot/>
+
+     <header class="Header_Wrapper">
+      <div class="Header">
+        <div class="Header_TextBlock">
+          <span class="Header_Title">
+            <g-link to="/">{{ $static.metaData.siteNameShort }}</g-link>
+          </span>
+          <nav class="Header_Nav">
+            <g-link to="/"><h3 class="Header_NavLink">home</h3></g-link>
+            <a href="#" v-on:click="copyEmail"><h3 class="Header_NavLink">email me</h3></a>
+          </nav>
+        </div>
+      </div>
+    </header>
+    
+    <div class="Footer">
     </div>
-    <div class="Content">
-      <header class="Header">
-        <g-link to="/" class="Header_Logo">
-          <h2>{{ $static.metaData.siteName }}</h2>
-        </g-link>
-        <nav class="Header_Nav end">
-          <g-link class="Header_NavLink" to="/">Home</g-link>
-          <g-link class="Header_NavLink" to="/about">About</g-link>
-        </nav>
-      </header>
-      <slot/>
+
+    <div class="CopySandbox_Wrapper" id="CopySandbox_Notification" v-on:click="closeCopyEmail">
+      <input type="text" :value="$static.metaData.contactEmail" id="CopySandbox_Input">
+      <div class="CopySandbox">
+        <div class="CopySandbox_Content">
+          {{$static.metaData.contactEmail}} saved to clipboard
+        </div>
+        <div class="CopySandBox_Close">
+        </div>
+      </div>
     </div>
   </div>
 </template>
+<script>
+export default {
+  name: "layout",
+  props: ["pageContext"],
+  computed: {
+    modifierClass: function() {
+      console.log(this);
+      return this.pageContext ? `Layout--${this.pageContext}` : "";
+    }
+  },
+  methods: {
+    copyEmail: function () {
+      const textbox = document.getElementById("CopySandbox_Input");
+      textbox.select();
+      textbox.value = this.$static.metaData.contactEmail;
+      document.execCommand("copy");
+
+      const notification = document.getElementById("CopySandbox_Notification");
+      notification.classList.add('CopySandbox_Wrapper__display');
+    },
+    closeCopyEmail: function () {
+      const notification = document.getElementById("CopySandbox_Notification");
+      notification.classList.remove('CopySandbox_Wrapper__display');
+    }
+  }
+}
+</script>
 
 <static-query>
 query {
   metaData {
     siteName
+    siteNameShort
+    contactEmail
   }
 }
 </static-query>
-
-<script>
-import WebGLTitle from '~/assets/WebGLTitle.js'
-import fontData from '../assets/font.json';
-
-export default {
-  data: function () {
-    return {
-      shouldDisplayWebGl: false
-    }
-  },
-  props: ["bigTitle"],
-  beforeMount: function () {
-    console.log(`DefaultLayout::methods.beforeMount() -> shouldDisplayWebGl: ${this.shouldDisplayWebGl}`)
-    if(true && !this.shouldDisplayWebGl) { // TODO: if gl is supported
-      this.shouldDisplayWebGl = true;
-    } else if (false && this.shouldDisplayWebGl) {
-      this.shouldDisplayWebGl = false
-    }
-  },
-
-  mounted: function () {
-    console.log(`DefaultLayout::methods.updated() -> shouldDisplayWebGl: ${this.shouldDisplayWebGl}`)
-    if(this.shouldDisplayWebGl) {
-      var canvas = document.getElementById('canvas')
-      var title = new WebGLTitle(canvas, this.bigTitle, fontData)
-    }
-  },
-}
-</script>
-
-
-<style lang="scss">
-
-.Title {
-  width: 100%;
-  height: $title-height-xs;
-  
-  &_Text {
-    font-size: 15em;
-    margin: 0;
-    overflow: hidden;
-  }
-
-  @media #{$breakpoint-sm-up} {
-    height: $title-height-sm;
-  }
-
-  @media #{$breakpoint-md-up} {
-    height: $title-height-md;
-  }
-
-  @media #{$breakpoint-lg-up} {
-    height: $title-height-lg;
-  }
-}
-
-.Content {
-  width: $layout-width-xs;
-  margin: 0 auto;
-}
-
-.Header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-
-  &_Nav {
-    display: flex;
-    align-items: center;
-
-    &Link {
-      margin-left: 15px;
-    }
-  }
-}
-
-</style>

@@ -1,0 +1,46 @@
+/*
+ *  1. SPACING
+ */
+$spacing-0                            : 0.5rem;
+$spacing-1                            : 1rem;
+$spacing-2                            : 2rem;
+$spacing-3                            : 4rem;
+$spacing-4                            : 8rem;           
+
+/*
+ *  2. TEXT
+ */
+$secondary-font                       : 'Anonymous Pro', monospace;           // Body text, content
+$secondary-baseline                   : 0.229;
+$primary-font                         : 'Inter', Helvetica, sans-serif;  // Titles, headers, highlights, quotes
+$primary-baseline                     : 0.185;
+
+// Base Text Colors
+$color-black                          : #000;
+$color-grey-darker                    : #222;
+$color-grey-dark                      : #444;
+$color-grey                           : #666;
+$color-beige                          : #CCC;
+$color-beige-light                    : #EEE;
+
+// $primary-color : white;
+$primary-color                        : white;
+$secondary-color                      : $primary-color;
+
+// theme
+$header-color                         : $color-grey-darker;
+$body-color                           : $color-grey-dark;
+$link-color                           : $color-black;
+$body-background-color                : $color-beige;
+$body-inverted-background-color       : $color-grey-dark;
+$body-inverted-color                  : $color-beige;
+
+$text-mix-blend-mode                  : difference;
+
+// Global settings
+$left-column-size                     : 53%;
+$right-column-size                    : 45%;
+
+/*
+ * 3. HERO
+ */

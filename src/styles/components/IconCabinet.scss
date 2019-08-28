@@ -1,0 +1,60 @@
+$selected-class: '.IconCabinet__selected';
+
+.IconCabinet {
+    position: relative;
+    &_Title {
+        @extend .history-title;
+        display: inline-block;
+        color: #FFF;
+        mix-blend-mode: $text-mix-blend-mode;
+        margin-bottom: -1.3rem;
+
+        white-space:nowrap; 
+        overflow:hidden;
+        opacity: 1;
+        transition: all ease-in-out 0.2s;
+
+        #{$selected-class} & {
+            opacity: 0;
+        }
+    }
+
+    &_TechnologyTitle {
+        @extend .history-title;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+
+        color: $primary-color;
+        mix-blend-mode: exclusion;
+
+        max-width: 0;
+        white-space:nowrap; 
+        overflow:hidden;
+        opacity: 0.5;
+        transition: all ease-in-out 0.2s;
+
+        #{$selected-class} & {
+            max-width: 400px;
+            opacity: 1;
+        }
+    }
+
+    &_Track {
+        display: flex;
+        width: 100%;
+    }
+
+    &_Icon {
+        @extend .history-title;
+        margin-right: $spacing-1;
+        padding-top: 0;
+
+        color: #FFF;
+        mix-blend-mode: $text-mix-blend-mode;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

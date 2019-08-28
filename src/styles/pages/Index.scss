@@ -1,0 +1,102 @@
+.Hero {
+    &_Wrapper {
+        background: $primary-color;
+        width: 100%;
+        min-height: 100vh;
+
+        .PerlinCanvas {
+            position: absolute;
+        }
+    }
+    
+    padding-top: $spacing-4;
+    padding-bottom: $spacing-2;
+    
+    @include breakpoint('xlarge') {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    &_Copy {
+        position: relative;
+        font-weight: 600;
+        padding: $spacing-1;
+        @include breakpoint('small') {
+            padding: 0;
+        }
+        @include breakpoint('xlarge') {
+            width: 60%;
+        }
+        h1 {
+            color: #FFF;
+            mix-blend-mode: $text-mix-blend-mode;
+        }
+    }
+
+    &_Sidebar {
+        margin-top: $spacing-2;
+        padding: 0 $spacing-1 $spacing-3 $spacing-1;
+        @include breakpoint('medium') {
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @include breakpoint('xlarge') {
+            margin-top: 0;
+            width: 38%;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+    }
+
+    &_History {
+        @include breakpoint('medium') {
+            width: 45%;
+        }
+        @include breakpoint('xlarge') {
+            width: 100%;
+        }
+        padding-top: 0.35rem;
+        margin-bottom: auto;
+    }
+
+    &_CabinetWrapper {
+        @include breakpoint('medium') {
+            width: 45%;
+        }
+        @include breakpoint('xlarge') {
+            width: 100%;
+        }
+        margin-top: 1.2rem;
+        margin-bottom:  -0.35rem;
+    }
+    
+    &_IconCabinet {
+        margin-bottom: 2rem;;
+    }
+}
+
+.Works {
+    padding-top: $spacing-4;
+    padding-bottom: $spacing-4;
+
+    &_Wrapper {
+        position: relative;
+        background: $primary-color;
+        min-height: 100vh;
+        &::before {
+            position: absolute;
+            background:linear-gradient(adjust-color($primary-color, $alpha: -1.0) 0%, $primary-color 100%);
+            width: 100%;
+            top: -100px;
+            height: 100px;
+            content: " ";
+        }
+    }
+
+    &_PostPreview {
+        z-index: 1;
+    }
+}

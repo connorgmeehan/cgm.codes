@@ -1,0 +1,29 @@
+.History {
+    &_Element {
+        position: relative;
+        margin-top: $base-grid-height;
+        margin-bottom: $base-grid-height * 2;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    &_Title {
+        @extend .history-title;
+        color: #FFF;
+        mix-blend-mode: $text-mix-blend-mode;
+        width: 100%;
+        font-weight: 600;
+    }
+    &_Workplace {
+        @extend .history-title;
+        text-decoration: inherit;
+        flex-grow: 1;
+        color: #FFF;
+        mix-blend-mode: $text-mix-blend-mode;
+    }
+    &_Date {
+        @extend .meta;
+        mix-blend-mode: $text-mix-blend-mode;
+        color: #FFF;
+        margin-right: $spacing-1;
+    }
+}

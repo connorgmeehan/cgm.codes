@@ -1,9 +1,15 @@
-*.log
-.cache
-.DS_Store
-src/.temp
+# Do not track npm packages
+node_modules/
 node_modules
+
+# Do not track gridsome cache
+.cache/
+.cache
+
 dist
-.env
-.env.*
-Neustadt-77F.ttf
+dist/
+./dist/
+dist/**
+
+src/.temp
+src/.temp/**

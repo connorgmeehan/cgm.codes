@@ -4,38 +4,79 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-const path = require('path')
-
-function addStyleResource (rule) {
-  rule.use('style-resource')
-    .loader('style-resources-loader')
-    .options({
-      patterns: [
-	// path.resolve(__dirname, './src/assets/sass/_globals.sass'),
-	// or if you use scss
-	path.resolve(__dirname, './src/assets/scss/_globals.scss'),
-	// you can also use a glob if you'd prefer
-	// path.resolve(__dirname, './src/assets/sass/*.sass'),
-	// or scss
-	// path.resolve(__dirname, './src/assets/sass/*.scss'),
-      ],
-    })
-}
-
 module.exports = {
-  siteName: '▇▇▇▇▇▇▇▇▇▇',
+  siteName: 'connor guy meehan codes, allegedly',
+  siteUrl: "https://cgm.codes/",
+  siteDescription: "Personal portfolio of works by Connor Guy Meehan, Computing Design student at The University of Sydney and aspiring Creative Technologist!",
+  icon: "src/connorgmeehan-favicon.png",
+  metaData: {
+    contactEmail: 'connorgmeehan23@gmail.com',
+    siteNameShort: 'cgm.codes',
+    technologies: [
+      {
+        name: 'Javascript',
+        icon: 'icon-js-logo',
+        link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/'
+      },
+      {
+        name: 'React',
+        icon: 'icon-react-logo',
+        link: 'https://reactjs.org/'
+      },
+      {
+        name: 'P5.js',
+        icon: 'icon-p5-logo',
+        link: 'https://p5js.org/'
+      },
+      {
+        name: 'C++',
+        icon: 'icon-cpp-logo',
+        link: 'https://isocpp.org/'
+      },
+      {
+        name: 'openFrameworks',
+        icon: 'icon-openframeworks-logo',
+        link: 'https://openframeworks.cc/'
+      },
+      {
+        name: 'Open CV',
+        icon: 'icon-opencv-logo',
+        link: 'https://opencv.org/'
+      },
+      {
+        name: 'C#',
+        icon: 'icon-c-sharp-logo',
+        link: 'https://en.wikipedia.org/wiki/C_Sharp_(programming_language)'
+      }
+    ],
+    socials: [
+      {
+        name: 'Twitter',
+        icon: 'icon-twitter-logo',
+        link: 'https://twitter.com/connorgm'
+      },
+      {
+        name: 'Github',
+        icon: 'icon-github-logo',
+        link: 'https://github.com/connorgmeehan'
+      }
+    ]
+  },
   plugins: [
     {
-      use: '@gridsome/source-filesystem',
+      use: "@gridsome/source-filesystem",
       options: {
-        path: 'posts/**/*.md',
-        typeName: 'Post',
-        route: '/p/:slug'
+        path: "blog/**/*.md",
+        typeName: "Post",
+        remark: {
+
+        }
       }
     }
   ],
-  chainWebpack: config => {
-    const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-    types.forEach(type => addStyleResource(config.module.rule('scss').oneOf(type)))
+  transformers: {
+    remark: {
+      
+    }
   }
 }
