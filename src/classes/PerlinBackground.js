@@ -1,6 +1,6 @@
 import Color from './Color';
 import {ShaderCanvas} from 'shader-canvas';
-import { vec3 } from "gl-matrix";
+import Vec3 from './gl/Vec3';
 import {fragShaderSource} from '../classes/gl/PerlinShaders_2';
 import signedRandom from '../helpers/signedRandom';
 
@@ -10,17 +10,19 @@ export const PerlinBackgroundSettings = {
     fogColor: '#FFFFFF',
     padding: 100,
     metaballCount: 4,
-    metaballMin: 0.3,
-    metaballMax: 0.5,
-    gravity: 200,
+    metaballMin: 0.8,
+    metaballMax: 2.2,
+    metaBallMaxDistance: 5,
+    maxStartingVel: 0.05,
+    gravity: 0.01,
+    time: 0.001,
 };
 
 class Metaball {
-    constructor(x, y, z, radius) {
-        console.log(x,y,z);
-        this.pos = vec3.fromValues(x,y,z);
-        console.log(...this.pos);
-        this.velocity = vec3.fromValues(signedRandom(-0.05, 0.05), signedRandom(-0.05, 0.05), signedRandom(-0.05, 0.05));
+    constructor(pos, radius) {
+        this.pos = pos;
+        console.log(...this.pos.data);
+        this.velocity = new Vec3([0,0,0]);
         this.radius = radius;
     }
 };
@@ -33,6 +35,8 @@ class PerlinBackground {
      * @memberof PerlinBackground
      */
     constructor(target, settings) {
+        if (!process.isClient) return;
+        
         this._settings = settings;
         const { lightColor, baseColor, fogColor, padding } = settings;
         this._parent = target;
@@ -52,14 +56,22 @@ class PerlinBackground {
         // Generate metaballs
         this._metaballs = [];
         console.log(this);
+
+        const origin = new Vec3([0, 0, -2]);
+        
         for (var i = 0; i < this._settings.metaballCount; i++) {
-            const newMetaball = new Metaball(
-                signedRandom(settings.metaballMin, settings.metaballMax) * 5.0,
-                signedRandom(settings.metaballMin, settings.metaballMax) * 5.0,
-                signedRandom(settings.metaballMin, settings.metaballMax) * 5.0,
-                signedRandom(settings.metaballMin, settings.metaballMax)
-            );
-            this._shaderCanvas.setUniform(`metaball${i+1}`, [newMetaball.pos[0], newMetaball.pos[1], newMetaball.pos[2]]); // Pass new data to shader
+            const pos = new Vec3([
+                signedRandom(-.7, .7) * 4,
+                signedRandom(-.7, .7) * 4,
+                signedRandom(-2, 0),
+            ]);
+            const newMetaball = new Metaball( pos, signedRandom(settings.metaballMin, settings.metaballMax) );
+            
+            const originDirection = newMetaball.pos.subtract(origin).normalize();
+            const orbitDirection = originDirection.rotate(signedRandom(60,100), 0, signedRandom(0, 180));
+            newMetaball.vel = orbitDirection.multiplyAll(signedRandom(0.1, 5));
+
+            this._shaderCanvas.setUniform(`metaball${i+1}`, [newMetaball.pos.x, newMetaball.pos.y, newMetaball.pos.z]); // Pass new data to shader
             this._shaderCanvas.setUniform(`metaball${i+1}Size`, newMetaball.radius);
             this._metaballs.push(newMetaball);
         }
@@ -96,17 +108,18 @@ class PerlinBackground {
     }
 
     _update(now) {
-        const origin = new vec3.fromValues(0, 0, 0);
-        const gravity = new vec3.fromValues(this._settings.gravity, this._settings.gravity, this._settings.gravity);
+        const origin = new Vec3([0, 0, -2]);
+        const gravity = new Vec3([this._settings.gravity, this._settings.gravity, this._settings.gravity]);
+        const time = new Vec3([this._settings.time, this._settings.time, this._settings.time]);
         this._metaballs.forEach((metaball, i) => {
-            let diff = vec3.create();
-            vec3.subtract(diff, metaball.pos, origin); // Direct vector to origin
-            vec3.multiply(diff, diff, gravity); // Scale by gravity
-            vec3.subtract(metaball.velocity, metaball.velocity, diff); // Adjust metaball velocity
-            vec3.subtract(metaball.pos, metaball.pos, metaball.velocity); // Update metaball position
-            this._shaderCanvas.setUniform(`metaball${i+1}`, [metaball.pos[0], metaball.pos[1], metaball.pos[2]]); // Pass new data to shader
+            let diff = metaball.pos.subtract(origin);
+            diff = diff.multiply(gravity);
+            metaball.velocity = metaball.velocity.add(diff);
+            let scaledVelocity = metaball.velocity.multiply(time);
+            metaball.pos = metaball.pos.subtract(scaledVelocity);
+            this._shaderCanvas.setUniform(`metaball${i+1}`, [metaball.pos.x, metaball.pos.y, metaball.pos.z]); // Pass new data to shader
         });
-        this._shaderCanvas.setUniform('time', now / 1000); // Pass new data to shader
+        this._shaderCanvas.render();
         requestAnimationFrame(now => this._update(now));
     }
 

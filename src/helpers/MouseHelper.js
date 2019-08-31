@@ -1,5 +1,8 @@
 class _MouseHelper {
+  x = 0;
+  y = 0;
   constructor() {
+    if (!process.isClient) return;
     this._handleMouseMove = this._handleMouseMove.bind(this);
     this.isMouseInsideBounds = this.isMouseInsideBounds.bind(this);
     window.addEventListener('mousemove', e => this._handleMouseMove(e));

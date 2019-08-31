@@ -107,7 +107,7 @@ void main() {
 
     // camera setup
     vec3 upDirection = vec3(0.0, -1.0, 0.0);
-    vec3 cameraOrigin = vec3(cos(t * 0.25)*5., 5., sin(t * 0.25)*5. + 5.);
+    vec3 cameraOrigin = vec3(0., 5., 5. + 5.);
     vec3 cameraTarget = vec3(.0);
 
     vec3 cameraDir = normalize(cameraTarget - cameraOrigin);

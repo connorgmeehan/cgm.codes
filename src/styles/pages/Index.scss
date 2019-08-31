@@ -4,13 +4,10 @@
         width: 100%;
         min-height: 100vh;
 
-        .PerlinCanvas {
-            position: absolute;
-        }
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
     }
-    
-    padding-top: $spacing-4;
-    padding-bottom: $spacing-2;
     
     @include breakpoint('xlarge') {
         display: flex;
@@ -31,6 +28,10 @@
         h1 {
             color: #FFF;
             mix-blend-mode: $text-mix-blend-mode;
+        }
+
+        .PerlinCanvas {
+            position: absolute;
         }
     }
 
