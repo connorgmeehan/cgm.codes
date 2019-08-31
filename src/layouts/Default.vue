@@ -1,5 +1,5 @@
 <template>
-  <div class= "Layout" :class="modifierClass">
+  <div class= "Layout">
      <slot/>
 
      <header class="Header_Wrapper">
@@ -34,13 +34,6 @@
 <script>
 export default {
   name: "layout",
-  props: ["pageContext"],
-  computed: {
-    modifierClass: function() {
-      console.log(this);
-      return this.pageContext ? `Layout--${this.pageContext}` : "";
-    }
-  },
   methods: {
     copyEmail: function () {
       const textbox = document.getElementById("CopySandbox_Input");
@@ -58,7 +51,6 @@ export default {
   }
 }
 </script>
-
 <static-query>
 query {
   metaData {
