@@ -27,30 +27,29 @@
 
 <script>
 import DateFormatter from '~/helpers/DateFormatter';
+import MouseHelper from '../helpers/MouseHelper';
 
 export default {
   name: "PostPreview",
   props: ["postdata"],
   data: () => ({
     isHover: false,
-    win: {},
     mouseHelper: {},
   }),
-  mounted: () => {
-    this.mouseHelper = process.isClient ? require('../helpers/MouseHelper') : this.mouseHelper;
-    this.win = process.isClient ? window : this.win;
+  mounted: function() {
+    this.mouseHelper = new MouseHelper().get();
   },
   methods: {
     handleMouseOver() {
       this.isHover = true;
-      this.win.addEventListener('scroll', this.handleScroll);
+      window.addEventListener('scroll', this.handleScroll);
     },
     handleMouseLeave() {
       this.isHover = false;
-      this.win.removeEventListener('scroll', this.handleScroll);
+      window.removeEventListener('scroll', this.handleScroll);
     },
     handleScroll(e) {
-      if(!MouseHelper.isMouseInsideBounds(this.$refs['title'])) {
+      if(!this.mouseHelper.isMouseInsideBounds(this.$refs['title'])) {
         this.handleMouseLeave();
       }
     }

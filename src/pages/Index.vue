@@ -65,7 +65,7 @@ export default {
   mounted: function () {
   // import PerlinBackground, { PerlinBackgroundSettings } from '../classes/PerlinBackground';
   const PerlinBackground = require('../classes/PerlinBackground').default;
-  const PerlinBackgroundSettings = requre('../classes/PerlinBackground').PerlinBackgroundSettings;
+  const PerlinBackgroundSettings = require('../classes/PerlinBackground').PerlinBackgroundSettings;
   
     console.log("mounted again");
     const perlinTarget = document.getElementById('Hero_CanvasContainer');
