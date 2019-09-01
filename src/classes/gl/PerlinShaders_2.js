@@ -1,5 +1,5 @@
 export const fragShaderSource = (lightingColor, baseColor, fogColor) => `
-precision mediump float;
+precision lowp float;
 const int marchCount = 100;
 const float rayCollisionDistance = 0.0005;
 

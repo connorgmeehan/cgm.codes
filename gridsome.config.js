@@ -5,13 +5,13 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'connor guy meehan codes, allegedly',
+  siteName: 'portfolio of connor guy meehan who codes, allegedly',
   siteUrl: 'https://cgm.codes/',
   siteDescription: 'Personal portfolio of works by Connor Guy Meehan, Computing Design student at The University of Sydney and aspiring Creative Technologist!',
   icon: 'assets/favicon.png',
   metaData: {
     contactEmail: 'connorgmeehan23@gmail.com',
-    siteNameShort: 'cgm.codes',
+    siteNameShort: 'cgmcodes',
     technologies: [
       {
         name: 'Javascript',

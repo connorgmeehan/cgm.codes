@@ -61,6 +61,16 @@
 
 .Post {
   background: white;
+
+  &_FrameWrapper {
+    padding: $spacing-2 0;
+    height: 100vh;
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
   &_Content {
     padding: $spacing-1;
     @include breakpoint('medium') {

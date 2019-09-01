@@ -22,6 +22,9 @@
         </div>
       </div>
       <div class="Post">
+        <div v-if="$page.post.iframe !== undefined" :class="{'Post_FrameWrapper': true, 'container': !$page.post.iframe.fullwidth }">
+          <iframe :src="$page.post.iframe.url"  />
+        </div>
         <div class="Post_Content container-narrow" v-html="$page.post.content" />
       </div>
     </div>
@@ -63,7 +66,10 @@ query Post ($path: String!) {
     path
     date (format: "D. MMMM YYYY")
     duration
-    timeToRead
+    iframe {
+      url
+      fullwidth
+    }
     team {
       name
       link
