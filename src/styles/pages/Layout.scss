@@ -25,6 +25,9 @@ body {
       height: 80%;
       position: absolute;
       background: rgb(255,255,255);
+      @include breakpoint('small') {
+        background: none;
+      }
     }
 
     &:after{
@@ -38,7 +41,7 @@ body {
       @include scrimGradient('to bottom', white);
   
       @include breakpoint('small') {
-        background: transparent;
+        background: none;
       }
     }
   }  
