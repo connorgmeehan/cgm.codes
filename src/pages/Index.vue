@@ -45,7 +45,7 @@ import IconCabinet from '../components/IconCabinet';
 import PostPreview from '../components/PostPreview';
 export default {
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'cgm.codes'
   },
   components: {
     HeroHistory,

@@ -52,68 +52,176 @@ p {
 
 h1, .heading-1 {
   @extend .heading;
+  font-weight: 500;
   @include plumber(
-    $grid-height: $h1-grid-height,
+    $grid-height: $base-grid-height,
     $baseline: $secondary-baseline,
     $font-size: $h1-grid-font-ratio,
     $line-height: $h1-grid-line-height-ratio,
     $leading-top: $h1-leading-top,
     $leading-bottom: $h1-leading-bottom,
   );
-  font-weight: 500;
+  @include breakpoint('small') {
+    @include plumber(
+      $grid-height: $base-grid-height,
+      $baseline: $secondary-baseline,
+      $font-size: $h1-t-grid-font-ratio,
+      $line-height: $h1-t-grid-line-height-ratio,
+      $leading-top: $h1-t-leading-top,
+      $leading-bottom: $h1-t-leading-bottom,
+    );
+  }
+
+  @include breakpoint('medium') {
+    @include plumber(
+      $grid-height: $base-grid-height,
+      $baseline: $secondary-baseline,
+      $font-size: $h1-d-grid-font-ratio,
+      $line-height: $h1-d-grid-line-height-ratio,
+      $leading-top: $h1-d-leading-top,
+      $leading-bottom: $h1-d-leading-bottom,
+    );
+  }
 }
 
 h2, .heading-2 {
   @extend .heading;
+  font-weight: 500;
   @include plumber(
-    $grid-height: $h2-grid-height,
+    $grid-height: $base-grid-height,
     $baseline: $secondary-baseline,
     $font-size: $h2-grid-font-ratio,
     $line-height: $h2-grid-line-height-ratio,
     $leading-top: $h2-leading-top,
     $leading-bottom: $h2-leading-bottom,
-  );}
+  );
+  @include breakpoint('small') {
+    @include plumber(
+      $grid-height: $base-grid-height,
+      $baseline: $secondary-baseline,
+      $font-size: $h2-t-grid-font-ratio,
+      $line-height: $h2-t-grid-line-height-ratio,
+      $leading-top: $h2-t-leading-top,
+      $leading-bottom: $h2-t-leading-bottom,
+    );
+  }
+
+  @include breakpoint('medium') {
+    @include plumber(
+      $grid-height: $base-grid-height,
+      $baseline: $secondary-baseline,
+      $font-size: $h2-d-grid-font-ratio,
+      $line-height: $h2-d-grid-line-height-ratio,
+      $leading-top: $h2-d-leading-top,
+      $leading-bottom: $h2-d-leading-bottom,
+    );
+  }
+}
 
 h3, .heading-3 {
   @extend .heading;
+  font-weight: 500;
   @include plumber(
-    $grid-height: $h3-grid-height,
+    $grid-height: $base-grid-height,
     $baseline: $secondary-baseline,
     $font-size: $h3-grid-font-ratio,
     $line-height: $h3-grid-line-height-ratio,
     $leading-top: $h3-leading-top,
     $leading-bottom: $h3-leading-bottom,
   );
+  @include breakpoint('small') {
+    @include plumber(
+      $grid-height: $base-grid-height,
+      $baseline: $secondary-baseline,
+      $font-size: $h3-t-grid-font-ratio,
+      $line-height: $h3-t-grid-line-height-ratio,
+      $leading-top: $h3-t-leading-top,
+      $leading-bottom: $h3-t-leading-bottom,
+    );
+  }
+
+  @include breakpoint('medium') {
+    @include plumber(
+      $grid-height: $base-grid-height,
+      $baseline: $secondary-baseline,
+      $font-size: $h3-d-grid-font-ratio,
+      $line-height: $h3-d-grid-line-height-ratio,
+      $leading-top: $h3-d-leading-top,
+      $leading-bottom: $h3-d-leading-bottom,
+    );
+  }
 }
 
 h4, .heading-4 {
   @extend .heading;
   @include plumber(
-    $grid-height: $h4-grid-height,
+    $grid-height: $base-grid-height,
     $baseline: $secondary-baseline,
     $font-size: $h4-grid-font-ratio,
     $line-height: $h4-grid-line-height-ratio,
     $leading-top: $h4-leading-top,
     $leading-bottom: $h4-leading-bottom,
   );
+  @include breakpoint('small') {
+    @include plumber(
+      $grid-height: $base-grid-height,
+      $baseline: $secondary-baseline,
+      $font-size: $h4-t-grid-font-ratio,
+      $line-height: $h4-t-grid-line-height-ratio,
+      $leading-top: $h4-t-leading-top,
+      $leading-bottom: $h4-t-leading-bottom,
+    );
+  }
+
+  @include breakpoint('medium') {
+    @include plumber(
+      $grid-height: $base-grid-height,
+      $baseline: $secondary-baseline,
+      $font-size: $h4-d-grid-font-ratio,
+      $line-height: $h4-d-grid-line-height-ratio,
+      $leading-top: $h4-d-leading-top,
+      $leading-bottom: $h4-d-leading-bottom,
+    );
+  }
 }
 
 .meta {
   font-family: $secondary-font;
   @include plumber(
-    $grid-height: $meta-grid-height,
+    $grid-height: $base-grid-height,
     $baseline: $secondary-baseline,
     $font-size: $meta-grid-font-ratio,
     $line-height: $meta-grid-line-height-ratio,
     $leading-top: $meta-leading-top,
     $leading-bottom: $meta-leading-bottom,
   );
+  @include breakpoint('small') {
+    @include plumber(
+      $grid-height: $base-grid-height,
+      $baseline: $secondary-baseline,
+      $font-size: $meta-t-grid-font-ratio,
+      $line-height: $meta-t-grid-line-height-ratio,
+      $leading-top: $meta-t-leading-top,
+      $leading-bottom: $meta-t-leading-bottom,
+    );
+  }
+
+  @include breakpoint('medium') {
+    @include plumber(
+      $grid-height: $base-grid-height,
+      $baseline: $secondary-baseline,
+      $font-size: $meta-d-grid-font-ratio,
+      $line-height: $meta-d-grid-line-height-ratio,
+      $leading-top: $meta-d-leading-top,
+      $leading-bottom: $meta-d-leading-bottom,
+    );
+  }
 }
 
 .meta-small {
   font-family: $secondary-font;
   @include plumber(
-    $grid-height: $meta-small-grid-height,
+    $grid-height: $base-grid-height,
     $baseline: $secondary-baseline,
     $font-size: $meta-small-grid-font-ratio,
     $line-height: $meta-small-grid-line-height-ratio,
@@ -125,19 +233,40 @@ h4, .heading-4 {
 .history-title {
   @extend .heading;
   @include plumber(
-    $grid-height: $history-grid-height,
+    $grid-height: $base-grid-height,
     $baseline: $secondary-baseline,
     $font-size: $history-grid-font-ratio,
     $line-height: $history-grid-line-height-ratio,
     $leading-top: $history-leading-top,
     $leading-bottom: $history-leading-bottom,
   );
+  @include breakpoint('small') {
+    @include plumber(
+      $grid-height: $base-grid-height,
+      $baseline: $secondary-baseline,
+      $font-size: $history-t-grid-font-ratio,
+      $line-height: $history-t-grid-line-height-ratio,
+      $leading-top: $history-t-leading-top,
+      $leading-bottom: $history-t-leading-bottom,
+    );
+  }
+
+  @include breakpoint('medium') {
+    @include plumber(
+      $grid-height: $base-grid-height,
+      $baseline: $secondary-baseline,
+      $font-size: $history-d-grid-font-ratio,
+      $line-height: $history-d-grid-line-height-ratio,
+      $leading-top: $history-d-leading-top,
+      $leading-bottom: $history-d-leading-bottom,
+    );
+  }
 }
 
 .article-heading-1 {
   @extend .heading;
   @include plumber(
-    $grid-height: $h1-grid-height,
+    $grid-height: $base-grid-height,
     $baseline: $secondary-baseline,
     $font-size: $h1-grid-font-ratio,
     $line-height: $h1-grid-line-height-ratio,
@@ -147,24 +276,10 @@ h4, .heading-4 {
   font-weight: 500;
 }
 
-
-.article-heading-1 {
-  @extend .heading;
-  @include plumber(
-    $grid-height: $h1-article-grid-height,
-    $baseline: $secondary-baseline,
-    $font-size: $h1-article-grid-font-ratio,
-    $line-height: $h1-article-grid-line-height-ratio,
-    $leading-top: $h1-article-leading-top,
-    $leading-bottom: $h1-article-leading-bottom,
-  );
-  font-weight: 500;
-}
-
 .article-heading-2 {
   @extend .heading;
   @include plumber(
-    $grid-height: $h2-article-grid-height,
+    $grid-height: $base-grid-height,
     $baseline: $secondary-baseline,
     $font-size: $h2-article-grid-font-ratio,
     $line-height: $h2-article-grid-line-height-ratio,
@@ -177,7 +292,7 @@ h4, .heading-4 {
 .article-heading-3 {
   @extend .heading;
   @include plumber(
-    $grid-height: $h3-article-grid-height,
+    $grid-height: $base-grid-height,
     $baseline: $secondary-baseline,
     $font-size: $h3-article-grid-font-ratio,
     $line-height: $h3-article-grid-line-height-ratio,
@@ -190,7 +305,7 @@ h4, .heading-4 {
 .article-heading-4 {
   @extend .heading;
   @include plumber(
-    $grid-height: $h4-article-grid-height,
+    $grid-height: $base-grid-height,
     $baseline: $secondary-baseline,
     $font-size: $h4-article-grid-font-ratio,
     $line-height: $h4-article-grid-line-height-ratio,
@@ -203,7 +318,7 @@ h4, .heading-4 {
 .article-list {
   @extend .heading;
   @include plumber(
-    $grid-height: $list-article-grid-height,
+    $grid-height: $base-grid-height,
     $baseline: $secondary-baseline,
     $font-size: $list-article-grid-font-ratio,
     $line-height: $list-article-grid-line-height-ratio,

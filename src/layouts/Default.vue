@@ -8,10 +8,6 @@
           <span class="Header_Title">
             <g-link to="/">{{ $static.metaData.siteNameShort }}</g-link>
           </span>
-          <nav class="Header_Nav">
-            <g-link to="/"><h3 class="Header_NavLink">home</h3></g-link>
-            <a href="#" v-on:click="copyEmail"><h3 class="Header_NavLink">email me</h3></a>
-          </nav>
         </div>
       </div>
     </header>
