@@ -127,6 +127,14 @@ class PerlinBackground {
     requestAnimationFrame(now => this._update(now));
   }
 
+  stop() {
+
+  }
+
+  restart() {
+    
+  }
+
   /**
      * kill
      * destroys gl instance and deletes HTMLElement

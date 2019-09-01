@@ -1,4 +1,4 @@
-// This is where project configuration and plugin options are located. 
+// This is where project configuration and plugin options are located.
 // Learn more: https://gridsome.org/docs/config
 
 // Changes here require a server restart.
@@ -6,9 +6,9 @@
 
 module.exports = {
   siteName: 'connor guy meehan codes, allegedly',
-  siteUrl: "https://cgm.codes/",
-  siteDescription: "Personal portfolio of works by Connor Guy Meehan, Computing Design student at The University of Sydney and aspiring Creative Technologist!",
-  icon: "src/connorgmeehan-favicon.png",
+  siteUrl: 'https://cgm.codes/',
+  siteDescription: 'Personal portfolio of works by Connor Guy Meehan, Computing Design student at The University of Sydney and aspiring Creative Technologist!',
+  icon: 'assets/favicon.png',
   metaData: {
     contactEmail: 'connorgmeehan23@gmail.com',
     siteNameShort: 'cgm.codes',
@@ -64,10 +64,10 @@ module.exports = {
   },
   plugins: [
     {
-      use: "@gridsome/source-filesystem",
+      use: '@gridsome/source-filesystem',
       options: {
-        path: "blog/**/*.md",
-        typeName: "Post",
+        path: 'blog/**/*.md',
+        typeName: 'Post',
         remark: {
 
         }
@@ -79,7 +79,7 @@ module.exports = {
   },
   transformers: {
     remark: {
-      
+
     }
   }
 }

@@ -39,7 +39,7 @@ body {
     justify-content: space-between;
     margin: 10px;
 
-    @include breakpoint('small') {
+    @include breakpoint('medium') {
       margin: $spacing-2;
     }
     pointer-events: all;

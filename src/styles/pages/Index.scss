@@ -3,16 +3,13 @@
         overflow: hidden;
         background: $primary-color;
         width: 100%;
-        padding: $spacing-3 10px;
+        padding: $spacing-3 10px 0;
 
         @include breakpoint('medium') {
+            padding-top: $spacing-4;
             padding-left: 0;
             padding-right: 0;
             min-height: 100vh;
-        }
-        
-        @include breakpoint('large') {
-            padding-top: $spacing-6;
         }
         
         @include breakpoint('xlarge') {

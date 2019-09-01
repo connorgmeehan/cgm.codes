@@ -52,37 +52,11 @@ export default {
     IconCabinet,
     PostPreview
   },
-  data: function() {
-    return {
-      perlinBackground: null,
-    };
-  },
   computed: {
     posts: function () {
       return this.$static.allPost.edges.map(el => el.node);
     }
   },
-  mounted: function () {
-  // import PerlinBackground, { PerlinBackgroundSettings } from '../classes/PerlinBackground';
-  const PerlinBackground = require('../classes/PerlinBackground').default;
-  const PerlinBackgroundSettings = require('../classes/PerlinBackground').PerlinBackgroundSettings;
-  
-    console.log("mounted again");
-    const perlinTarget = document.getElementById('Hero_CanvasContainer');
-    const perlinBackgroundSettings = PerlinBackgroundSettings;
-    perlinBackgroundSettings.padding = 50;
-
-    if (this.perlinBackground === null) {
-      this.perlinBackground = new PerlinBackground(perlinTarget, perlinBackgroundSettings);
-    }
-  },
-  beforeDestroy: function () {
-    if (this.perlinBackground !== null) {
-      this.perlinBackground.kill();
-      this.perlinBackground = null;
-    }
-  }
-  
 }
 </script>
 
