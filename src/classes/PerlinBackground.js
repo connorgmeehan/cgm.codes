@@ -89,8 +89,12 @@ class PerlinBackground {
   }
 
   _bindEvents () {
+    let resizeTimeout;
     window.addEventListener('resize', (e) => {
-      this._resizeCanvas(this._parent, this._shaderCanvas, this._padding);
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        this._resizeCanvas(this._parent, this._shaderCanvas, this._padding);
+      }, 100);
     }, false);
   }
 
@@ -102,6 +106,7 @@ class PerlinBackground {
      * @memberof PerlinBackground
      */
   _resizeCanvas (parent, canvas, padding) {
+    console.log('resize canvas');
     this._width = parent.clientWidth;
     this._height = parent.clientHeight;
     canvas.domElement.style.left = `-${padding}px`;
