@@ -22,9 +22,10 @@
         </div>
       </div>
       <div class="Post">
-        <div v-if="$page.post.iframe !== undefined" :class="{'Post_FrameWrapper': true, 'container': !$page.post.iframe.fullwidth }">
-          <iframe :src="$page.post.iframe.url"  />
+        <div v-if="$page.post.iframe !== null" class="Post_FrameWrapper">
+          <IFrameDisplay :url="$page.post.iframe.url" :fullscreen="$page.post.iframe.fullwidth" />
         </div>
+
         <div class="Post_Content container-narrow" v-html="$page.post.content" />
       </div>
     </div>
@@ -33,6 +34,7 @@
 
 <script>
 import TextCabinet from '../components/TextCabinet';
+import IFrameDisplay from '../components/IFrameDisplay';
 
 export default {
   name: "Post",
@@ -55,6 +57,7 @@ export default {
   },
   components: {
     TextCabinet,
+    IFrameDisplay,
   }
 };
 </script>

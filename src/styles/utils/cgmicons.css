@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'cgmicons';
-  src: url('../font/cgmicons.eot?77513264');
-  src: url('../font/cgmicons.eot?77513264#iefix') format('embedded-opentype'),
-       url('../font/cgmicons.woff2?77513264') format('woff2'),
-       url('../font/cgmicons.woff?77513264') format('woff'),
-       url('../font/cgmicons.ttf?77513264') format('truetype'),
-       url('../font/cgmicons.svg?77513264#cgmicons') format('svg');
+  src: url('../font/cgmicons.eot?24399054');
+  src: url('../font/cgmicons.eot?24399054#iefix') format('embedded-opentype'),
+       url('../font/cgmicons.woff2?24399054') format('woff2'),
+       url('../font/cgmicons.woff?24399054') format('woff'),
+       url('../font/cgmicons.ttf?24399054') format('truetype'),
+       url('../font/cgmicons.svg?24399054#cgmicons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'cgmicons';
-    src: url('../font/cgmicons.svg?77513264#cgmicons') format('svg');
+    src: url('../font/cgmicons.svg?24399054#cgmicons') format('svg');
   }
 }
 */
@@ -60,6 +60,7 @@
 .icon-openframeworks-logo:before { content: '\e802'; } /* '' */
 .icon-c-sharp-logo:before { content: '\e803'; } /* '' */
 .icon-cpp-logo:before { content: '\e804'; } /* '' */
+.icon-cancel:before { content: '\e805'; } /* '' */
 .icon-react-logo:before { content: '\e807'; } /* '' */
 .icon-opencv-logo:before { content: '\e809'; } /* '' */
 .icon-p5-logo:before { content: '\e812'; } /* '' */

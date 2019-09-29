@@ -64,11 +64,6 @@
 
   &_FrameWrapper {
     padding: $spacing-2 0;
-    height: 100vh;
-    iframe {
-      width: 100%;
-      height: 100%;
-    }
   }
 
   &_Content {
