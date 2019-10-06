@@ -132,8 +132,8 @@ class PerlinBackground {
     requestAnimationFrame(now => this._update(now));
   }
 
-  stop() {
-
+  stop () {
+    this._parent.removeChild(this._shaderCanvas.domElement);
   }
 
   restart() {
