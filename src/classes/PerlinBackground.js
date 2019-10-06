@@ -47,6 +47,7 @@ class PerlinBackground {
     this._baseColor = new Color().fromHex(baseColor).makeFloat();
     this._lightColor = new Color().fromHex(lightColor).makeFloat();
     this._fogColor = new Color().fromHex(fogColor).makeFloat();
+    this._isStopped = false;
 
     // Initialse canvas
     this._shaderCanvas = new ShaderCanvas();
@@ -115,6 +116,9 @@ class PerlinBackground {
   }
 
   _update (now) {
+    if (this._isStopped) {
+      return;
+    }
     const metaballScale = EasingFunctions.easeInOutQuad(clamp(now / 1000, this._settings.metaballGrowTime) / this._settings.metaballGrowTime);
     const origin = new Vec3([0, 0, -2]);
     const gravity = new Vec3([this._settings.gravity, this._settings.gravity, this._settings.gravity]);
@@ -133,6 +137,7 @@ class PerlinBackground {
   }
 
   stop () {
+    this._isStopped = true;
     this._parent.removeChild(this._shaderCanvas.domElement);
   }
 

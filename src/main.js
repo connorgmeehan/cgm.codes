@@ -31,7 +31,9 @@ export default function (Vue, { router, head, isClient }) {
           perlinBackground = new PerlinBackground(perlinTarget, perlinBackgroundSettings);
           console.log(perlinBackground);
         } else {
-          perlinBackground.stop();
+          if (perlinBackground !== null) {
+            perlinBackground.stop();
+          }
           perlinBackground = null;
         }
       })
