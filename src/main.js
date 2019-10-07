@@ -6,7 +6,7 @@ import './styles/main.scss';
 import DefaultLayout from '~/layouts/Default.vue'
 
 export default function (Vue, { router, head, isClient }) {
-  if (process.isClient) {
+  // if (process.isClient) {
     // const getPerlinBackgroundTarget = () => {
     //   return document.getElementById('Hero_CanvasContainer');
     // }
@@ -37,7 +37,7 @@ export default function (Vue, { router, head, isClient }) {
     //     }
     //   })
     // });
-  }
+  // }
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
 }
