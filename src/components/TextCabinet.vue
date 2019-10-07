@@ -1,19 +1,25 @@
 <template>
   <div :class="['TextCabinet', useBodyFont ? 'TextCabinet__TitleFont' : '']">
-    <h3 class="TextCabinet_Title">{{title}}</h3>
+    <h3 class="TextCabinet_Title">
+      {{ title }}
+    </h3>
 
     <div class="TextCabinet_Track">
-      <span v-for="(el, i) in elements" :key="i"
+      <span
+        v-for="(el, i) in elements"
+        :key="i"
         @mouseover="() => onHover(el)"
         @mouseleave="() => onLeave(el)">
-        <a v-if="ifHasLink(el)"
+        <a
+          v-if="ifHasLink(el)"
           :class="['TextCabinet_Element', ifHasLink(el) ? 'TextCabinet_Element__Linked' : '']"
           :href="el.link">
-          {{el.name}}
+          {{ el.name }}
         </a>
-        <span v-if="!ifHasLink(el)"
+        <span
+          v-if="!ifHasLink(el)"
           class="TextCabinet_Element">
-          {{el.name}}
+          {{ el.name }}
         </span>
       </span>
     </div>
@@ -23,8 +29,20 @@
 <script>
 export default {
   name: "TextCabinet",
-  props: ["title", "elements", "useBodyFont"],
-  data: () => ({
+    props: {
+      title: {
+        type: String,
+        required: true,
+      },
+      data: {
+        type: Array,
+        required: true,
+      },
+      useBodyFont: {
+        type: Boolean,
+        default: true,
+      }   
+    },  data: () => ({
     selectedName: '',
   }),
   methods: {

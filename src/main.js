@@ -5,7 +5,8 @@ import './styles/main.scss';
 
 import DefaultLayout from '~/layouts/Default.vue'
 
-export default function (Vue, { router, head, isClient }) {
+// export default function (Vue, { router, head, isClient }) {
+export default function (Vue) {
   // if (process.isClient) {
     // const getPerlinBackgroundTarget = () => {
     //   return document.getElementById('Hero_CanvasContainer');
