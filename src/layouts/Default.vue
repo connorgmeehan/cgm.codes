@@ -1,8 +1,8 @@
 <template>
-  <div class= "Layout">
-     <slot/>
+  <div class="Layout">
+    <slot />
 
-     <header class="Header_Wrapper">
+    <header class="Header_Wrapper">
       <div class="Header">
         <div class="Header_TextBlock">
           <span class="Header_Title">
@@ -12,24 +12,28 @@
       </div>
     </header>
     
-    <div class="Footer">
-    </div>
+    <div class="Footer" />
 
-    <div class="CopySandbox_Wrapper" id="CopySandbox_Notification" v-on:click="closeCopyEmail">
-      <input type="text" :value="$static.metaData.contactEmail" id="CopySandbox_Input">
+    <div
+      id="CopySandbox_Notification"
+      v-on:click="closeCopyEmail"
+      class="CopySandbox_Wrapper">
+      <input
+        id="CopySandbox_Input"
+        :value="$static.metaData.contactEmail"
+        type="text">
       <div class="CopySandbox">
         <div class="CopySandbox_Content">
-          {{$static.metaData.contactEmail}} saved to clipboard
+          {{ $static.metaData.contactEmail }} saved to clipboard
         </div>
-        <div class="CopySandBox_Close">
-        </div>
+        <div class="CopySandBox_Close" />
       </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: "layout",
+  name: "Layout",
   methods: {
     copyEmail: function () {
       const textbox = document.getElementById("CopySandbox_Input");

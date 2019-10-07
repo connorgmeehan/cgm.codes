@@ -1,46 +1,47 @@
 <template>
   <Layout>
-
-    <div class="Hero_Wrapper">
-      <!-- <video src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" style="position: absolute; top: 0; width: 100%;"/> -->
-      <div class="Hero container">
-        <div
-          id="Hero_CanvasContainer"
-          class="Hero_Copy">
-          <h1>
-            Hello my name is Connor and I'm interested in the intersection between humans and technology.
-          </h1>
-        </div>
-        <div class="Hero_Sidebar">
-          <div class="Hero_History">
-            <HeroHistory />
+    <div>
+      <div class="Hero_Wrapper">
+        <!-- <video src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" style="position: absolute; top: 0; width: 100%;"/> -->
+        <div class="Hero container">
+          <div
+            id="Hero_CanvasContainer"
+            class="Hero_Copy">
+            <h1>
+              Hello my name is Connor and I'm interested in the intersection between humans and technology.
+            </h1>
           </div>
-          <div class="Hero_CabinetWrapper">
-            <div class="Hero_IconCabinet">
-              <IconCabinet 
-                :data="$static.metaData.technologies"
-                title="Technologies" />
+          <div class="Hero_Sidebar">
+            <div class="Hero_History">
+              <HeroHistory />
             </div>
-            <div class="Hero_IconCabinet">
-              <IconCabinet
-                :data="$static.metaData.socials"
-                title="Socials" />
+            <div class="Hero_CabinetWrapper">
+              <div class="Hero_IconCabinet">
+                <IconCabinet 
+                  :data="$static.metaData.technologies"
+                  title="Technologies" />
+              </div>
+              <div class="Hero_IconCabinet">
+                <IconCabinet
+                  :data="$static.metaData.socials"
+                  title="Socials" />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="Works_Wrapper">
-      <div lcass="Works container">
-        <div class="Works">
-          <div 
-            v-for="post in posts"
-            :key="post.id"
-            class="Works_PostPreview">
-            <PostPreview
-              :postdata="post" />
-          </div>
-        </div>  
+      <div class="Works_Wrapper">
+        <div lcass="Works container">
+          <div class="Works">
+            <div 
+              v-for="post in posts"
+              :key="post.id"
+              class="Works_PostPreview">
+              <PostPreview
+                :postdata="post" />
+            </div>
+          </div>  
+        </div>
       </div>
     </div>
   </Layout>
