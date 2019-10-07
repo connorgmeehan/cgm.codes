@@ -72,14 +72,14 @@ $h4-d-leading-bottom                      : 1;    // Grid spacing from bottom of
 
 // Meta text
 $meta-grid-height                         : $base-grid-height;
-$meta-grid-font-ratio                     : 1.4;
+$meta-grid-font-ratio                     : 1.2;
 $meta-grid-line-height-ratio              : 2;
 $meta-leading-top                         : 0;
 $meta-leading-bottom                      : 0;
 
 // Meta text
 $meta-t-grid-height                       : $base-grid-height;
-$meta-t-grid-font-ratio                   : 1.6;
+$meta-t-grid-font-ratio                   : 1.5;
 $meta-t-grid-line-height-ratio            : 2;
 $meta-t-leading-top                       : 0;
 $meta-t-leading-bottom                    : 0;
@@ -110,21 +110,21 @@ $meta-d-small-leading-bottom              : 0;
 
 // history text
 $history-grid-height                      : $base-grid-height;
-$history-grid-font-ratio                  : $meta-grid-font-ratio;
+$history-grid-font-ratio                  : 1.2;
 $history-grid-line-height-ratio           : 2;
 $history-leading-top                      : 0;
 $history-leading-bottom                   : 0;
 
 // history text
 $history-t-grid-height                      : $base-grid-height;
-$history-t-grid-font-ratio                  : $meta-t-grid-font-ratio;
+$history-t-grid-font-ratio                  : 1.5;
 $history-t-grid-line-height-ratio           : 2;
 $history-t-leading-top                      : 0;
 $history-t-leading-bottom                   : 0;
 
 // history text
 $history-d-grid-height                      : $base-grid-height;
-$history-d-grid-font-ratio                  : $meta-d-grid-font-ratio;
+$history-d-grid-font-ratio                  : 1.9;
 $history-d-grid-line-height-ratio           : 2;
 $history-d-leading-top                      : 0;
 $history-d-leading-bottom                   : 0;
