@@ -3,6 +3,7 @@
   "title": "Pollution in Ulaanbaatar",
   "date": "2019-05-20",
   "shortdescription": "Static and interactive data visualisation showing the range of factors influencing pollution in the once most polluted capital of the world, Ulaanbaatar",
+  "video": '/pollution-in-ulaanbaatar-showcase.webm',
   "iframe": {
     "url": "https://deco3100-assessment3-ulaanbaatar.netlify.com",
     "fullwidth": true,
