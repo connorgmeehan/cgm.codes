@@ -74,6 +74,9 @@ module.exports = {
       }
     }
   ],
+  chainWebpack (config) {
+    config.mode('development')
+  },  
   transformers: {
     remark: {
 
