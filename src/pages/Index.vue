@@ -18,12 +18,12 @@
             <div class="Hero_CabinetWrapper">
               <div class="Hero_IconCabinet">
                 <IconCabinet 
-                  :data="$static.metaData.technologies"
+                  :data="$static.metadata.technologies"
                   title="Technologies" />
               </div>
               <div class="Hero_IconCabinet">
                 <IconCabinet
-                  :data="$static.metaData.socials"
+                  :data="$static.metadata.socials"
                   title="Socials" />
               </div>
             </div>
@@ -88,7 +88,7 @@ query {
       }
     }
   }
-  metaData {
+  metadata {
     technologies {
       name
       icon

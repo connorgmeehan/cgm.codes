@@ -6,7 +6,7 @@
       <div class="Header">
         <div class="Header_TextBlock">
           <span class="Header_Title">
-            <g-link to="/">{{ $static.metaData.siteNameShort }}</g-link>
+            <g-link to="/">{{ $static.metadata.siteNameShort }}</g-link>
           </span>
         </div>
       </div>
@@ -20,11 +20,11 @@
       class="CopySandbox_Wrapper">
       <input
         id="CopySandbox_Input"
-        :value="$static.metaData.contactEmail"
+        :value="$static.metadata.contactEmail"
         type="text">
       <div class="CopySandbox">
         <div class="CopySandbox_Content">
-          {{ $static.metaData.contactEmail }} saved to clipboard
+          {{ $static.metadata.contactEmail }} saved to clipboard
         </div>
         <div class="CopySandBox_Close" />
       </div>
@@ -38,7 +38,7 @@ export default {
     copyEmail: function () {
       const textbox = document.getElementById("CopySandbox_Input");
       textbox.select();
-      textbox.value = this.$static.metaData.contactEmail;
+      textbox.value = this.$static.metadata.contactEmail;
       document.execCommand("copy");
 
       const notification = document.getElementById("CopySandbox_Notification");
@@ -53,7 +53,7 @@ export default {
 </script>
 <static-query>
 query {
-  metaData {
+  metadata {
     siteName
     siteNameShort
     contactEmail

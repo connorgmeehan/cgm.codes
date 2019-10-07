@@ -9,7 +9,7 @@ module.exports = {
   siteUrl: 'https://cgm.codes/',
   siteDescription: 'Personal portfolio of works by Connor Guy Meehan, Computing Design student at The University of Sydney and aspiring Creative Technologist!',
   icon: 'assets/favicon.png',
-  metaData: {
+  metadata: {
     contactEmail: 'connorgmeehan23@gmail.com',
     siteNameShort: 'cgmcodes',
     technologies: [
