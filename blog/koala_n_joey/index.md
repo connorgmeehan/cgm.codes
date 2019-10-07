@@ -3,10 +3,10 @@
   "title": "Koala & Joey",
   "shortdescription": "Aged care sucks.  User focused design project to optimise the aged care industry and promote active aging.",
   "date": "2018-11-15",
-  "image": '/koalajoey-glamour.png',
-  "video": '/koalajoey-showcase.mp4',
+  "image": "/koalajoey-glamour.png",
+  "video": "/koalajoey-showcase.mp4",
   "team": [
-    { "name": "Soomin Lee", "link": "https://www.behance.net/soomin3375cb4", },
+    { "name": "Soomin Lee", "link": "https://www.behance.net/soomin3375cb4" }
   ],
   "tools": ["hand sketching", "proto.io", "sketch", "invision"],
   "methods": ["observatory research", "surveys", "user journey mapping", "user interviews", "focus groups"],
@@ -17,7 +17,7 @@
     { "name" : "getting user feedback", "link":"" }
   ],
   "duration": "3 months",
-  "description": "Aged care sucks.  With a royal commission currently being conducted into the level of care on   top of exorbitant costs for the government and the individual, the industry was due for a reboot. Koala & Joey are two apps design to eliviate some of these issues, by enabling volunteers to easily get involved with senior citizens in need.",
+  "description": "Aged care sucks.  With a royal commission currently being conducted into the level of care on   top of exorbitant costs for the government and the individual, the industry was due for a reboot. Koala & Joey are two apps design to eliviate some of these issues, by enabling volunteers to easily get involved senior citizens in need."
 }
 ---
 ## 1. Brief & Objective
