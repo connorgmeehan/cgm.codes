@@ -31,17 +31,15 @@
         </div>
       </div>
       <div class="Works_Wrapper">
-        <div lcass="Works container">
-          <div class="Works">
-            <div 
-              v-for="post in posts"
-              :key="post.id"
-              class="Works_PostPreview">
-              <PostPreview
-                :postdata="post" />
-            </div>
-          </div>  
-        </div>
+        <div class="Works">
+          <div 
+            v-for="post in posts"
+            :key="post.id"
+            class="Works_PostPreview">
+            <PostPreview
+              :postdata="post" />
+          </div>
+        </div>  
       </div>
     </div>
   </Layout>
