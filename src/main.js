@@ -7,37 +7,36 @@ import DefaultLayout from '~/layouts/Default.vue'
 
 export default function (Vue, { router, head, isClient }) {
   if (process.isClient) {
-    const getPerlinBackgroundTarget = () => {
-      return document.getElementById('Hero_CanvasContainer');
-    }
-    let perlinBackground;
-    let animatedFavicon;
-    router.afterEach((to, from) => {
-      Vue.nextTick(() => {
-        const AnimatedFavicon = require('./classes/AnimatedFavicon').default;
-        animatedFavicon = new AnimatedFavicon('animated_favicon.json');
+    // const getPerlinBackgroundTarget = () => {
+    //   return document.getElementById('Hero_CanvasContainer');
+    // }
+    // let perlinBackground;
+    // let animatedFavicon;
+    // router.afterEach((to, from) => {
+    //   Vue.nextTick(() => {
+    //     const AnimatedFavicon = require('./classes/AnimatedFavicon').default;
+    //     animatedFavicon = new AnimatedFavicon('animated_favicon.json');
       
-        // import PerlinBackground, { PerlinBackgroundSettings } from '../classes/PerlinBackground';
-        const PerlinBackground = require('./classes/PerlinBackground').default;
-        const PerlinBackgroundSettings = require('./classes/PerlinBackground').PerlinBackgroundSettings;
+    //     const PerlinBackground = require('./classes/PerlinBackground').default;
+    //     const PerlinBackgroundSettings = require('./classes/PerlinBackground').PerlinBackgroundSettings;
       
-        const perlinTarget = getPerlinBackgroundTarget();
-        const perlinBackgroundSettings = PerlinBackgroundSettings;
-        perlinBackgroundSettings.padding = 50;
+    //     const perlinTarget = getPerlinBackgroundTarget();
+    //     const perlinBackgroundSettings = PerlinBackgroundSettings;
+    //     perlinBackgroundSettings.padding = 50;
       
-        console.log(perlinTarget, perlinBackgroundSettings);
+    //     console.log(perlinTarget, perlinBackgroundSettings);
       
-        if (perlinTarget) {
-          perlinBackground = new PerlinBackground(perlinTarget, perlinBackgroundSettings);
-          console.log(perlinBackground);
-        } else {
-          if (perlinBackground) {
-            perlinBackground.stop();
-          }
-          perlinBackground = null;
-        }
-      })
-    });
+    //     if (perlinTarget) {
+    //       perlinBackground = new PerlinBackground(perlinTarget, perlinBackgroundSettings);
+    //       console.log(perlinBackground);
+    //     } else {
+    //       if (perlinBackground) {
+    //         perlinBackground.stop();
+    //       }
+    //       perlinBackground = null;
+    //     }
+    //   })
+    // });
   }
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
