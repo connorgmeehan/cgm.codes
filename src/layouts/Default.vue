@@ -10,7 +10,10 @@
         </div>
       </div>
     </header>
-    <div class="Footer" />
+    
+    <div class="Footer">
+      <span class="Footer_Text">Builted with lots of 💓 using <a href="https://gridsome.org/">gridsome</a></span>
+    </div>
   </div>
 </template>
 <script>
