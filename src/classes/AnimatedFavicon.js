@@ -4,7 +4,7 @@ class AnimatedFavicon {
     console.log('AnimatedFavicon running on /', path);
     const xhr = new XMLHttpRequest();
     xhr.open('GET', `/${path}`, true);
-    xhr.onload = (data) => {
+    xhr.onload = () => {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
           this.startAnimation(JSON.parse(xhr.responseText));
@@ -13,7 +13,7 @@ class AnimatedFavicon {
         }
       }
     }
-    xhr.onerror = function (e) {
+    xhr.onerror = function () {
       console.error(xhr.statusText);
     };
     xhr.send(null);

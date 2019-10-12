@@ -1,26 +1,40 @@
 <template>
-  <div :class="getWrapperClassName" :id="postdata.id">
+  <div
+    :class="getWrapperClassName"
+    :id="postdata.id">
     <div class="PostPreview">
-      <video v-if="postdata.video !== null"
-      class="PostPreview_MediaBackground"
-      :src="postdata.video" autoplay muted loop />
-      <g-image v-if="postdata.video === null && postdata.image !== null"
+      <video
+        v-if="postdata.video !== null"
+        :src="postdata.video"
         class="PostPreview_MediaBackground"
-        :src="postdata.image" > </g-image>
+        autoplay
+        muted
+        loop />
+      <g-image
+        v-if="postdata.video === null && postdata.image !== null"
+        :src="postdata.image"
+        class="PostPreview_MediaBackground" />
       <g-link :to="postdata.path">
-        <h1 class="PostPreview_Title__Stroke">{{postdata.title}}</h1>
-        <h1 class="PostPreview_Title"
+        <h1 class="PostPreview_Title__Stroke">
+          {{ postdata.title }}
+        </h1>
+        <h1
           :ref="'title'"
-          @scroll="this.handleMouseLeave"
-          @mouseover="this.handleMouseOver"
-          @mouseleave="this.handleMouseLeave">
-            {{postdata.title}}
-          </h1>
+          @scroll="handleMouseLeave"
+          @mouseover="handleMouseOver"
+          @mouseleave="handleMouseLeave"
+          class="PostPreview_Title">
+          {{ postdata.title }}
+        </h1>
       </g-link>
     </div>
     <div class="PostPreview_DescriptionBlock container">
-      <h3 class="PostPreview_ShortDescription">{{postdata.shortdescription}}</h3>
-      <h3 class="PostPreview_Date">{{month}}<br>{{year}}</h3>
+      <h3 class="PostPreview_ShortDescription">
+        {{ postdata.shortdescription }}
+      </h3>
+      <h3 class="PostPreview_Date">
+        {{ month }}<br>{{ year }}
+      </h3>
     </div>
   </div>
 </template>
@@ -31,29 +45,16 @@ import MouseHelper from '../helpers/MouseHelper';
 
 export default {
   name: "PostPreview",
-  props: ["postdata"],
+  props: {
+    postdata: {
+      type: Array,
+      required: true,
+    }
+  },
   data: () => ({
     isHover: false,
     mouseHelper: {},
   }),
-  mounted: function() {
-    this.mouseHelper = new MouseHelper().get();
-  },
-  methods: {
-    handleMouseOver() {
-      this.isHover = true;
-      window.addEventListener('scroll', this.handleScroll);
-    },
-    handleMouseLeave() {
-      this.isHover = false;
-      window.removeEventListener('scroll', this.handleScroll);
-    },
-    handleScroll(e) {
-      if(!this.mouseHelper.isMouseInsideBounds(this.$refs['title'])) {
-        this.handleMouseLeave();
-      }
-    }
-  },
   computed: {
     getWrapperClassName() {
       return (this.isHover
@@ -67,6 +68,24 @@ export default {
     year() {
       const dateFormatter = new DateFormatter(this.postdata.date);
       return dateFormatter.getYear();
+    }
+  },
+  mounted: function() {
+    this.mouseHelper = new MouseHelper().get();
+  },
+  methods: {
+    handleMouseOver() {
+      this.isHover = true;
+      window.addEventListener('scroll', this.handleScroll);
+    },
+    handleMouseLeave() {
+      this.isHover = false;
+      window.removeEventListener('scroll', this.handleScroll);
+    },
+    handleScroll() {
+      if(!this.mouseHelper.isMouseInsideBounds(this.$refs['title'])) {
+        this.handleMouseLeave();
+      }
     }
   }
 }

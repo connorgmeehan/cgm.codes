@@ -1,32 +1,53 @@
 <template>
   <Layout>
-    <div class="PostHeader_Wrapper" v-if="$page">
+    <div 
+      v-if="$page"
+      class="PostHeader_Wrapper">
       <div class="PostHeader">
-        <video v-if="$page.post.video !== null"
+        <video
+          v-if="$page.post.video !== null"
+          :src="$page.post.video"
           class="PostHeader_Media"
-          :src="$page.post.video" autoplay muted loop />
+          autoplay
+          muted
+          loop />
       </div>
       <div class="PostInfo_Wrapper">
         <div class="PostInfo container-narrow">
-          <h5 class="PostInfo_Date">{{$page.post.date}} - ({{$page.post.duration}})</h5>
-
-          <h1 class="PostInfo_Title">{{$page.post.title}}</h1>
-
-          <p class="PostInfo_Description">{{$page.post.description}}</p>
+          <h5 class="PostInfo_Date">
+            {{ $page.post.date }} - ({{ $page.post.duration }})
+          </h5>
+          <h1 class="PostInfo_Title">
+            {{ $page.post.title }}
+          </h1>
+          <p class="PostInfo_Description">
+            {{ $page.post.description }}
+          </p>
           <div class="PostInfo_TextCabinet">
-            <TextCabinet title="My Role" :elements="$page.post.myrole" :useTitleFont="true"/>
+            <TextCabinet
+              :elements="$page.post.myrole"
+              :useTitleFont="true"
+              title="My Role" /> 
           </div>
           <div class="PostInfo_TextCabinet">
-            <TextCabinet title="Team" :elements="$page.post.team" :useTitleFont="true"/>
+            <TextCabinet
+              :elements="$page.post.team"
+              :useTitleFont="true"
+              title="Team" />
           </div>
         </div>
       </div>
       <div class="Post">
-        <div v-if="$page.post.iframe !== null" class="Post_FrameWrapper">
-          <IFrameDisplay :url="$page.post.iframe.url" :fullscreen="$page.post.iframe.fullwidth" />
+        <div
+          v-if="$page.post.iframe !== null"
+          class="Post_FrameWrapper">
+          <IFrameDisplay
+            :url="$page.post.iframe.url"
+            :fullscreen="$page.post.iframe.fullwidth" />
         </div>
-
-        <div class="Post_Content container-narrow" v-html="$page.post.content" />
+        <div 
+          v-html="$page.post.content"
+          class="Post_Content container-narrow" />
       </div>
     </div>
   </Layout>
@@ -49,25 +70,25 @@ export default {
       ]
     }
   },
+    components: {
+    TextCabinet,
+    IFrameDisplay,
+  },
   mounted: function () {
     if(this.$page) {
       console.log(this.$page.post)
       console.log(this.$page.post.team);
     }
-  },
-  components: {
-    TextCabinet,
-    IFrameDisplay,
   }
 };
 </script>
 
 <page-query>
-query Post ($path: String!) {
-  post: post (path: $path) {
+query Post($path: String!) {
+  post: post(path: $path) {
     title
     path
-    date (format: "D. MMMM YYYY")
+    date(format: "D. MMMM YYYY")
     duration
     iframe {
       url

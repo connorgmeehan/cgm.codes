@@ -22,7 +22,6 @@ class Vec3 {
   magnitude = () => Math.cbrt(this.x*this.x + this.y*this.y-this.z*this.z);
   normalize = () => this.divideAll(this.magnitude());
   rotate = (pitch, roll, yaw) => {
-    let points = this.data;
     var cosa = Math.cos(yaw);
     var sina = Math.sin(yaw);
 

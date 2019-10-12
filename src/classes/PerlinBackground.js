@@ -28,7 +28,7 @@ class Metaball {
     this.velocity = new Vec3([0, 0, 0]);
     this.radius = radius;
   }
-};
+}
 
 class PerlinBackground {
   /**
@@ -91,7 +91,7 @@ class PerlinBackground {
 
   _bindEvents () {
     let resizeTimeout;
-    window.addEventListener('resize', (e) => {
+    window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
         this._resizeCanvas(this._parent, this._shaderCanvas, this._padding);
@@ -152,6 +152,6 @@ class PerlinBackground {
      */
   kill () {
   }
-};
+}
 
 export default PerlinBackground;

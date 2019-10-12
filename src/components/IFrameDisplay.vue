@@ -1,12 +1,21 @@
 <template>
   <div class="IFrameDisplay">
-    <div class="IFrameDisplay_Button" v-on:click="open">View Running Example</div>
-
-    <div v-if="isOpen" :class="{IFrameDisplay_Window: true, IFrameDisplay_Window__Fullscreen: fullscreen}">
-      <div class="IFrameDisplay_CloseButton" v-on:click="close">
-          <i class="icon-cancel" />
+    <div
+      v-on:click="open"
+      class="IFrameDisplay_Button">
+      View Running Example
+    </div>
+    <div 
+      v-if="isOpen" 
+      :class="{IFrameDisplay_Window: true, IFrameDisplay_Window__Fullscreen: fullscreen}">
+      <div 
+        v-on:click="close"
+        class="IFrameDisplay_CloseButton">
+        <i class="icon-cancel" />
       </div>
-      <iframe class="IFrameDisplay_Frame" :src="url"> </iframe>
+      <iframe
+        :src="url"
+        class="IFrameDisplay_Frame" />
     </div>
   </div>
 </template>
@@ -14,7 +23,17 @@
 <script>
 export default {
   name: 'IFrameDisplay',
-  props: ['url', 'fullscreen'],
+  props: {
+    url: {
+      type: String,
+      required: true,
+      default: '',
+    },
+    fullscreen: {
+      type: Boolean,
+      default: true,
+    },
+  },
   data: () => ({
     isOpen: false,
   }),
