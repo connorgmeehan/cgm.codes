@@ -57,6 +57,16 @@
   &_TextCabinet {
     margin-bottom: 2rem;
   }
+
+  &_IconTray {
+    @extend .heading-3;
+    display: flex;
+    flex-direction: row-reverse;
+
+    &_Icon:hover {
+      color: darken($primary-color, 60%);
+    }
+  }
 }
 
 .Post {

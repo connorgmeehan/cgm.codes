@@ -15,7 +15,8 @@
   "tools": ["hand sketching", "secondary research", "adobe illustrator", "three.js", "javascript", "html", "css"],
   "duration": "3 months",
   "description": "Every winter the skies of close up over Mongolia’s most populated city, Ulaanbaatar, and a cloak of pollution sits for months on end.  It is here where year round pollution levels average 133 times the WHO recommended level, where harrowing statistic and other harrowing statistic.  
-  Most shockingly is that these conditions are typically only present in cities with 10s of millions of citizens in highly-dense urban environments, Ulaanbaatar has neither.  In Ulaanbaatar: Choked by Pollution we explore the unique case of pollution through static and interactive data visualisation, completed for DECO3100: Information Visualisation studied during my Bachelor of Design Computing at the University of Sydney."
+  Most shockingly is that these conditions are typically only present in cities with 10s of millions of citizens in highly-dense urban environments, Ulaanbaatar has neither.  In Ulaanbaatar: Choked by Pollution we explore the unique case of pollution through static and interactive data visualisation, completed for DECO3100: Information Visualisation studied during my Bachelor of Design Computing at the University of Sydney.",
+  "git": "https://github.com/connorgmeehan/deco3100-info-vis-ulaanbaatar"
 }
 ---
 
