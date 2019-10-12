@@ -72,7 +72,13 @@ body {
 }
 
 .Footer {
-  height: 300px;
+  margin-top: -10px; // Fixes hover on last issue scroll issue
+  height: 210px;
+  background: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .CopySandbox {

@@ -13,6 +13,7 @@
     </header>
     
     <div class="Footer">
+      <span class="Footer_Text">Builted with lots of 💓 using <a href="https://gridsome.org/">gridsome</a></span>
     </div>
 
     <div class="CopySandbox_Wrapper" id="CopySandbox_Notification" v-on:click="closeCopyEmail">
