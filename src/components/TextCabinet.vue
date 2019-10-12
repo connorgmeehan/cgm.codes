@@ -34,7 +34,7 @@ export default {
         type: String,
         required: true,
       },
-      data: {
+      elements: {
         type: Array,
         required: true,
       },

@@ -45,16 +45,14 @@ import MouseHelper from '../helpers/MouseHelper';
 
 export default {
   name: "PostPreview",
-  props: {
-    postdata: {
-      type: Array,
-      required: true,
-    }
-  },
+  props: ['postdata'],
   data: () => ({
     isHover: false,
     mouseHelper: {},
   }),
+  mounted: function() {
+    console.log(this);
+  },
   computed: {
     getWrapperClassName() {
       return (this.isHover

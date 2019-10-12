@@ -23,13 +23,13 @@
           <p class="PostInfo_Description">
             {{ $page.post.description }}
           </p>
-          <div class="PostInfo_TextCabinet">
+          <div v-if="$page.post.myrole.length < 0" class="PostInfo_TextCabinet">
             <TextCabinet
               :elements="$page.post.myrole"
               :useTitleFont="true"
               title="My Role" /> 
           </div>
-          <div class="PostInfo_TextCabinet">
+          <div v-if="$page.post.team.length < 0" class="PostInfo_TextCabinet">
             <TextCabinet
               :elements="$page.post.team"
               :useTitleFont="true"
