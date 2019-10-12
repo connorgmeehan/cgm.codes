@@ -23,17 +23,29 @@
           <p class="PostInfo_Description">
             {{ $page.post.description }}
           </p>
-          <div v-if="$page.post.myrole.length < 0" class="PostInfo_TextCabinet">
+          <div 
+            v-if="$page.post.myrole.length < 0"
+            class="PostInfo_TextCabinet">
             <TextCabinet
               :elements="$page.post.myrole"
               :useTitleFont="true"
               title="My Role" /> 
           </div>
-          <div v-if="$page.post.team.length < 0" class="PostInfo_TextCabinet">
+          <div
+            v-if="$page.post.team.length < 0"
+            class="PostInfo_TextCabinet">
             <TextCabinet
               :elements="$page.post.team"
               :useTitleFont="true"
               title="Team" />
+          </div>
+          <div class="PostInfo_IconTray">
+            <a
+              v-if="$page.post.git"
+              :href="$page.post.git"
+              class="PostInfo_IconTray_Icon">
+              <span class="icon-github-logo" />
+            </a>
           </div>
         </div>
       </div>
@@ -107,6 +119,7 @@ query Post($path: String!) {
     content
     image
     video
+    git
   }
 }
 </page-query>
