@@ -47,7 +47,7 @@
     }
 
     &_Sidebar {
-        margin-top: $spacing-2;
+        margin-top: $spacing-3;
         @include breakpoint('small') {
             padding: 0;
             display: flex;
@@ -90,25 +90,17 @@
 }
 
 .Works {
-    padding-top: $spacing-2;
-    padding-bottom: $spacing-2;
-    @include breakpoint('medium') {
-        padding-top: $spacing-4;
-        padding-bottom: $spacing-4;
-    }
-
     &_Wrapper {
+        padding-top: $spacing-2;
+        padding-bottom: $spacing-2;
+        @include breakpoint('medium') {
+            padding-top: $spacing-4;
+            padding-bottom: $spacing-4;
+        }
+
         position: relative;
         background: $primary-color;
         min-height: 100vh;
-        &::before {
-            position: absolute;
-            background:linear-gradient(adjust-color($primary-color, $alpha: -1.0) 0%, $primary-color 100%);
-            width: 100%;
-            top: -100px;
-            height: 100px;
-            content: " ";
-        }
     }
 
     &_PostPreview {

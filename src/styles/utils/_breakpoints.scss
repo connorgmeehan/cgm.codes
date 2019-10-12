@@ -1,9 +1,11 @@
-$small-width-max        : 100%;
+$xsmall-width-max        : 450px;
+$small-width-max        : 750px;
 $medium-width-max       : 950px;
 $large-width-max        : 1150px;
 $xlarge-width-max       : 1350px;
 $breakpoints: (
-  'small':  600px,
+  'xsmall':  400px,
+  'small':  800px,
   'medium': 1000px,
   'large':  1200px,
   'xlarge': 1400px,
@@ -34,7 +36,12 @@ $breakpoints: (
 .container {
   width: 100%;
   margin: 0 auto;
+  @include breakpoint('xsmall') {
+    max-width: $xsmall-width-max;
+  }
+
   @include breakpoint('small') {
+    max-width: unset;
     width: $small-width-max;
   }
 
