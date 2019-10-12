@@ -83,10 +83,13 @@ These insights were realised by breaking each tasks into a 'quantified ui', wher
 
 
 ## 6. Final Product 
-
-![](./images/koalajoey-glamour_1.png)
-![](./images/koalajoey-glamour_2.png)
-![](./images/koalajoey-glamour_3.png)
-![](./images/koalajoey-glamour_4.png)
+#### Login/signup page showing users the potential tasks they can receive help with
+![Image of app homepage showing potential tasks that can be completed.](./images/koalajoey-glamour_1.png)
+#### Task search page, showing voice recogniton capabilities and the list UI
+![Image of task search showing the voice recognition capabilities, suited to those with lower dexterity. ](./images/koalajoey-glamour_2.png)
+#### Task request page showing how users can specify their needs with tasks they need support with
+![Image of task planning flow showing how users can enter their needs as a per task basis.](./images/koalajoey-glamour_3.png)
+#### Confirmation page allowing users to double check the information they've entered is correct
+![Confirmation screen showing all the information the user has entered so they can double check that it's correct.](./images/koalajoey-glamour_4.png)
 
 
