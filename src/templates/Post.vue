@@ -57,9 +57,9 @@
             :url="$page.post.iframe.url"
             :fullscreen="$page.post.iframe.fullwidth" />
         </div>
-        <div 
-          v-html="$page.post.content"
-          class="Post_Content container-narrow" />
+        <div class="Post_Content container-narrow">
+          <VueRemarkContent />
+        </div>
       </div>
     </div>
   </Layout>

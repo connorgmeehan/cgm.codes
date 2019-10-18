@@ -10,10 +10,12 @@
     "@gridsome/source-filesystem": "^0.6.0",
     "@gridsome/transformer-json": "^0.2.1",
     "@gridsome/transformer-remark": "^0.3.2",
+    "@gridsome/vue-remark": "^0.1.7",
     "clamp": "^1.0.1",
     "gl-matrix": "^3.0.0",
     "gridsome": "^0.7.7",
-    "shader-canvas": "^0.8.3"
+    "shader-canvas": "^0.8.3",
+    "vue-tweet-embed": "^2.3.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",

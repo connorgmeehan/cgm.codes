@@ -1,0 +1,15 @@
+.EmbeddedTweet {
+    display: flex;
+
+    &__Left {
+        justify-content: start;
+    }
+
+    &__Centre {
+        justify-content: center;
+    }
+
+    &__Right {
+        justify-content: end;
+    }
+}
