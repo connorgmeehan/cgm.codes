@@ -20,7 +20,7 @@ import EmbeddedTweet from '~/components/EmbeddedTweet';
 
 I had the opportunity to display my visuals for the melbourne based art collective [proximity](https://www.instagram.com/p_r_x_y/) where my visuals were on display for the final act of the night.  
 
-<EmbeddedTweet :ids="['1182883285212397573', '1182883285212397573']" />
+<EmbeddedTweet :ids="['1182883285212397573']" />
 
 ## Inspiration
 

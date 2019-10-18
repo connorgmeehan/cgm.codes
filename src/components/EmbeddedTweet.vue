@@ -1,17 +1,19 @@
 <template>
     <div :class="getClassName">
         <ClientOnly>
-            <Twitter
+            <Tweet
                 v-if="id"
                 :id="id" />
             
             <div
+                class="EmbeddedTweet_TweetWrapper"
                 v-for="id in ids"
                 :key="id">
                 <Tweet 
+                    v-if="ids"
                     :id="id"
                     widget-class="EmbeddedTweet_Tweet" />
-            </div>
+                </div>
         </ClientOnly>
     </div>
 </template>

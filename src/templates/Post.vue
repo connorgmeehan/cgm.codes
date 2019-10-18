@@ -24,7 +24,7 @@
             {{ $page.post.description }}
           </p>
           <div 
-            v-if="$page.post.myrole.length < 0"
+            v-if="$page.post.myrole.length > 0"
             class="PostInfo_TextCabinet">
             <TextCabinet
               :elements="$page.post.myrole"
@@ -32,7 +32,7 @@
               title="My Role" /> 
           </div>
           <div
-            v-if="$page.post.team.length < 0"
+            v-if="$page.post.team.length > 0"
             class="PostInfo_TextCabinet">
             <TextCabinet
               :elements="$page.post.team"

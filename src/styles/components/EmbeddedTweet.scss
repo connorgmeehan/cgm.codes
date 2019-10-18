@@ -1,13 +1,21 @@
 .EmbeddedTweet {
-    display: flex;
+    display: flex; 
     flex-wrap: wrap;
-
     margin: $spacing-2 0;
 
     .twitter-tweet {
         width: 100% !important;
-        @include breakpoint('small') {
-            width: 500px !important;
+    }
+
+    &_TweetWrapper {
+        @include breakpoint('medium') {
+            &:nth-child(even) {
+                margin-left: 2%;
+            }
+            &::nth-child(odd) {
+                margin-right: 2%;
+            }
+            width: 48% !important;
         }
     }
 
