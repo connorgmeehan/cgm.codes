@@ -1,7 +1,17 @@
 <template>
     <div :class="getClassName">
         <ClientOnly>
-            <Tweet :id="id" />
+            <Twitter
+                v-if="id"
+                :id="id" />
+            
+            <div
+                v-for="id in ids"
+                :key="id">
+                <Tweet 
+                    :id="id"
+                    widget-class="EmbeddedTweet_Tweet" />
+            </div>
         </ClientOnly>
     </div>
 </template>
@@ -14,6 +24,7 @@ export default {
     name: 'EmbeddedTweet',
     props: {
         id: String,
+        ids: Array,
         position: {
             type: String,
             default: 'centre',

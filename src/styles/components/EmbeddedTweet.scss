@@ -1,5 +1,15 @@
 .EmbeddedTweet {
     display: flex;
+    flex-wrap: wrap;
+
+    margin: $spacing-2 0;
+
+    .twitter-tweet {
+        width: 100% !important;
+        @include breakpoint('small') {
+            width: 500px !important;
+        }
+    }
 
     &__Left {
         justify-content: start;
