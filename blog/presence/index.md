@@ -23,6 +23,8 @@
 }
 ---
 
+import EmbeddedTweet from '~/components/EmbeddedTweet';
+
 ## Showcase
 
 
@@ -41,7 +43,11 @@ I was responsible for the concept generation and the development of the interact
 
 We began by exploring hardware options.  I reached out to a user on the openFrameworks community slack asking if he had experience with lighting displays.  He passed me on to a friend who recommended [Advatek's](https://www.advateklights.com/) lighting controllers.  We additionally planned on running the display on a [Raspberry Pi 3B+](https://www.raspberrypi.org/) and he expressed concern over its computing power.  These concerns proved to be sound later on.
 
+<EmbeddedTweet id="1016487785706840064" position="centre" />
+
 I began researching the best way to track passersby via an overhead webcam.  I used the excellent [ofxCv](https://github.com/kylemcdonald/ofxCv) addon for openFrameworks that provided handy wrappers for many of computer vision library openCV's functions as well as exposed the c++ API.  The implementation we initially landed upon was to use dense optical flow to build a heat map of movement and then run the heatmap through a countours finder to generate individual shapes representing each user that we could use to render a light above their head.
+
+<EmbeddedTweet id="1022283702146031616" position="centre" />
 
 This proved to be incredibly slow as it required complex calculations on every pixel of the image and as a result the display had to be run on my personal computer until I could refactor the logic.
 
@@ -49,9 +55,14 @@ I constructed the rendered scene by rendering each spirit and then mixing it wit
 
 Jessica and Keegan were hugely helpful with the construction and installation of the display, we ran cables across the space and zip-tied the LED strands to them.  The webcam to track passersby was mounted on the roof in the corner of the foyer cables ran down the sides of the wall to the controller which was mounted on bolts. 
 
+## The first implementation
+
+<EmbeddedTweet :ids="['1022434970084638721', '1023020453160341504']" position="left" />
+
 ## Problems faced
 
 After the display had been up for a while I had identified some areas for improvement.  Mainly, the sense of reactivity in the display was weak, this was due to a slow response time of the position tracking as well as lack of contrast between the foreground and background on the LED array.  The responsiveness was a result of the slow motion detection algorithm which, after being run through perftools showed was it was using up roughly 90% of the process time.
+
 
 ## The re-design
 

@@ -1,0 +1,33 @@
+.EmbeddedTweet {
+    display: flex; 
+    flex-wrap: wrap;
+    margin: $spacing-2 0;
+
+    .twitter-tweet {
+        width: 100% !important;
+    }
+
+    &_TweetWrapper {
+        @include breakpoint('medium') {
+            &:nth-child(even) {
+                margin-left: 2%;
+            }
+            &::nth-child(odd) {
+                margin-right: 2%;
+            }
+            width: 48% !important;
+        }
+    }
+
+    &__Left {
+        justify-content: start;
+    }
+
+    &__Centre {
+        justify-content: center;
+    }
+
+    &__Right {
+        justify-content: end;
+    }
+}

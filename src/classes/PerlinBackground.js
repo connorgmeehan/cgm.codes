@@ -2,7 +2,7 @@ import { ShaderCanvas } from 'shader-canvas';
 import clamp from 'clamp';
 import EasingFunctions from './easings';
 import { fragShaderSource } from '../classes/gl/PerlinShaders_2';
-import signedRandom from '../helpers/signedRandom';
+import { signedRandom } from '../helpers/utils';
 import Vec3 from './gl/Vec3';
 import Color from './Color';
 

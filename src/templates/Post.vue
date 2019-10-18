@@ -24,7 +24,7 @@
             {{ $page.post.description }}
           </p>
           <div 
-            v-if="$page.post.myrole.length < 0"
+            v-if="$page.post.myrole.length > 0"
             class="PostInfo_TextCabinet">
             <TextCabinet
               :elements="$page.post.myrole"
@@ -32,7 +32,7 @@
               title="My Role" /> 
           </div>
           <div
-            v-if="$page.post.team.length < 0"
+            v-if="$page.post.team.length > 0"
             class="PostInfo_TextCabinet">
             <TextCabinet
               :elements="$page.post.team"
@@ -57,9 +57,9 @@
             :url="$page.post.iframe.url"
             :fullscreen="$page.post.iframe.fullwidth" />
         </div>
-        <div 
-          v-html="$page.post.content"
-          class="Post_Content container-narrow" />
+        <div class="Post_Content container-narrow">
+          <VueRemarkContent />
+        </div>
       </div>
     </div>
   </Layout>

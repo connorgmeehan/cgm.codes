@@ -64,15 +64,14 @@ module.exports = {
   },
   plugins: [
     {
-      use: '@gridsome/source-filesystem',
+      use: '@gridsome/vue-remark',
       options: {
-        path: 'blog/**/*.md',
-        typeName: 'Post',
-        remark: {
-
-        }
+        typeName: 'Post', // Required
+        baseDir: './blog', // Where .md files are located
+        pathPrefix: '/works', // Add route prefix. Optional
+        template: './src/templates/Post.vue' // Optional
       }
-    }
+    },
   ],
   transformers: {
     remark: {
