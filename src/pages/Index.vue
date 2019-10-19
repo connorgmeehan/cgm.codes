@@ -8,7 +8,7 @@
             id="Hero_CanvasContainer"
             class="Hero_Copy">
             <h1>
-              Hello my name is Connor and I'm interested in the intersection between humans and technology.
+              Hi my name is Connor, I study <a href="">Design Computing</a> at <a href="">USYD</a> and I want to create technology creatively.
             </h1>
           </div>
           <div class="Hero_Sidebar">

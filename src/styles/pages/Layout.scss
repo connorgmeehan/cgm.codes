@@ -62,8 +62,7 @@ body {
   &_TextBlock {
     display: flex;
     justify-content: space-between;
-    margin: 10px;
-
+    margin: 5px 10px 10px;
     @include breakpoint('medium') {
       margin: $spacing-2;
     }

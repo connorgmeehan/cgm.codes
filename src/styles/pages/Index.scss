@@ -30,13 +30,20 @@
     &_Copy {
         position: relative;
         font-weight: 600;
+        word-break: break-all;
+        text-align: justify;
         @include breakpoint('small') {
             padding: 0;
         }
         @include breakpoint('xlarge') {
-            width: 60%;
+            width: 58%;
         }
         h1 {
+            color: #FFF;
+            mix-blend-mode: $text-mix-blend-mode;
+        }
+
+        a {
             color: #FFF;
             mix-blend-mode: $text-mix-blend-mode;
         }
@@ -85,7 +92,7 @@
     }
     
     &_IconCabinet {
-        margin-bottom: 2rem;;
+        margin-bottom: 2.15rem;;
     }
 }
 
