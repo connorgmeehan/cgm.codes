@@ -1,0 +1,53 @@
+$baseClass: '.EmbeddedImage';
+$fullWidthModifier: #{$baseClass}__FullWidth;
+$halfWidthModifier: #{$baseClass}__HalfWidth;
+$openModifier: #{$baseClass}__Open;
+$closedModifier: #{$baseClass}__Closed;
+
+.EmbeddedImage {
+    &__HalfWidth {
+        width: 50%;
+    }
+
+    &_ImageWrapper {
+        transition: all ease-in-out 0.2s;
+        background: transparent;
+        
+        #{$openModifier} & {
+            background: white;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top:0;
+            left: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &_Image {
+        transition: opacity ease-in-out 0.2s;
+        &:hover {
+            cursor: pointer;
+        }
+
+        #{$closedModifier} & {
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+        #{$openModifier} & {
+            opacity: 1;
+            position: relative;
+            max-height: 100%;
+            max-width: 100%;
+
+            height: auto;
+            width: auto;
+        }
+    }
+}

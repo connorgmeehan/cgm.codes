@@ -20,6 +20,8 @@
 }
 ---
 
+import EmbeddedMultiImage from '~/components/EmbeddedMultiImage';
+
 ## Problem
 
 We were given the very broad brief of visualising one or more of the UN’s 2020 Asia Pacific Sustainable Growth indicators, the project required exploratory data analysis to find a topic area of our interest that was interesting and informative, had available or collectable data and highlighted an issue that western audiences may not be aware of.
@@ -45,6 +47,21 @@ We wanted to emphasize the cyclical nature of pollution in Ulaanbaatar by using 
 
 For the interactive visualisation we thought we could take visualising the spatial element to another level, by instead letting the user realise the kind of environment where pollution is highest and experience it second hand through satellite imagery.
 
-![First sketch of final concept for static visualisation](./images/a2_sketch_1.png)
+<EmbeddedMultiImage :data="[
+  {
+    src: '/ulaanbaatar_a3_sketch_1.png',
+    alt: 'First sketch of final concept for static visualisation',
+    type: 'halfwidth',
+  },
+  {
+    src: '/ulaanbaatar_a3_sketch_2.png',
+    alt: 'Exploring ideas for the narrative of the interactive visualisation',
+    type: 'halfwidth',
+  }
+]" />
 
-![Exploring ideas for the narrative of the interactive visualisation](./images/a3_sketch_2.png)
+## Final Project
+
+![Image of final submitted assessment, featuring 3D map of Ulaanbaatar and a radial graph highlighting pollution and temperatures similar to our static visualisation](./images/a3_final.png)
+
+## Redesign

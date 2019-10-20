@@ -3,7 +3,7 @@
     <div
       v-on:click="open"
       class="IFrameDisplay_Button">
-      View Running Example
+      View Project
     </div>
     <div 
       v-if="isOpen" 
