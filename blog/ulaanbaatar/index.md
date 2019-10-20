@@ -20,7 +20,7 @@
 }
 ---
 
-import EmbeddedMultiImage from '~/components/EmbeddedMultiImage';
+import EmbeddedImage from '~/components/EmbeddedImage';
 
 ## Problem
 
@@ -39,29 +39,35 @@ We began to research the issue by looking into articles and academic papers that
 
 ## Developing our thesis
 
+
+
+## Exploring methods of static visualisation
+
+<EmbeddedImage src="/ulaanbaatar_a3_sketch_2.png" alt="Exploring ideas for the narrative of the static visualisation" type="halfwidth" />
+
 With spatial, temporal, temperate and dimensions all correlating with different amounts of pollution we needed a way to show 4 dimensional data in a visually and thematically coherent way.  We began to explore different methods of communicating the message, focusing on *what are those charts we looked at with the grid of circles at different sizes and colors?*  However, we found these to be visually unexciting and wanted to repurpose some of these ideas to create a more thematically fitting visualisation.
 
-## Developing our sketches
 
+## Static visualisation
+
+The second assessment was to develop a single A4 static visualisation which communicating the main points of our thesis.  
 We wanted to emphasize the cyclical nature of pollution in Ulaanbaatar by using a radial chart highlighting the averaged pollution levels for each month.  To visualise the spatial aspect by color coding each pollution station’s point on a map and associating it with its own line running around the bar chart.  This was superimposed over a map of the city that was categorised into ger and non ger districts.
 
-For the interactive visualisation we thought we could take visualising the spatial element to another level, by instead letting the user realise the kind of environment where pollution is highest and experience it second hand through satellite imagery.
-
-<EmbeddedMultiImage :data="[
-  {
-    src: '/ulaanbaatar_a3_sketch_1.png',
-    alt: 'First sketch of final concept for static visualisation',
-    type: 'halfwidth',
-  },
-  {
-    src: '/ulaanbaatar_a3_sketch_2.png',
-    alt: 'Exploring ideas for the narrative of the interactive visualisation',
-    type: 'halfwidth',
-  }
-]" />
+![Poster containing information on the dynamics of pollution within Ulaanbaatar](./images/ulaanbaatar_static_visualisation.png)
 
 ## Final Project
 
-![Image of final submitted assessment, featuring 3D map of Ulaanbaatar and a radial graph highlighting pollution and temperatures similar to our static visualisation](./images/a3_final.png)
+<EmbeddedImage src="/ulaanbaatar_a3_sketch_1.png" alt="First sketch of final concept of static visualisation" type="halfwidth" />
+
+For the interactive visualisation we took visualising the spatial element of pollution to another level by letting users experience where it occurs in a 3D landscape with the ability to click on each pollution monitoring station and view a high resolution image of the surrounding urban landscapes.  Doing so highlights to the user the differences in living conditions and the hidden side-effects of multi-dimensional poverty.  Additionally we extended the temporal and cyclical themes of the pollution by building a radial graph on the right hand side of the screen that progressively shows more information as the user scrolls.
+
+<EmbeddedImage src="/ulaanbaatar_a3_final.png" alt="Image of final submitted assessment, featuring 3D map of Ulaanbaatar and a radial graph highlighting pollution and temperatures simlar to our static visualisation" type="fullwidth" />
+
 
 ## Redesign
+
+I was unhappy with the final project as I didn't believe that a radial graph, that was secondary to the map, was effective for communicating the temporal or spacial aspects of Ulaanbaatar's pollution crisis.  I removed the radial graph entirely, instead opting to show a bar chart of each monitoring station and the pollution over the year before seperating each station into ger and non-ger categories to highlight how disproportionately effected ger residents are.
+
+![Exploring ideas for the narrative of the interactive visualisation](./images/a3_sketch_2.png)
+
+

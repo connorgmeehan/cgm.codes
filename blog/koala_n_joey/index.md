@@ -11,10 +11,11 @@
   "tools": ["hand sketching", "proto.io", "sketch", "invision"],
   "methods": ["observatory research", "surveys", "user journey mapping", "user interviews", "focus groups"],
   "myrole": [
-    { "name" : "Conducting user reasearch", "link": "" },
-    { "name" : "building, synthesising and developing concepts and solutions", "link": "" },
-    { "name" : "interface design", "link":"" },
-    { "name" : "getting user feedback", "link":"" }
+    { "name" : "User based problem area analysis", "link": "" },
+    { "name" : "Analysing user research", "link": "" },
+    { "name" : "Interface design", "link":"" },
+    { "name" : "User testing and eliciting feedback", "link": "" },
+    { "name" : "Developing prototypes from feedback", "link":"" }
   ],
   "duration": "3 months",
   "description": "Aged care sucks.  With a royal commission currently being conducted into the level of care on   top of exorbitant costs for the government and the individual, the industry was due for a reboot. Koala & Joey are two apps design to eliviate some of these issues, by enabling volunteers to easily get involved senior citizens in need."
