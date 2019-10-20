@@ -6,7 +6,9 @@ $closedModifier: #{$baseClass}__Closed;
 
 .EmbeddedImage {
     &__HalfWidth {
-        width: 50%;
+        @include breakpoint('small') {
+            width: 50%;
+        }
     }
 
     &_ImageWrapper {
