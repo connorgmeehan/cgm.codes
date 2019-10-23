@@ -5,9 +5,17 @@ $openModifier: #{$baseClass}__Open;
 $closedModifier: #{$baseClass}__Closed;
 
 .EmbeddedImage {
+    @extend .heading-1;
+
     &__HalfWidth {
         @include breakpoint('small') {
             width: 50%;
+        }
+    }
+
+    &__MidWidth {
+        @include breakpoint('small') {
+            width: 75%;
         }
     }
 

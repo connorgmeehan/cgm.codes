@@ -27,6 +27,7 @@ import EmbeddedTweet from '~/components/EmbeddedTweet';
 
 ## Showcase
 
+<EmbeddedTweet id="1187141240254390272" position="centre" />
 
 ## Pitch
 
@@ -45,7 +46,7 @@ We began by exploring hardware options.  I reached out to a user on the openFram
 
 <EmbeddedTweet id="1016487785706840064" position="centre" />
 
-I began researching the best way to track passersby via an overhead webcam.  I used the excellent [ofxCv](https://github.com/kylemcdonald/ofxCv) addon for openFrameworks that provided handy wrappers for many of computer vision library openCV's functions as well as exposed the c++ API.  The implementation we initially landed upon was to use dense optical flow to build a heat map of movement and then run the heatmap through a countours finder to generate individual shapes representing each user that we could use to render a light above their head.
+I began researching the best way to track passersby via an overhead webcam.  I used the excellent [ofxCv](https://github.com/kylemcdonald/ofxCv) addon for openFrameworks that provided handy wrappers for many of computer vision library openCV's functions as well as exposed the c++ API.  The implementation we initially landed upon was to use dense optical flow to build a heat map of movement and then run the heatmap through a contours finder to generate individual shapes representing each user that we could use to render a light above their head.
 
 <EmbeddedTweet id="1022283702146031616" position="centre" />
 
@@ -66,7 +67,7 @@ After the display had been up for a while I had identified some areas for improv
 
 ## The re-design
 
-To address the responsiveness issue I re-wrote the computer vision part of the application to instead compare each frame from the webcam to a learned-image of the background, find the differences between them and running it through a countour finder to track each difference-blob.  This whole process was then run on its own thread to ensure that the rendering could maintain a steady framerate.
+To address the responsiveness issue I re-wrote the computer vision part of the application to instead compare each frame from the webcam to a learned-image of the background, find the differences between them and running it through a contour finder to track each difference-blob.  This whole process was then run on its own thread to ensure that the rendering could maintain a steady framerate.
 
 To address the contrast issue we did away with the softly edged blobs that rendered above the user, instead opting for block colors and squares.  Additionally, we added a new interaction that let users leave a growing trail of whatever color they were assigned behind them and, if the trail grew to envelope the LED array, would set the background to be the same color.
 

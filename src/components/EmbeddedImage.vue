@@ -2,6 +2,7 @@
     <div :class="{ 
         EmbeddedImage: true,
         EmbeddedImage__HalfWidth: type == 'halfwidth',
+        EmbeddedImage__MidWidth: type == 'midwidth',
         EmbeddedImage__FullWidth: type == 'fullwidth',
         EmbeddedImage__Open: isOpen,
         EmbeddedImage__Closed: !isOpen
@@ -41,9 +42,6 @@ export default {
     }),
     methods: {
         openClose: function() {
-            console.log(baseClass);
-            console.log(this.getTypeModifier());
-            console.log(this.getOpenModifier());
             this.isOpen = !this.isOpen
         },
         getTypeModifier: function() { return `${baseClass}__${capitaliseFirstLetter(this.type)}` },
@@ -54,9 +52,6 @@ export default {
     },
     computed: {
         wrapperClass: function() { 
-            console.log(baseClass);
-            console.log(this.getTypeModifier());
-            console.log(this.getOpenModifier());
             return `${baseClass} ${this.getOpenModifier()} ${this.getTypeModifier()}` },
 
     }

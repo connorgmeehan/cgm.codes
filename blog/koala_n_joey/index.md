@@ -33,9 +33,9 @@ After exploring autonomous vehicles' application to disaster releif, public tran
 
 ## 2. So, what sucks when you're old?
 
-As a team we conducted **6 semi-structured interviews** with senior citizens at a local retirement village.  On top of notes taken during the interview, the recordings were transcribed for later analysis.  This was followed by a further **8 observational studies** on the way senior citizens use public transport.
+As a team we conducted 6 semi-structured interviews with senior citizens at a local retirement village.  On top of notes taken during the interview, the recordings were transcribed for later analysis.  This was followed by a further 8 observational studies on the way senior citizens use public transport.
 
-We analysed the records in an **affinity diagram** finding a range of issues from hearing loss to loneliness to money anxieties. 
+We analysed the records in an affinity diagram finding a range of issues from hearing loss to loneliness to money anxieties. 
 However, two discoveries stood out most to me.
 
 > 1. Senior citizens struggled most with the short and infrequent tasks, such as shopping and taking the bins out.
@@ -47,7 +47,7 @@ Which got me thinking, **how can we use autonomous vehicles to address the first
 
 Because loneliness was by far the most prevalent issue we recorded, we wanted to use autonomous vehicles in a way that promotes human to human interaction.
 
-With these two concepts in mind, we landed on the idea of using **autonomous vehicles to promote short bouts of volunteering** in those key areas.  
+With these two concepts in mind, we landed on the idea of using autonomous vehicles to promote short bouts of volunteering in those key areas.  
 > Our goal was to improve the livelihood of the elderly, but now how can we benefit the volunteers?
 
 To understand volunteers goals, needs and fears we conducted a focus group with 6 students who had experience volunteering in different sectors.
@@ -55,7 +55,7 @@ We heard
 
 ![](./images/koalajoey-volunteer-findings.gif)
 
-If we could provide a **better volunteering experience** that results in much needed support being provided to senior citizens without aged care plans then we had a concept. 
+If we could provide a better volunteering experience that results in much needed support being provided to senior citizens without aged care plans then we had a concept. 
 
 Because of variations in the way each demographic uses (and owns) technology, we identified we'd need two UIs.  My group member, Soomin, was to develop a smartphone app interface for volunteers and I a tablet interface for senior citizens.
 

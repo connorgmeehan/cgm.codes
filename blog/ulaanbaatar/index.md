@@ -21,6 +21,7 @@
 ---
 
 import EmbeddedImage from '~/components/EmbeddedImage';
+import EmbeddedMultiImage from '~/components/EmbeddedMultiImage';
 
 ## Problem
 
@@ -29,7 +30,7 @@ We were given the very broad brief of visualising one or more of the UN’s 2020
 We were drawn to Ulaanbaatar after discovering it was the most polluted capital in the world despite not fitting into our assumptions of what a polluted capital looks like.  The promise of an insightful and interesting topic roughly lead use to our two Sustainable Development indicators.
 
 > 11.6.2 Annual mean levels of fine particulate matter (e.g. PM2.5 and PM10) in cities (population weighted)
-> 3.9.1 Mortality rate attributed to household and ambient air pollutio
+> 3.9.1 Mortality rate attributed to household and ambient air pollution
 
 ## Data analysis
 
@@ -37,13 +38,9 @@ We began to research the issue by looking into articles and academic papers that
 
 ![Data analysis using scatter plot matrix](./images/data_analysis.png)
 
-## Developing our thesis
-
-
-
 ## Exploring methods of static visualisation
 
-<EmbeddedImage src="/ulaanbaatar_a3_sketch_2.png" alt="Exploring ideas for the narrative of the static visualisation" type="halfwidth" />
+<EmbeddedMultiImage :data="[{ src: '/ulaanbaatar_a3_sketch_2.png', alt: 'Exploring ideas for the narrative of the static visualisation', type: 'halfwidth'}]" />
 
 With spatial, temporal, temperate and dimensions all correlating with different amounts of pollution we needed a way to show 4 dimensional data in a visually and thematically coherent way.  We began to explore different methods of communicating the message, focusing on *what are those charts we looked at with the grid of circles at different sizes and colors?*  However, we found these to be visually unexciting and wanted to repurpose some of these ideas to create a more thematically fitting visualisation.
 
@@ -57,7 +54,7 @@ We wanted to emphasize the cyclical nature of pollution in Ulaanbaatar by using 
 
 ## Final Project
 
-<EmbeddedImage src="/ulaanbaatar_a3_sketch_1.png" alt="First sketch of final concept of static visualisation" type="halfwidth" />
+<EmbeddedMultiImage :data="[{ src: '/ulaanbaatar_a3_sketch_1.png', alt: 'First sketch of final concept of static visualisation', type: 'halfwidth'}]" />
 
 For the interactive visualisation we took visualising the spatial element of pollution to another level by letting users experience where it occurs in a 3D landscape with the ability to click on each pollution monitoring station and view a high resolution image of the surrounding urban landscapes.  Doing so highlights to the user the differences in living conditions and the hidden side-effects of multi-dimensional poverty.  Additionally we extended the temporal and cyclical themes of the pollution by building a radial graph on the right hand side of the screen that progressively shows more information as the user scrolls.
 
@@ -66,8 +63,5 @@ For the interactive visualisation we took visualising the spatial element of pol
 
 ## Redesign
 
-I was unhappy with the final project as I didn't believe that a radial graph, that was secondary to the map, was effective for communicating the temporal or spacial aspects of Ulaanbaatar's pollution crisis.  I removed the radial graph entirely, instead opting to show a bar chart of each monitoring station and the pollution over the year before seperating each station into ger and non-ger categories to highlight how disproportionately effected ger residents are.
-
-![Exploring ideas for the narrative of the interactive visualisation](./images/a3_sketch_2.png)
-
+I was unhappy with the design and interaction of the final project.  Having two graphs updating onscreen at the same time split the users focus and didn't clearly communicate the massive spike in pollution during the winter.  I opted to remove the radial graph and instead convert the 3D map into a bar chart at the end of the visualisation letting the user recap what they had just witnessed over the year.  We also switched the colour scheme to update the background based on the temperature of the weather at a given point in time.
 
