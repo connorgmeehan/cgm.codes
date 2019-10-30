@@ -96,6 +96,13 @@
     }
 }
 
+.Blurb {
+    &_Wrapper {
+        background: white;
+        padding: $spacing-3 0;
+    }
+}
+
 .Works {
     &_Wrapper {
         padding-top: $spacing-2;

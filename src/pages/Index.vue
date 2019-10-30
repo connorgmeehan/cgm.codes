@@ -30,6 +30,14 @@
           </div>
         </div>
       </div>
+      <div class="Blurb_Wrapper">
+        <div class="Blurb container">
+          <h3 class="article-heading-4">As a Design Computing student with a background in coding, I am interested in the future of creative technologies. I have wide ranging practice based knowledge using creative coding languages and have built several interactive artworks.<br>
+          I have a particular interest interaction design and the ways we can use technology to create immersive playful or reflective environments.<br>
+          <br>
+          Here are some of my works...</h3>
+        </div>
+      </div>
       <div class="Works_Wrapper">
         <div class="Works">
           <div 
