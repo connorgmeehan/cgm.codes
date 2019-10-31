@@ -7,9 +7,9 @@
       <h5
         v-if="i < history.length - 1"
         class="History_Date">
-        {{ new dateFormatter(workplace.startDate).getMonth() }}
+        {{ workplace.startmonth }}
         <br>
-        {{ new dateFormatter(workplace.startDate).getYear() }}
+        {{ workplace.startyear }}
       </h5>
       <h5
         v-if="i >= history.length - 1"
@@ -48,19 +48,21 @@ export default {
                     title: "Software Development Tutor",
                     workplace: "Think Table",
                     link: "https://www.facebook.com/tutorreactive/",
-                    startDate: "01-02-2016",
+                    startmonth: "FEB",
+                    startyear: "2016",
                 },
                 {
                     title: "Junior Frontend Dev",
                     workplace: "Pacific Magazines",
                     link: "http://www.pacificmags.com.au/",
-                    startDate: "01-06-2018",
+                    startmonth: "JUN",
+                    startyear: "2018",
                 },
                 {
                     title: "Junior Creative Technologist",
                     workplace: "Help me find what's next?",
                     startmonth: "TBD",
-                    startyear: "2019"
+                    startyear: "2019",
                 }
             ]
         }
