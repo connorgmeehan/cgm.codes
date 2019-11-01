@@ -14,7 +14,9 @@
       <h5
         v-if="i >= history.length - 1"
         class="History_Date">
-        TBD<br>{{ new dateFormatter(new Date()).getYear() }}
+        TBD
+        <br>
+        {{ new Date().getFullYear() }}
       </h5>
       <div class="History_MainBlock">
         <h3 class="History_Title">
