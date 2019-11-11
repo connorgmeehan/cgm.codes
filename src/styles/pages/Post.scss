@@ -102,8 +102,12 @@
       @extend .article-heading-4;
     }
 
-    ol, ul {
+    ol {
       list-style-type: decimal;
+    }
+
+    ul {
+      list-style: circle;
     }
 
     li {
@@ -112,6 +116,10 @@
 
     p { 
       color: $color-grey;
+    }
+
+    strong {
+      font-weight: 600;;
     }
 
     blockquote {
