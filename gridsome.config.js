@@ -59,6 +59,11 @@ module.exports = {
         name: 'Github',
         icon: 'icon-github-logo',
         link: 'https://github.com/connorgmeehan'
+      },
+      {
+        name: 'LinkedIn',
+        icon: 'icon-linkedin-logo',
+        link: 'https://www.linkedin.com/in/connorgmeehan/'
       }
     ]
   },
