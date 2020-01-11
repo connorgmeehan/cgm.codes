@@ -3,7 +3,7 @@
   "title": "Presence",
   "shortdescription": "Interactive lighting display built as a result of winning a designathon at the University of Sydney.",
   "date": "2018-05-10",
-  "video": "/presence-showcase.mp4",
+  "video": "/presence-showcase.webm",
   "team": [
     { "name": "Soomin Lee", "link": "https://au.linkedin.com/in/soominleedesign", },
     { "name": "Jessica Amy Fernandez", "link": "https://www.linkedin.com/in/jessica-amy-fernandez", },
