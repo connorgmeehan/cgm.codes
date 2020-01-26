@@ -64,6 +64,11 @@ module.exports = {
         name: 'LinkedIn',
         icon: 'icon-linkedin-logo',
         link: 'https://www.linkedin.com/in/connorgmeehan/'
+      },
+      {
+        name: 'Resume',
+        icon: 'icon-resume-logo',
+        link: 'https://cgm.codes/connor_guy_meehan_cv_creative_technologist.pdf'
       }
     ]
   },

@@ -57,3 +57,7 @@
   background: linear-gradient(unquote($direction), $stops);
   
 }
+
+.u--hyphens-auto {
+  hyphens: manual;
+}

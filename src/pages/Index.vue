@@ -8,7 +8,7 @@
             id="Hero_CanvasContainer"
             class="Hero_Copy">
             <h1>
-              Hi my name is Connor, I study <a href="">Design Computing</a> at <a href="">USYD</a> and I want to create technology creatively.
+              Hi my name is Connor, I study <a href="https://sydney.edu.au/courses/courses/uc/bachelor-of-design-computing.html" class="u--hyphens-auto">Design Comp&shy;uting</a> at <a href="https://sydney.edu.au/">The Uni&shy;vers&shy;ity of Sydney</a> and I want to explore creative applications of tech.
             </h1>
           </div>
           <div class="Hero_Sidebar">

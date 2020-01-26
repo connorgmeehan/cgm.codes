@@ -30,12 +30,12 @@
     &_Copy {
         position: relative;
         font-weight: 600;
-        word-break: break-all;
-        text-align: justify;
+        hyphens: auto;
         @include breakpoint('small') {
             padding: 0;
         }
         @include breakpoint('xlarge') {
+            text-align: right;
             width: 58%;
         }
         h1 {
@@ -81,14 +81,18 @@
     }
 
     &_CabinetWrapper {
+        @include breakpoint('small') {
+            padding-top: 1.2rem;
+        }
         @include breakpoint('medium') {
             width: 45%;
+            padding-top:1.3rem;
         }
         @include breakpoint('xlarge') {
             width: 100%;
+            padding-top:0;
+            padding-bottom: 0.5rem;
         }
-        margin-top: 1.2rem;
-        margin-bottom:  -0.25rem;
     }
     
     &_IconCabinet {
