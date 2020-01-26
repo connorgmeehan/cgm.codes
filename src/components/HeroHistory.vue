@@ -63,6 +63,7 @@ export default {
                 {
                     title: "Junior Creative Technologist",
                     workplace: "Help me find what's next?",
+                    link: "mailto:connorgmeehan23@gmail.com?subject=An exciting proposition involving design, research, prototyping or development.",
                     startmonth: "TBD",
                     startyear: "2019",
                 }
