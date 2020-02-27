@@ -1,7 +1,7 @@
 .Hero {
     &_Wrapper {
         overflow: hidden;
-        background: $primary-color;
+        background: white;
         width: 100%;
         padding: $spacing-3 10px;
 
@@ -39,13 +39,16 @@
             width: 58%;
         }
         h1 {
-            color: #FFF;
+            color: invert($primary-color);
             mix-blend-mode: $text-mix-blend-mode;
         }
 
         a {
-            color: #FFF;
+            color: invert($link-color-dark);
             mix-blend-mode: $text-mix-blend-mode;
+            &:hover {
+                color: invert($link-color);
+            }
         }
 
         .PerlinCanvas {
@@ -117,7 +120,7 @@
         }
 
         position: relative;
-        background: $primary-color;
+        background: $background-color;
         min-height: 100vh;
     }
 

@@ -5,8 +5,7 @@ $selected-class: '.IconCabinet__selected';
     &_Title {
         @extend .history-title;
         display: inline-block;
-        color: #FFF;
-        mix-blend-mode: $text-mix-blend-mode;
+        color: $primary-color;
         
         white-space:nowrap; 
         overflow:hidden;
@@ -29,7 +28,7 @@ $selected-class: '.IconCabinet__selected';
         left: 0;
 
         color: $primary-color;
-        mix-blend-mode: exclusion;
+        // mix-blend-mode: exclusion;
 
         max-width: 0;
         white-space:nowrap; 
@@ -53,8 +52,7 @@ $selected-class: '.IconCabinet__selected';
         margin-right: $spacing-1;
         padding-top: 0;
 
-        color: #FFF;
-        mix-blend-mode: $text-mix-blend-mode;
+        color: $primary-color;
 
         &:hover {
             text-decoration: none;

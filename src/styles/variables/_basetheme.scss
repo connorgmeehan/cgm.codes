@@ -26,14 +26,17 @@ $color-beige                          : #CCC;
 $color-beige-light                    : #EEE;
 
 // $primary-color : white;
-$primary-color                        : white;
-$secondary-color                      : $primary-color;
+$background-color                     : white;
+$primary-color                        : black;
+$secondary-color                      : black;
+$secondary-color-dark                 : darken($secondary-color, 20%);
 
 // theme
 $header-color                         : $color-grey-darker;
 $body-color                           : $color-grey-dark;
-$link-color                           : $color-black;
-$body-background-color                : $color-beige;
+$link-color                           : $secondary-color;
+$link-color-dark                      : $secondary-color-dark;
+$body-background-color                : $background-color;
 $body-inverted-background-color       : $color-grey-dark;
 $body-inverted-color                  : $color-beige;
 

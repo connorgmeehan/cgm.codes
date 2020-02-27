@@ -27,31 +27,24 @@
 
 .PostInfo {
   padding: $spacing-3 $spacing-1;
+  color: $primary-color;
 
   @include breakpoint('medium') {
     padding-left: 0;
     padding-right: 0;
   }
 
-  &_Title {
-    color: white;
-    mix-blend-mode: difference;
-  }
-
   &_Wrapper {
-    background: $primary-color;
+    background: $background-color;
   }
 
   &_Description {
-    color: $primary-color;
-    mix-blend-mode: exclusion;
     margin-bottom: 2rem;
   }
 
   &_Date {
     @extend .meta-small;
     color: $primary-color;
-    mix-blend-mode: exclusion;
   }
 
   &_TextCabinet {

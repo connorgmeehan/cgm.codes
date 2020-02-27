@@ -52,9 +52,12 @@ body {
       font-weight: 700;
       margin: 0;
       padding: 0;
-      color: black;
-      @include breakpoint('small') {
-        color: $secondary-color;
+
+      @extend a;
+      color: invert($link-color-dark);
+
+      &:hover {
+        color: invert($link-color);
       }
     }
   }
@@ -85,7 +88,7 @@ body {
   &_Wrapper {
     display: none;
 
-    background: lighten($primary-color, 10%);
+    background: white;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
@@ -96,7 +99,7 @@ body {
     }
 
     &:hover {
-      background: lighten($primary-color, 15%);
+      background: white;
       cursor: pointer;
     }
   }  

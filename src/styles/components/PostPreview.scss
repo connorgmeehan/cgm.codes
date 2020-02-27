@@ -26,13 +26,18 @@ $element-height-d: 400px;
         align-items: center;
     }
 
+    a {
+        text-decoration-line: none;
+    }
+
     &_Title {
-        color: $primary-color;
+        color: invert($primary-color);
         width: fit-content;
         mix-blend-mode: exclusion;
 
         &:hover {
             cursor: pointer;
+            text-decoration-line: none;
         }
 
         &__Stroke {
@@ -42,9 +47,11 @@ $element-height-d: 400px;
             -webkit-text-stroke: 2px transparent;
         }
         #{$hoverModifier} &__Stroke {
+            text-decoration-line: none;
             transition: -webkit-text-stroke-width ease-in-out 0.2s;
             transition: -webkit-text-stroke-color ease-in-out 0.2s;
             -webkit-text-stroke: 1px white;
+            text-shadow: 0 0 0px rgba(255, 255, 255, 0.4);
         }
     }
 
@@ -82,7 +89,6 @@ $element-height-d: 400px;
         transition: all ease-in-out 0.2s;
         
         color: $primary-color;
-        mix-blend-mode: exclusion;
         opacity: 0.5;
         
         #{$hoverModifier} & {
@@ -94,7 +100,6 @@ $element-height-d: 400px;
     &_Date {
         @extend .meta;
         color: $primary-color;
-        mix-blend-mode: exclusion;
 
         margin-left: $spacing-2;
     }

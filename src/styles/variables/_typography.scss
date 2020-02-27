@@ -33,10 +33,11 @@ body {
 }
 
 a {
-  color: $link-color;
+  color: darken($link-color, 80%);
   text-decoration: none;
   font-weight: 500;
   &:hover {
+    color: $link-color;
     text-decoration: underline;
   }
 }

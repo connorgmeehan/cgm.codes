@@ -8,8 +8,7 @@
     }
     &_Title {
         @extend .history-title;
-        color: #FFF;
-        mix-blend-mode: $text-mix-blend-mode;
+        color: $primary-color;
         width: 100%;
         font-weight: 600;
     }
@@ -17,13 +16,14 @@
         @extend .history-title;
         text-decoration: inherit;
         flex-grow: 1;
-        color: #FFF;
-        mix-blend-mode: $text-mix-blend-mode;
+        color: $link-color-dark;
+        &:hover {
+            color: $link-color;
+        }
     }
     &_Date {
         @extend .meta;
-        mix-blend-mode: $text-mix-blend-mode;
-        color: #FFF;
+        color: $primary-color;
         margin-right: $spacing-1;
     }
 }

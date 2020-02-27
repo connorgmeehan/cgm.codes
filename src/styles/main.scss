@@ -9,14 +9,15 @@
 @import './utils/cgmicons.css';
 @import './utils/cgmicons-codes.css';
 
+// Sitewide styles
+@import "./global/reset";
+
 // Setup variables to be used accross website;
 @import "./variables/basetheme";  // Default variables for theme
 @import "./variables/theme";      // Override variables to modify theme
 @import "./variables/basetypography";
+@import "./variables/typography";
 
-// Sitewide styles
-@import "./global/reset";
-@import "./global/typography";
 
 // Page Styles
 @import './pages/Layout.scss';
