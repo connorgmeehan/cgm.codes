@@ -1,15 +1,16 @@
 class MouseHelper {
   x = 0;
   y = 0;
-  static instance;
-  get () {
-    if (!this.instance) {
-      this._handleMouseMove = this._handleMouseMove.bind(this);
-      this.isMouseInsideBounds = this.isMouseInsideBounds.bind(this);
-      window.addEventListener('mousemove', e => this._handleMouseMove(e));
-      this.instance = this;
+  static instance = null;
+
+  constructor() {
+    if(this.instance) {
+      return this.instance;
     }
-    return this.instance
+    
+    this._handleMouseMove = this._handleMouseMove.bind(this);
+    this.isMouseInsideBounds = this.isMouseInsideBounds.bind(this);
+    window.addEventListener('mousemove', e => this._handleMouseMove(e));
   }
   /**
    * @param {MouseEvent} event

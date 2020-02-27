@@ -23,6 +23,8 @@ uniform vec3  metaball3;
 uniform float metaball3Size;
 uniform vec3  metaball4;
 uniform float metaball4Size;
+uniform float mx;
+uniform float my;
 
 float map(vec3 rp) {
     float metaball1Dist = distance(rp, metaball1) - metaball1Size;
@@ -107,7 +109,12 @@ void main() {
 
     // camera setup
     vec3 upDirection = vec3(0.0, -1.0, 0.0);
-    vec3 cameraOrigin = vec3(0., 5., 5. + 5.);
+    vec3 mousePositionOffset = vec3(
+        (mx / resolution.x - 0.5) * 1.,
+        (my / resolution.y - 0.5) * 1.,
+        (-my / resolution.y - 0.5) * 1. 
+    );
+    vec3 cameraOrigin = vec3(0., 5., 10.) + mousePositionOffset;
     vec3 cameraTarget = vec3(.0);
 
     vec3 cameraDir = normalize(cameraTarget - cameraOrigin);

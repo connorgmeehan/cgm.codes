@@ -69,7 +69,7 @@ export default {
     }
   },
   mounted: function() {
-    this.mouseHelper = new MouseHelper().get();
+    this.mouseHelper = new MouseHelper();
   },
   methods: {
     handleMouseOver() {
@@ -79,6 +79,7 @@ export default {
     handleMouseLeave() {
       this.isHover = false;
       window.removeEventListener('scroll', this.handleScroll);
+      console.log(this.mouseHelper.x);
     },
     handleScroll() {
       if(!this.mouseHelper.isMouseInsideBounds(this.$refs['title'])) {

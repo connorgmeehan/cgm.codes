@@ -5,6 +5,7 @@ import { fragShaderSource } from '../classes/gl/PerlinShaders_2';
 import { signedRandom } from '../helpers/utils';
 import Vec3 from './gl/Vec3';
 import Color from './Color';
+import MouseHelper from '../helpers/MouseHelper';
 
 export const PerlinBackgroundSettings = {
   baseColor: '#999999',
@@ -18,14 +19,14 @@ export const PerlinBackgroundSettings = {
   metaballGrowTime: 2,
   maxStartingVel: 0.05,
   gravity: 0.01,
-  time: 0.00025
+  time: 0.0003
 };
 
 class Metaball {
   constructor (pos, radius) {
     this.pos = pos;
     console.log(...this.pos.data);
-    this.velocity = new Vec3([0, 0, 0]);
+    this.velocity = new Vec3([signedRandom(-1, 1), signedRandom(-1, 1), signedRandom(-1, 1)]);
     this.radius = radius;
   }
 }
@@ -48,6 +49,9 @@ class PerlinBackground {
     this._lightColor = new Color().fromHex(lightColor).makeFloat();
     this._fogColor = new Color().fromHex(fogColor).makeFloat();
     this._isStopped = false;
+    this._mouseHelper = new MouseHelper();
+    this._lerpedMouseX = 0;
+    this._lerpedMouseY = 0;
 
     // Initialse canvas
     this._shaderCanvas = new ShaderCanvas();
@@ -64,8 +68,8 @@ class PerlinBackground {
 
     for (let i = 0; i < this._settings.metaballCount; i++) {
       const pos = new Vec3([
-        signedRandom(-0.7, 0.7) * 4,
-        signedRandom(-0.7, 0.7) * 4,
+        signedRandom(-0.7, 0.7) * 2.5,
+        signedRandom(-0.7, 0.7) * 2.5,
         signedRandom(-2, 0)
       ]);
       const newMetaball = new Metaball(pos, signedRandom(settings.metaballMin, settings.metaballMax));
@@ -132,6 +136,11 @@ class PerlinBackground {
       this._shaderCanvas.setUniform(`metaball${i + 1}`, [metaball.pos.x, metaball.pos.y, metaball.pos.z]); // Pass new data to shader
       this._shaderCanvas.setUniform(`metaball${i + 1}Size`, metaball.radius * metaballScale); // Pass new data to shader
     });
+    this._lerpedMouseX -= (this._lerpedMouseX - this._mouseHelper.x) / 10;
+    this._lerpedMouseY -= (this._lerpedMouseY - this._mouseHelper.y) / 10;
+    this._shaderCanvas.setUniform('mx', this._lerpedMouseX * 2);
+    this._shaderCanvas.setUniform('my', this._lerpedMouseY * 2);
+    console.log(this._mouseHelper.x, this._mouseHelper.y);
     this._shaderCanvas.render();
     requestAnimationFrame(now => this._update(now));
   }
