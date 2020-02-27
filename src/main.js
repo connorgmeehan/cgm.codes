@@ -11,21 +11,30 @@ export default function (Vue, { router }) {
       return document.getElementById('Hero_CanvasContainer');
     }
     let perlinBackground;
+
+    // Assign a custom theme for this session
+    const documentBody = document.querySelector('body');
+    const themeClassNames = ['Theme__Orange', 'Theme__Blue', 'Theme__Green', 'Theme__Pink'];
+    const selectedThemeClassName = themeClassNames[Math.floor(Math.random() * themeClassNames.length)]
+    documentBody.classList.add(selectedThemeClassName);
+
+    // Client side on page load activities
     router.afterEach(() => {
       Vue.nextTick(() => {
+        // Restart animated favicon
         const AnimatedFavicon = require('./classes/AnimatedFavicon').default;
         new AnimatedFavicon('animated_favicon.json');
       
-        const PerlinBackground = require('./classes/PerlinBackground').default;
-        const PerlinBackgroundSettings = require('./classes/PerlinBackground').PerlinBackgroundSettings;
-      
+        // Stop or start perlin background if element is found
         const perlinTarget = getPerlinBackgroundTarget();
-        const perlinBackgroundSettings = PerlinBackgroundSettings;
-        perlinBackgroundSettings.padding = 50;
-      
-        console.log(perlinTarget, perlinBackgroundSettings);
-      
         if (perlinTarget) {
+          const PerlinBackground = require('./classes/PerlinBackground').default;
+          const PerlinBackgroundSettings = require('./classes/PerlinBackground').PerlinBackgroundSettings;
+          const perlinBackgroundSettings = PerlinBackgroundSettings;
+          perlinBackgroundSettings.padding = 50;
+        
+          console.log(perlinTarget, perlinBackgroundSettings);
+  
           perlinBackground = new PerlinBackground(perlinTarget, perlinBackgroundSettings);
           console.log(perlinBackground);
         } else {

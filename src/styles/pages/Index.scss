@@ -44,11 +44,8 @@
         }
 
         a {
-            color: invert($link-color-dark);
+            @extend .MultiColored__Invert;
             mix-blend-mode: $text-mix-blend-mode;
-            &:hover {
-                color: invert($link-color);
-            }
         }
 
         .PerlinCanvas {

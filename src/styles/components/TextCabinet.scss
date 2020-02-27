@@ -7,8 +7,7 @@ $titlefont-modifer: '#{selector}__TitleFont';
   &_Title {
     @extend .history-title;
     display: inline-block;
-    color: #FFF;
-    mix-blend-mode: $text-mix-blend-mode;
+    color: $primary-color;
     margin-bottom: -1.3rem;
 
     white-space:nowrap; 
@@ -51,8 +50,7 @@ $titlefont-modifer: '#{selector}__TitleFont';
     margin-right: $spacing-1;
     padding-top: 0;
 
-    color: #FFF;
-    mix-blend-mode: $text-mix-blend-mode;
+    color: $primary-color;
     &__Linked {
       &:hover {
         text-decoration: none;

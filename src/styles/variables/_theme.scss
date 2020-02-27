@@ -1,0 +1,61 @@
+@mixin multicolored {
+  .Theme__Orange & {
+    color: $orange-color;
+    &:hover {
+      color: lighten($orange-color, 10%);
+    }
+  }
+  .Theme__Green & {
+    color: $green-color;
+    &:hover {
+      color: lighten($green-color, 10%);
+    }
+  }
+  .Theme__Blue & {
+    color: $blue-color;
+    &:hover {
+      color: lighten($blue-color, 10%);
+    }
+  }
+  .Theme__Pink & {
+    color: $pink-color;
+    &:hover {
+      color: lighten($pink-color, 10%);
+    }
+  }
+}
+
+@mixin multicolored_invert {
+  .Theme__Orange & {
+    color: invert($orange-color);
+    &:hover {
+      color: darken(invert($orange-color), 10%);
+    }
+  }
+  .Theme__Green & {
+    color: invert($green-color);
+    &:hover {
+      color: darken(invert($green-color), 10%);
+    }
+  }
+  .Theme__Blue & {
+    color: invert($blue-color);
+    &:hover {
+      color: darken(invert($blue-color), 10%);
+    }
+  }
+  .Theme__Pink & {
+    color: invert($pink-color);
+    &:hover {
+      color: darken(invert($pink-color), 10%);
+    }
+  }
+}
+
+.MultiColored {
+  @include multicolored();
+}
+
+.MultiColored__Invert {
+  @include multicolored_invert();
+}

@@ -14,12 +14,9 @@
     }
     &_Workplace {
         @extend .history-title;
+        @extend .MultiColored;
         text-decoration: inherit;
         flex-grow: 1;
-        color: $link-color-dark;
-        &:hover {
-            color: $link-color;
-        }
     }
     &_Date {
         @extend .meta;

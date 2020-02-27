@@ -51,7 +51,7 @@ $selected-class: '.IconCabinet__selected';
         @extend .history-title;
         margin-right: $spacing-1;
         padding-top: 0;
-
+        
         color: $primary-color;
 
         &:hover {

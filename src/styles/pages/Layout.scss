@@ -52,12 +52,10 @@ body {
       font-weight: 700;
       margin: 0;
       padding: 0;
+      @extend .MultiColored;
 
-      @extend a;
-      color: invert($link-color-dark);
-
-      &:hover {
-        color: invert($link-color);
+      @include breakpoint('small') {
+        @include multicolored_invert;
       }
     }
   }
