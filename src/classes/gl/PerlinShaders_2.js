@@ -114,7 +114,7 @@ void main() {
         (my / resolution.y - 0.5) * 1.,
         (-my / resolution.y - 0.5) * 1. 
     );
-    vec3 cameraOrigin = vec3(0., 5., 10.) + mousePositionOffset;
+    vec3 cameraOrigin = vec3(0., 5., 15.) + mousePositionOffset;
     vec3 cameraTarget = vec3(.0);
 
     vec3 cameraDir = normalize(cameraTarget - cameraOrigin);

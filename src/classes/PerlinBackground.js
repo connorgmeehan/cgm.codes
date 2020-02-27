@@ -26,7 +26,7 @@ class Metaball {
   constructor (pos, radius) {
     this.pos = pos;
     console.log(...this.pos.data);
-    this.velocity = new Vec3([signedRandom(-1, 1), signedRandom(-1, 1), signedRandom(-1, 1)]);
+    this.velocity = new Vec3([0, 0, 0]);
     this.radius = radius;
   }
 }
@@ -41,17 +41,20 @@ class PerlinBackground {
   constructor (target, settings) {
     if (!process.isClient) { return; }
 
-    this._settings = settings;
-    const { lightColor, baseColor, fogColor, padding } = settings;
-    this._parent = target;
-    this._padding = padding;
-    this._baseColor = new Color().fromHex(baseColor).makeFloat();
-    this._lightColor = new Color().fromHex(lightColor).makeFloat();
-    this._fogColor = new Color().fromHex(fogColor).makeFloat();
-    this._isStopped = false;
+    // Initialise mouse helper and variables to control interactivty
     this._mouseHelper = new MouseHelper();
     this._lerpedMouseX = 0;
     this._lerpedMouseY = 0;
+
+    // Initialise light and color settings
+    this._settings = settings;
+    const { lightColor, baseColor, fogColor, padding } = settings;
+    this._parent = target; // parent element
+    this._padding = padding; // element padding in px
+    this._baseColor = new Color().fromHex(baseColor).makeFloat();
+    this._lightColor = new Color().fromHex(lightColor).makeFloat();
+    this._fogColor = new Color().fromHex(fogColor).makeFloat();
+    this._isStopped = false; // stops animation
 
     // Initialse canvas
     this._shaderCanvas = new ShaderCanvas();
@@ -63,21 +66,23 @@ class PerlinBackground {
 
     // Generate metaballs
     this._metaballs = [];
-
-    const origin = new Vec3([0, 0, -2]);
+    const origin = new Vec3([0, 0, 0]);
 
     for (let i = 0; i < this._settings.metaballCount; i++) {
+      // Assign random positions and sizes to metaballs
       const pos = new Vec3([
-        signedRandom(-0.7, 0.7) * 2.5,
-        signedRandom(-0.7, 0.7) * 2.5,
-        signedRandom(-2, 0)
+        signedRandom(-1, 1) * 3.5,
+        signedRandom(-1, 1) * 3.5,
+        signedRandom(-0.7, 0.7),
       ]);
       const newMetaball = new Metaball(pos, signedRandom(settings.metaballMin, settings.metaballMax));
 
+      // Assign a random velocity to each metaball
       const originDirection = newMetaball.pos.subtract(origin).normalize();
-      const orbitDirection = originDirection.rotate(signedRandom(60, 100), 0, signedRandom(0, 180));
-      newMetaball.velocity = orbitDirection.multiplyAll(signedRandom(3, 5));
-
+      const orbitDirection = originDirection.rotate(signedRandom(60, 100), signedRandom(60, 100), signedRandom(60, 100));
+      newMetaball.velocity = orbitDirection.multiplyAll(signedRandom(7, 12));
+      
+      // Set metaball size and location in shader
       this._shaderCanvas.setUniform(`metaball${i + 1}`, [newMetaball.pos.x, newMetaball.pos.y, newMetaball.pos.z]); // Pass new data to shader
       this._shaderCanvas.setUniform(`metaball${i + 1}Size`, newMetaball.radius);
       this._metaballs.push(newMetaball);
@@ -85,18 +90,21 @@ class PerlinBackground {
 
     console.log(this._metaballs);
 
-    //
+    // initialise required events and start the canvas rendering
     this._bindEvents();
     this._shaderCanvas.render();
 
+    // start animation/update loop
     this._update.bind(this);
     requestAnimationFrame(now => this._update(now));
   }
 
   _bindEvents () {
+    // Listener to resize the canvas when the window size changes to make the canvas responsive.
     let resizeTimeout;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
+      // debouncing to avoid poor performance when resizing
       resizeTimeout = setTimeout(() => {
         this._resizeCanvas(this._parent, this._shaderCanvas, this._padding);
       }, 100);
@@ -123,35 +131,40 @@ class PerlinBackground {
     if (this._isStopped) {
       return;
     }
+
+    // Initialise temporary variables
     const metaballScale = EasingFunctions.easeInOutQuad(clamp(now / 1000, this._settings.metaballGrowTime) / this._settings.metaballGrowTime);
-    const origin = new Vec3([0, 0, -2]);
+    const origin = new Vec3([0, 0, 0]);
     const gravity = new Vec3([this._settings.gravity, this._settings.gravity, this._settings.gravity]);
     const time = new Vec3([this._settings.time, this._settings.time, this._settings.time]);
+
     this._metaballs.forEach((metaball, i) => {
+      // Difference between metaball and origin, multiply by gravity
       let diff = metaball.pos.subtract(origin);
       diff = diff.multiply(gravity);
       metaball.velocity = metaball.velocity.add(diff);
       const scaledVelocity = metaball.velocity.multiply(time);
       metaball.pos = metaball.pos.subtract(scaledVelocity);
+      // Update position and radius (from the metaballScale on load animation)
       this._shaderCanvas.setUniform(`metaball${i + 1}`, [metaball.pos.x, metaball.pos.y, metaball.pos.z]); // Pass new data to shader
       this._shaderCanvas.setUniform(`metaball${i + 1}Size`, metaball.radius * metaballScale); // Pass new data to shader
     });
+
+    // Update mx/my uniforms for orbit effect
     this._lerpedMouseX -= (this._lerpedMouseX - this._mouseHelper.x) / 10;
     this._lerpedMouseY -= (this._lerpedMouseY - this._mouseHelper.y) / 10;
     this._shaderCanvas.setUniform('mx', this._lerpedMouseX * 2);
     this._shaderCanvas.setUniform('my', this._lerpedMouseY * 2);
-    console.log(this._mouseHelper.x, this._mouseHelper.y);
+
+    // render and set next frame render 
     this._shaderCanvas.render();
     requestAnimationFrame(now => this._update(now));
   }
 
+  // Kills the draw loop animation, used when navigating to a different page
   stop () {
     this._isStopped = true;
     this._parent.removeChild(this._shaderCanvas.domElement);
-  }
-
-  restart() {
-    
   }
 
   /**
