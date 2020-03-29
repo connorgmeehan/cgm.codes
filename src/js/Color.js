@@ -13,15 +13,24 @@ class Color {
         this.g = g;
         this.b = b;
 
-        this.hex = '#' + this._componentToHex(r) + this._componentToHex(g) + this._componentToHex(b);
+        this.hex = this.getHex();
         return this;
     }
 
-    makeFloat() {
+    fromRGBString(rgbString) {
+        const rgbArray = rgbString.replace(/[^\d,]/g, '').split(',');
+        return this.fromRGB(rgbArray[0], rgbArray[1], rgbArray[2]);
+    }
+
+    getFloat() {
         this.r = this.r/255;
         this.b = this.b/255;
         this.g = this.g/255;
         return this;
+    }
+
+    getHex() {
+        return '#' + this._componentToHex(this.r) + '' + this._componentToHex(this.g) + '' + this._componentToHex(this.b);
     }
 
     _componentToHex(c) {

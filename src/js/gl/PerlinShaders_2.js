@@ -73,14 +73,14 @@ float trace(inout vec3 rp, in vec3 rd, inout vec3 closestPoint) {
         rp += rd * max(dist * 0.5, rayCollisionDistance);
     }
 }
-float density = 20.;
+float density = 10.;
 vec4 applyFog(vec4 color, float dist) {
     float fogAmount = 1.0 - clamp(exp(-density * dist), 0.0, 1.0);
     return mix(color, fogColor, fogAmount);
 }
 
 // Fresnel
-float rimPow = .7;
+float rimPow = 2.;
 float rimAmount = .5;
 float F = 2.;
 vec4 applyLighting(vec4 color, vec3 cameraOrigin, vec3 rayDir) {
@@ -110,11 +110,11 @@ void main() {
     // camera setup
     vec3 upDirection = vec3(0.0, -1.0, 0.0);
     vec3 mousePositionOffset = vec3(
-        (mx / resolution.x - 0.5) * 1.,
-        (my / resolution.y - 0.5) * 1.,
-        (-my / resolution.y - 0.5) * 1. 
+        (mx / resolution.x + 0.5),
+        (my / resolution.y + 0.5),
+        (-my / resolution.y - 0.5). 
     );
-    vec3 cameraOrigin = vec3(0., 5., 15.) + mousePositionOffset;
+    vec3 cameraOrigin = vec3(0., 5., 15.) + mousePositionOffset * 10.;
     vec3 cameraTarget = vec3(.0);
 
     vec3 cameraDir = normalize(cameraTarget - cameraOrigin);

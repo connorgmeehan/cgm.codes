@@ -1,7 +1,7 @@
 import { ShaderCanvas } from 'shader-canvas';
 import clamp from 'clamp';
 import EasingFunctions from './easings';
-import { fragShaderSource } from '../classes/gl/PerlinShaders_2';
+import { fragShaderSource } from './gl/PerlinShaders_2';
 import { signedRandom } from '../helpers/utils';
 import Vec3 from './gl/Vec3';
 import Color from './Color';
@@ -51,9 +51,9 @@ class PerlinBackground {
     const { lightColor, baseColor, fogColor, padding } = settings;
     this._parent = target; // parent element
     this._padding = padding; // element padding in px
-    this._baseColor = new Color().fromHex(baseColor).makeFloat();
-    this._lightColor = new Color().fromHex(lightColor).makeFloat();
-    this._fogColor = new Color().fromHex(fogColor).makeFloat();
+    this._baseColor = new Color().fromHex(baseColor).getFloat();
+    this._lightColor = new Color().fromHex(lightColor).getFloat();
+    this._fogColor = new Color().fromHex(fogColor).getFloat();
     this._isStopped = false; // stops animation
 
     // Initialse canvas
