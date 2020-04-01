@@ -3,6 +3,9 @@
 // Vendor
 @import 'node_modules/plumber-sass/plumber';
 
+// Setup variables to be used accross website;
+@import "./variables/basetheme";  // Default variables for theme
+@import "./variables/theme";      // Override variables to modify theme
 @import './utils/utils';
 @import './utils/breakpoints';
 @import './font/inter.css';
@@ -12,9 +15,6 @@
 // Sitewide styles
 @import "./global/reset";
 
-// Setup variables to be used accross website;
-@import "./variables/basetheme";  // Default variables for theme
-@import "./variables/theme";      // Override variables to modify theme
 @import "./variables/basetypography";
 @import "./variables/typography";
 
