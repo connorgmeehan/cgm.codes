@@ -103,7 +103,8 @@
 .Blurb {
     border-top: $color-beige-light 1px solid;
     border-bottom: $color-beige-light 1px solid;
-    padding: $spacing-3 0;
+    padding-top: $spacing-3;
+    padding-bottom: $spacing-3;
     &_Wrapper {
         background: white;
     }
@@ -125,6 +126,6 @@
 
     &_Title {
         text-align: center;
-        padding-bottom: $spacing-2;
+        margin-bottom: $spacing-2;
     }
 }
