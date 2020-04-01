@@ -49,14 +49,11 @@ import MouseHelper from '../helpers/MouseHelper';
 
 export default {
   name: "PostPreview",
-  props: ['postdata'],
+  props: ['postdata', 'index'],
   data: () => ({
     isHover: false,
     mouseHelper: {},
   }),
-  mounted: function() {
-    console.log(this);
-  },
   computed: {
     getWrapperClassName() {
       return (this.isHover
@@ -79,10 +76,12 @@ export default {
     handleMouseOver() {
       this.isHover = true;
       window.addEventListener('scroll', this.handleScroll);
+      this.$emit('update-hover', this.index);
     },
     handleMouseLeave() {
       this.isHover = false;
       window.removeEventListener('scroll', this.handleScroll);
+      this.$emit('update-hover', -1);
       console.log(this.mouseHelper.x);
     },
     handleScroll() {

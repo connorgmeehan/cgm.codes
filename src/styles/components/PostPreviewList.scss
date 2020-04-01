@@ -1,15 +1,47 @@
 .PostPreviewList {
   &_Container {
-    // margin-top: 200px;
+    margin-top: 10px;
+    @include breakpoint('small') {
+      margin-top: 65px;
+    }
+    @include breakpoint('medium') {
+      margin-top: 130px;
+    }
   }
   &_Preview {
+    position: relative;
     // height: 100px;
-    transition: opacity 0.2s ease-in-out, max-height 0.5s ease-in-out;
+    transition: opacity 0.2s ease-in-out, max-height 0.3s ease-in-out, transform 0.5s ease-in-out;
     max-height: 1000px;
     opacity: 1;
+
+    &__BeforeHovered {
+      opacity: 0.3;
+
+      transform: translateY(-60px);
+      @include breakpoint('small') {
+        transform: translateY(-90px);
+      }
+      @include breakpoint('medium') {
+        transform: translateY(-120px);
+      }
+    }
+    &__AfterHovered {
+      opacity: 0.3;
+
+      transform: translateY(70px);
+      @include breakpoint('small') {
+        transform: translateY(90px);
+      }
+      @include breakpoint('medium') {
+        transform: translateY(130px);
+      }
+    }
+
     &__Hidden {
       max-height: 0;
       opacity: 0;
+      transform: none;
     }
   }
 }

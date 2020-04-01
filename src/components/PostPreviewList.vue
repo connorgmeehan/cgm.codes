@@ -5,14 +5,18 @@
       v-on:update-filter="activeFilters = $event" />
     <div class="PostPreviewList_Container">
       <div 
-        v-for="post in posts"
+        v-for="(post, i) in posts"
         :key="post.id"
         :class="{
           PostPreviewList_Preview: true,
-          PostPreviewList_Preview__Hidden: shouldHidePost(post)
+          PostPreviewList_Preview__BeforeHovered: activePostIndex != -1 && i < activePostIndex,
+          PostPreviewList_Preview__AfterHovered: activePostIndex != -1 && i > activePostIndex,
+          PostPreviewList_Preview__Hidden: shouldHidePost(post),
         }">
         <PostPreview
-          :postdata="post" />
+          :postdata="post"
+          :index="i" 
+          v-on:update-hover="activePostIndex = $event" />
       </div>
     </div>
   </div>
@@ -36,7 +40,8 @@ export default {
   },
   data: function() {
     return {
-      activeFilters: []
+      activeFilters: [],
+      activePostIndex: -1,
     }
   },
   methods: {
@@ -53,6 +58,6 @@ export default {
       }
       return !this.activeFilters.every(tag => post.tags.includes(tag));
     }
-  }
+  },
 }
 </script>
