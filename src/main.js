@@ -22,14 +22,14 @@ export default function (Vue, { router }) {
     router.afterEach(() => {
       Vue.nextTick(() => {
         // Restart animated favicon
-        const AnimatedFavicon = require('./classes/AnimatedFavicon').default;
+        const AnimatedFavicon = require('./js/AnimatedFavicon').default;
         new AnimatedFavicon('animated_favicon.json');
       
         // Stop or start perlin background if element is found
         const perlinTarget = getPerlinBackgroundTarget();
         if (perlinTarget) {
-          const PerlinBackground = require('./classes/PerlinBackground').default;
-          const PerlinBackgroundSettings = require('./classes/PerlinBackground').PerlinBackgroundSettings;
+          const PerlinBackground = require('./js/PerlinBackground').default;
+          const PerlinBackgroundSettings = require('./js/PerlinBackground').PerlinBackgroundSettings;
           const perlinBackgroundSettings = PerlinBackgroundSettings;
           perlinBackgroundSettings.padding = 50;
         

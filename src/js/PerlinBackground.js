@@ -124,6 +124,7 @@ class PerlinBackground {
     this._height = parent.clientHeight;
     canvas.domElement.style.left = `-${padding}px`;
     canvas.domElement.style.top = `-${padding}px`;
+    this._shaderCanvas.setUniform('resolution', [this._width, this._height]);
     canvas.setSize(this._width + padding * 2, this._height + padding * 2);
   }
 

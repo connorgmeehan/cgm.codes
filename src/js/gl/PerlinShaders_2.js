@@ -1,5 +1,6 @@
 export const fragShaderSource = (lightingColor, baseColor, fogColor) => `
 precision lowp float;
+#define TWO_PI 6.28318531
 const int marchCount = 100;
 const float rayCollisionDistance = 0.0005;
 
@@ -109,12 +110,15 @@ void main() {
 
     // camera setup
     vec3 upDirection = vec3(0.0, -1.0, 0.0);
+    float cameraDistance = 15.;
+    float mxTheta = (-mx / resolution.x + 0.5) / TWO_PI;
+    float myTheta = (-my / resolution.y + 0.5) / TWO_PI;
     vec3 mousePositionOffset = vec3(
-        (mx / resolution.x + 0.5),
-        (my / resolution.y + 0.5),
-        (-my / resolution.y - 0.5). 
+        sin(mxTheta) * sin(mxTheta),
+        cos(mxTheta) * sin(myTheta),
+        cos(myTheta) * cos(myTheta)
     );
-    vec3 cameraOrigin = vec3(0., 5., 15.) + mousePositionOffset * 10.;
+    vec3 cameraOrigin = mousePositionOffset * cameraDistance;
     vec3 cameraTarget = vec3(.0);
 
     vec3 cameraDir = normalize(cameraTarget - cameraOrigin);
