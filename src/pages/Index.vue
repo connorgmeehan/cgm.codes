@@ -8,7 +8,7 @@
             id="Hero_CanvasContainer"
             class="Hero_Copy">
             <h1>
-              Hi my name is Connor, I study <a href="https://sydney.edu.au/courses/courses/uc/bachelor-of-design-computing.html" class="u--hyphens-auto">Design Comp&shy;uting</a> at <a href="https://sydney.edu.au/">The Uni&shy;vers&shy;ity of Sydney</a> and I want to explore creative applications of tech.
+              Hi my name is Connor,<br class="hide-xlarge"> B. <a href="https://sydney.edu.au/courses/courses/uc/bachelor-of-design-computing.html" class="u--hyphens-auto">Design Comp&shy;uting</a> @ <a href="https://sydney.edu.au/">USYD</a><span class="hide-large">,</span><br class="hide-xlarge"> J. Frontend Engineer @ <a href="http://www.pacificmags.com.au/">PacMags</a>.  I am passionate about HCI &amp; creative tech.
             </h1>
           </div>
           <div class="Hero_Sidebar">
@@ -31,11 +31,11 @@
         </div>
       </div>
       <div class="Blurb_Wrapper">
-        <div class="Blurb container">
-          <h3 class="article-heading-4">As a Design Computing student with a background in coding, I am interested in the future of creative technologies. I have wide ranging practice based knowledge using creative coding languages and have built several interactive artworks.<br>
-          I have a particular interest in interaction design and exploring the ways we can use technology to build immersive playful or reflective environments.<br>
-          <br>
-          Here are some of my works...</h3>
+        <div class="Blurb container-narrow">
+          <h3 class="article-heading-4">
+            As a Design Computing student with experience in software engineering I'm interested in the creative fusion of these two disciplines.  I combine design thinking with feasibility to create wonderful exploratory experiences, aiding in projects from problem area analysis to completion. 
+            <br>
+          </h3>
         </div>
       </div>
       <div class="Works_Wrapper">
