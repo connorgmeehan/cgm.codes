@@ -1,17 +1,19 @@
 <template>
-  <div class="PostPreviewList_Container">
+  <div class="PostPreviewList">
     <PostPreviewListFilters
       :posts="posts"
       v-on:update-filter="activeFilters = $event" />
-    <div 
-      v-for="post in posts"
-      :key="post.id"
-      :class="{
-        PostPreviewList_Preview: true,
-        PostPreviewList_Preview__Hidden: shouldHidePost(post)
-      }">
-      <PostPreview
-        :postdata="post" />
+    <div class="PostPreviewList_Container">
+      <div 
+        v-for="post in posts"
+        :key="post.id"
+        :class="{
+          PostPreviewList_Preview: true,
+          PostPreviewList_Preview__Hidden: shouldHidePost(post)
+        }">
+        <PostPreview
+          :postdata="post" />
+      </div>
     </div>
   </div>
 </template>
@@ -49,7 +51,7 @@ export default {
       if (!this.activeFilters.length) {
         return false;
       }
-      return this.activeFilters.every(tag => post.tags.includes(tag));
+      return !this.activeFilters.every(tag => post.tags.includes(tag));
     }
   }
 }

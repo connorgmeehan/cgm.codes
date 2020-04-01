@@ -2,38 +2,32 @@ $hoverModifier: ".PostPreview_Wrapper__Hover";
 $element-height: 200px;
 $element-height-t: 250px;
 $element-height-d: 400px;
-.PostPreview {
-    height: $element-height;
-    @include breakpoint('small') {
-        height: $element-height-t;
-    }
-    @include breakpoint('medium') {
-        height: $element-height-d;
-    }
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 
-    width: fit-content;
-    text-align: center;
+.PostPreview {
 
     &_Wrapper {
-        width: 100%;
+        pointer-events: none;
+    }
+
+    &_MediaBlock {
+        text-align: center;
         position: relative;
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        justify-content: center;
+        justify-items: center;
     }
-
-    a {
-        text-decoration-line: none;
-    }
-
-    &_Title {
-        color: invert($primary-color);
+    &_TitleContainer {
+        margin: 0 auto;
         width: fit-content;
-        mix-blend-mode: exclusion;
+        position: relative;
+        z-index: 1;
+    }
+    
+    &_Title {
+        color: $primary-color;
+        // mix-blend-mode: exclusion;
+        pointer-events: all;
+        width: fit-content;
 
         &:hover {
             cursor: pointer;
@@ -41,6 +35,7 @@ $element-height-d: 400px;
         }
 
         &__Stroke {
+            width: fit-content;
             mix-blend-mode: hard-light;
             color: transparent;
             position: absolute;
@@ -55,30 +50,61 @@ $element-height-d: 400px;
         }
     }
 
-    &_DescriptionBlock {
-        display: flex;
-        justify-content: space-between;
-
-        overflow:hidden;
-        transition: all 0.3s ease-out;
-        height:auto;
-        max-height:0;
-        padding: 0 10px;
-
-        @include breakpoint('medium') {
-            padding: 0 0;
-        }
-
+    &_MediaBackground {
+        z-index: 1;
+        pointer-events: none;
+        position: absolute;
+        top: 50%; left: 0; right: 0; bottom: 0;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: all ease-in-out 0.2s;
+        object-fit: cover;
+        width:100%;
         #{$hoverModifier} & {
-            padding: 1rem 10px;
-            max-height: $element-height;
+            opacity: 1;
+            height: $element-height;
             @include breakpoint('small') {
-                max-height: $element-height-t;
-                
+                height: $element-height-t;
             }
             @include breakpoint('medium') {
-                max-height: $element-height-d;
-                padding: 1rem 0;
+                height: $element-height-d;
+            }
+        }
+    }
+
+    &_DescriptionBlock {
+        @extend .container-narrow;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        
+        height:auto;
+        max-height:0;
+        opacity: 0;
+        overflow:hidden;
+        transition: all 0.2s ease-out;
+        top: 100px;
+        margin-bottom: 25px;
+        padding-bottom: 0;
+        @include breakpoint('small') {
+            margin-bottom: 55px;
+        }
+        @include breakpoint('medium') {
+            margin-bottom: 75px;
+        }
+        
+        #{$hoverModifier} & {
+            opacity: 1;
+            top: 0;
+            margin-bottom: 0px;
+            padding-bottom: $spacing-2;
+            max-height: 9999px;
+            margin-top: 75px;
+            @include breakpoint('small') {
+                margin-top: 100px;
+            }
+            @include breakpoint('medium') {
+                margin-top: 150px;
             }
         }
     }
@@ -95,6 +121,7 @@ $element-height-d: 400px;
             opacity: 1;
             max-height: 9999px;
         }
+
     }
 
     &_Date {
@@ -103,30 +130,140 @@ $element-height-d: 400px;
 
         margin-left: $spacing-2;
     }
-
-    &_MediaBackground {
-        z-index: 0;
-        position: absolute;
-        top:0; left:0; right:0;  bottom:0;
-        
-        width: 100%;
-        pointer-events: none;
-        object-fit: cover;
-        
-        opacity: 0;
-        transition: all ease-in-out 0.2s;
-
-        height: $element-height;
-        @include breakpoint('small') {
-            height: $element-height-t;
-        }
-        @include breakpoint('medium') {
-            height: $element-height-d;
-        }
-
-        #{$hoverModifier} & {
-            opacity: 1;
-            pointer-events: none;
-        }
-    }
 }
+
+// .PostPreview {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     flex-direction: column;
+
+//     height: inherit;
+//     width: fit-content;
+//     text-align: center;
+
+//     #{$hoverModifier} & {
+//         z-index: 1;
+//     }
+//     &_Wrapper {
+//         position: absolute;
+//         width: 100%;
+//         height: inherit;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         transform: translateY(-50%);
+
+//         &__Hover {
+//             height: $element-height;
+//             @include breakpoint('small') {
+//                 height: $element-height-t;
+//             }
+//             @include breakpoint('medium') {
+//                 height: $element-height-d;
+//             }
+//         }
+//     }
+
+//     a {
+//         text-decoration-line: none;
+//     }
+
+//     &_Title {
+//         color: invert($primary-color);
+//         width: fit-content;
+//         mix-blend-mode: exclusion;
+
+//         &:hover {
+//             cursor: pointer;
+//             text-decoration-line: none;
+//         }
+
+//         &__Stroke {
+//             mix-blend-mode: hard-light;
+//             color: transparent;
+//             position: absolute;
+//             -webkit-text-stroke: 2px transparent;
+//         }
+//         #{$hoverModifier} &__Stroke {
+//             text-decoration-line: none;
+//             transition: -webkit-text-stroke-width ease-in-out 0.2s;
+//             transition: -webkit-text-stroke-color ease-in-out 0.2s;
+//             -webkit-text-stroke: 1px white;
+//             text-shadow: 0 0 0px rgba(255, 255, 255, 0.4);
+//         }
+//     }
+
+//     &_DescriptionBlock {
+//         display: flex;
+//         justify-content: space-between;
+
+//         overflow:hidden;
+//         transition: all 0.3s ease-out;
+//         height:auto;
+//         max-height:0;
+//         padding: 0 10px;
+
+//         @include breakpoint('medium') {
+//             padding: 0 0;
+//         }
+
+//         #{$hoverModifier} & {
+//             padding: 1rem 10px;
+//             max-height: $element-height;
+//             @include breakpoint('small') {
+//                 max-height: $element-height-t;
+                
+//             }
+//             @include breakpoint('medium') {
+//                 max-height: $element-height-d;
+//                 padding: 1rem 0;
+//             }
+//         }
+//     }
+
+//     &_ShortDescription {
+//         @extend .history-title;
+
+//         transition: all ease-in-out 0.2s;
+        
+//         color: $primary-color;
+//         opacity: 0.5;
+        
+//         #{$hoverModifier} & {
+//             opacity: 1;
+//             max-height: 9999px;
+//         }
+//     }
+
+//     &_Date {
+//         @extend .meta;
+//         color: $primary-color;
+
+//         margin-left: $spacing-2;
+//     }
+
+//     &_MediaBackground {
+//         position: absolute;
+
+//         width: 100%;
+//         pointer-events: none;
+//         object-fit: cover;
+        
+//         opacity: 0;
+//         transition: all ease-in-out 0.2s;
+
+//         height: $element-height;
+//         @include breakpoint('small') {
+//             height: $element-height-t;
+//         }
+//         @include breakpoint('medium') {
+//             height: $element-height-d;
+//         }
+
+//         #{$hoverModifier} & {
+//             opacity: 1;
+//             pointer-events: none;
+//         }
+//     }
+// }

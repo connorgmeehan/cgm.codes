@@ -3,38 +3,42 @@
     :class="getWrapperClassName"
     :id="postdata.id">
     <div class="PostPreview">
-      <video
-        v-if="postdata.video !== null"
-        :src="postdata.video"
-        class="PostPreview_MediaBackground"
-        autoplay
-        muted
-        loop />
-      <g-image
-        v-if="postdata.video === null && postdata.image !== null"
-        :src="postdata.image"
-        class="PostPreview_MediaBackground" />
-      <g-link :to="postdata.path">
-        <h1 class="PostPreview_Title__Stroke">
-          {{ postdata.title }}
-        </h1>
-        <h1
-          :ref="'title'"
-          @scroll="handleMouseLeave"
-          @mouseover="handleMouseOver"
-          @mouseleave="handleMouseLeave"
-          class="PostPreview_Title">
-          {{ postdata.title }}
-        </h1>
-      </g-link>
-    </div>
-    <div class="PostPreview_DescriptionBlock container">
+      <div class="PostPreview_MediaBlock">
+        <video
+          v-if="postdata.video !== null"
+          :src="postdata.video"
+          class="PostPreview_MediaBackground"
+          autoplay
+          muted
+          loop />
+        <g-image
+          v-if="postdata.video === null && postdata.image !== null"
+          :src="postdata.image"
+          class="PostPreview_MediaBackground" />
+        <g-link 
+          :to="postdata.path"
+          class="PostPreview_TitleContainer">
+          <h1 class="PostPreview_Title__Stroke">
+            {{ postdata.title }}
+          </h1>
+          <h1
+            :ref="'title'"
+            @scroll="handleMouseLeave"
+            @mouseover="handleMouseOver"
+            @mouseleave="handleMouseLeave"
+            class="PostPreview_Title">
+            {{ postdata.title }}
+          </h1>
+        </g-link>
+      </div>
+       <div class="PostPreview_DescriptionBlock container">
       <h3 class="PostPreview_ShortDescription">
         {{ postdata.shortdescription }}
       </h3>
       <h3 class="PostPreview_Date">
         {{ month }}<br>{{ year }}
       </h3>
+    </div>
     </div>
   </div>
 </template>
