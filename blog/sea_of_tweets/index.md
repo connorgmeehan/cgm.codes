@@ -14,7 +14,8 @@
   },
   "git": "https://github.com/connorgmeehan/sea-of-tweets-js",
   "duration": "3 months",
-  "description": "Sea of Tweets was an interactive data visualisation on the 2016 presidential election comparing the Democratic and Republican primary candidates real-world and twitter presence.  It made use of the Huffington Post pollster and Twitter APIs to get tweets and the sentiment towards each candidate.  This was the project that started my journey and interest in creative coding."
+  "description": "Sea of Tweets was an interactive data visualisation on the 2016 presidential election comparing the Democratic and Republican primary candidates real-world and twitter presence.  It made use of the Huffington Post pollster and Twitter APIs to get tweets and the sentiment towards each candidate.  This was the project that started my journey and interest in creative coding.",
+  "tags": ["JavaScript", "APIs"],
 }
 ---
 

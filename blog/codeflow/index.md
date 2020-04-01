@@ -10,7 +10,8 @@
   "myrole": [],
   "duration": "On going",
   "description": "codeflow has been a personal project since 2016 when I took Interactive Media at The University of Technology Sydney.  It was here I learned about creative coding through Processing and I've been inspired to move into the field ever since.  I've always had a strong connection to music and imagined shapes and scenes when listening to music and I wanted to explore that by producing a program that communicated these scenes.",
-  "git": "https://github.com/connorgmeehan/codeflow"
+  "git": "https://github.com/connorgmeehan/codeflow",
+  "tags": ["C++", "Graphics Programming"],
 }
 ---
 

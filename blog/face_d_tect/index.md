@@ -20,7 +20,8 @@
   ],
   "git": "https://github.com/connorgmeehan/deco3200-interactive-produce-design",
   "duration": "3 months",
-  "description": "An interactive art installation that aims to raise awareness and action for the potential for AI and computerised surveillance to further disadvantage marginalized groups.  It makes use of modern machine learning models to analyse user's faces and attempt to predict their age, gender and emotion, denying them any further interaction to reflect the lack of power and safety measures we have as individuals.  When the interaction is complete, the user can scan a QR code to send an email raising concerns of these technologies use to the  Department of Home Affairs, the government body responsible for employing these AI systems in Australia's local security operations.  It was built for Interactive Product Design Studio at the University of Sydney and will be presented in the Design 2019 Graduation show in December."
+  "description": "An interactive art installation that aims to raise awareness and action for the potential for AI and computerised surveillance to further disadvantage marginalized groups.  It makes use of modern machine learning models to analyse user's faces and attempt to predict their age, gender and emotion, denying them any further interaction to reflect the lack of power and safety measures we have as individuals.  When the interaction is complete, the user can scan a QR code to send an email raising concerns of these technologies use to the  Department of Home Affairs, the government body responsible for employing these AI systems in Australia's local security operations.  It was built for Interactive Product Design Studio at the University of Sydney and will be presented in the Design 2019 Graduation show in December.",
+  "tags": ["UX/UI Design", "C++", "JavaScript", "Networking", "Raspberry Pi"],
 }
 ---
 

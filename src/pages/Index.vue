@@ -40,13 +40,8 @@
       </div>
       <div class="Works_Wrapper">
         <div class="Works">
-          <div 
-            v-for="post in posts"
-            :key="post.id"
-            class="Works_PostPreview">
-            <PostPreview
-              :postdata="post" />
-          </div>
+          <h2 class="Works_Title">Previous Work</h2>
+          <PostPreviewList :posts="posts" />
         </div>  
       </div>
     </div>
@@ -56,7 +51,7 @@
 <script>
 import HeroHistory from '../components/HeroHistory';
 import IconCabinet from '../components/IconCabinet';
-import PostPreview from '../components/PostPreview';
+import PostPreviewList from '../components/PostPreviewList';
 export default {
   metaInfo: {
     title: 'cgm.codes'
@@ -64,7 +59,7 @@ export default {
   components: {
     HeroHistory,
     IconCabinet,
-    PostPreview
+    PostPreviewList
   },
   computed: {
     posts: function () {
@@ -93,6 +88,7 @@ query {
         video
         path
         date
+        tags
       }
     }
   }

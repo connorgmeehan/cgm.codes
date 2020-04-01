@@ -1,0 +1,12 @@
+.PostPreviewList {
+  &_Preview {
+    transition: opacity 0.2s ease-in-out, max-height 0.5s ease-in-out;
+    max-height: 1000px;
+    opacity: 1;
+    overflow: hidden;
+    &__Hidden {
+      max-height: 0;
+      opacity: 0;
+    }
+  }
+}

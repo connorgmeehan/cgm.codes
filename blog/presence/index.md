@@ -19,7 +19,8 @@
   ],
   "git": "https://github.com/connorgmeehan/ofxWilkinson",
   "duration": "1 month for first prototype, fixed up over the next year",
-  "description": "During the mid-year break at the University of Sydney a designathon was held by the SUEDE society to build a new light sculpture for the Wilkinson building's centenial.  Here we pitched a concept to track passersby movements across the foyer of the building and render blobs of light above their head in an LED array, representing the passed student and professor designers who have used this building over the last 100 years."
+  "description": "During the mid-year break at the University of Sydney a designathon was held by the SUEDE society to build a new light sculpture for the Wilkinson building's centenial.  Here we pitched a concept to track passersby movements across the foyer of the building and render blobs of light above their head in an LED array, representing the passed student and professor designers who have used this building over the last 100 years.",
+  "tags": ["C++", "Computer Vision", "Raspberry Pi"],
 }
 ---
 

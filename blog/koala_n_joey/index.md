@@ -18,7 +18,8 @@
     { "name" : "Developing prototypes from feedback", "link":"" }
   ],
   "duration": "3 months",
-  "description": "Aged care sucks.  With a royal commission currently being conducted into the level of care on   top of exorbitant costs for the government and the individual, the industry was due for a reboot. Koala & Joey are two apps design to eliviate some of these issues, by enabling volunteers to easily get involved senior citizens in need."
+  "description": "Aged care sucks.  With a royal commission currently being conducted into the level of care on   top of exorbitant costs for the government and the individual, the industry was due for a reboot. Koala & Joey are two apps design to eliviate some of these issues, by enabling volunteers to easily get involved senior citizens in need.",
+  "tags": ["UX/UI Design"],
 }
 ---
 ## 1. Brief & Objective

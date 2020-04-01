@@ -1,3 +1,30 @@
+@mixin multicolored-background {
+  .Theme__Orange & {
+    background-color: $orange-color;
+    &:hover {
+      background-color: lighten($orange-color, 10%);
+    }
+  }
+  .Theme__Green & {
+    background-color: $green-color;
+    &:hover {
+      background-color: lighten($green-color, 10%);
+    }
+  }
+  .Theme__Blue & {
+    background-color: $blue-color;
+    &:hover {
+      background-color: lighten($blue-color, 10%);
+    }
+  }
+  .Theme__Pink & {
+    background-color: $pink-color;
+    &:hover {
+      background-color: lighten($pink-color, 10%);
+    }
+  }
+}
+
 @mixin multicolored {
   .Theme__Orange & {
     color: $orange-color;
