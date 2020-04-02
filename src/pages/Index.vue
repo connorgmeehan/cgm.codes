@@ -6,31 +6,22 @@
         <div class="Hero container">
           <div
             id="Hero_CanvasContainer"
-            class="Hero_Copy">
+            class="Hero_Copy container-narrow">
             <h1>
-              Hi my name is Connor,<br class="hide-xlarge"> B. <a href="https://sydney.edu.au/courses/courses/uc/bachelor-of-design-computing.html" class="u--hyphens-auto">Design Comp&shy;uting</a> @ <a href="https://sydney.edu.au/">USYD</a><span class="hide-large">,</span><br class="hide-xlarge"> J. Frontend Engineer @ <a href="http://www.pacificmags.com.au/">PacMags</a>.  I am passionate about HCI &amp; creative tech.
+              Hi my name is Connor. <br>
+
+              Bach. <a href="https://sydney.edu.au/courses/courses/uc/bachelor-of-design-computing.html" class="u--hyphens-auto">Design Computing</a> @ <a href="https://sydney.edu.au/">U. of Sydney</a>. <br>
+
+              Jr. Frontend Engineer @ <a href="http://www.pacificmags.com.au/">Pacific Magazines</a>.
+
+              <br>I am passionate about HCI &amp; creative tech.
             </h1>
-          </div>
-          <div class="Hero_Sidebar">
-            <div class="Hero_History">
-              <HeroHistory />
-            </div>
-            <div class="Hero_CabinetWrapper">
-              <div class="Hero_IconCabinet">
-                <IconCabinet 
-                  :data="$static.metadata.technologies"
-                  title="Technologies" />
-              </div>
-              <div class="Hero_IconCabinet">
-                <IconCabinet
-                  :data="$static.metadata.socials"
-                  title="Socials" />
-              </div>
-            </div>
           </div>
         </div>
       </div>
-      <div class="Blurb_Wrapper">
+      <div 
+        id="about" 
+        class="Blurb_Wrapper">
         <div class="Blurb container-narrow">
           <h3 class="article-heading-4">
             As a Design Computing student with experience in software engineering I'm interested in the creative fusion of these two disciplines.  I combine design thinking with feasibility to create wonderful exploratory experiences, aiding in projects from problem area analysis to completion. 
@@ -38,7 +29,9 @@
           </h3>
         </div>
       </div>
-      <div class="Works_Wrapper">
+      <div 
+        id="work"
+        class="Works_Wrapper">
         <div class="Works">
           <h2 class="Works_Title">Previous Work</h2>
           <PostPreviewList :posts="posts" />
@@ -49,16 +42,12 @@
 </template>
 
 <script>
-import HeroHistory from '../components/HeroHistory';
-import IconCabinet from '../components/IconCabinet';
 import PostPreviewList from '../components/PostPreviewList';
 export default {
   metaInfo: {
     title: 'cgm.codes'
   },
   components: {
-    HeroHistory,
-    IconCabinet,
     PostPreviewList
   },
   computed: {
@@ -90,18 +79,6 @@ query {
         date
         tags
       }
-    }
-  }
-  metadata {
-    technologies {
-      name
-      icon
-      link
-    }
-    socials {
-      name
-      icon
-      link
     }
   }
 }

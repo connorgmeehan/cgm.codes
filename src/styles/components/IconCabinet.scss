@@ -1,7 +1,13 @@
-$selected-class: '.IconCabinet__selected';
+$selected-class: '.IconCabinet__Selected';
+$navbar-modifier: '.IconCabinet__Navbar';
 
 .IconCabinet {
     position: relative;
+
+    &__Navbar {
+        margin-left: $spacing-1;
+    }
+    
     &_Title {
         @extend .history-title;
         display: inline-block;
@@ -56,6 +62,14 @@ $selected-class: '.IconCabinet__selected';
 
         &:hover {
             text-decoration: none;
+        }
+
+        #{$navbar-modifier} & {
+            @extend .base-text;
+            margin-right: $spacing-0;
+            @include breakpoint('small') {
+            @include multicolored_invert;
+            }
         }
     }
 }

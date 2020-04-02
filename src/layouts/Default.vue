@@ -2,11 +2,42 @@
   <div class="Layout">
     <slot />
     <header class="Header_Wrapper">
-      <div class="Header">
+      <div
+        :class="{
+          Header: true,
+          Header__Open: isNavOpen
+        }">
         <div class="Header_TextBlock">
           <span class="Header_Title">
             <g-link to="/">{{ $static.metadata.siteNameShort }}</g-link>
           </span>
+          <div class="Header_NavLinkContainer">
+            <g-link
+              class="Header_NavLink"
+              to="/#about">
+              about
+            </g-link>
+            <g-link
+              class="Header_NavLink"
+              to="/#work">
+              work
+            </g-link>
+            <a 
+              class="Header_NavLink"
+              href="/connor_guy_meehan_cv_creative_technologist.pdf">
+              resume
+            </a>
+            <IconCabinet
+              :data="$static.metadata.socials"
+              base-class-modifier="Navbar" />
+          </div>
+          <div 
+            v-on:click="isNavOpen = !isNavOpen"
+            :class="`Header_NavLinkMenu hamburger hamburger--vortex ${isNavOpen ? 'is-active' : ''}`">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+          </div>
         </div>
       </div>
     </header>
@@ -17,8 +48,16 @@
   </div>
 </template>
 <script>
+import IconCabinet from '../components/IconCabinet';
+
 export default {
   name: "Layout",
+  components: {
+    IconCabinet
+  },
+  data: () => ({
+    isNavOpen: false,
+  })
 }
 </script>
 <static-query>
@@ -27,6 +66,11 @@ query {
     siteName
     siteNameShort
     contactEmail
+    socials {
+      name
+      icon
+      link
+    }
   }
 }
 </static-query>

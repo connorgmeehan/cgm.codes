@@ -30,13 +30,9 @@
     &_Copy {
         position: relative;
         font-weight: 600;
-        hyphens: auto;
+        word-wrap: none;
         @include breakpoint('small') {
             padding: 0;
-        }
-        @include breakpoint('xlarge') {
-            text-align: right;
-            width: 58%;
         }
         h1 {
             color: invert($primary-color);

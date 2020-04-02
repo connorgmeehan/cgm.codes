@@ -106,7 +106,7 @@ void main() {
     uv -= 0.5;
     uv.y /= resolution.x / resolution.y;
 
-    float t = time * 0.25;
+    float t = time * 0.15;
 
     // camera setup
     vec3 upDirection = vec3(0.0, -1.0, 0.0);
