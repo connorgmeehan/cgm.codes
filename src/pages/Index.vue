@@ -10,11 +10,11 @@
             <h1>
               Hi my name is Connor. <br>
 
-              Bach. <a href="https://sydney.edu.au/courses/courses/uc/bachelor-of-design-computing.html" class="u--hyphens-auto">Design Computing</a> @ <a href="https://sydney.edu.au/">U. of Sydney</a>. <br>
+              I study <a href="https://sydney.edu.au/courses/courses/uc/bachelor-of-design-computing.html" class="u--hyphens-auto">Design Computing</a> @ <a href="https://sydney.edu.au/">The University of Sydney</a>. <br>
 
-              Jr. Frontend Engineer @ <a href="http://www.pacificmags.com.au/">Pacific Magazines</a>.
+              I'm a Jr. Frontend Engineer @ <a href="http://www.pacificmags.com.au/">Pacific Magazines</a>.
 
-              <br>I am passionate about HCI &amp; creative tech.
+              <br>I am passionate about building functional user centric interfaces.
             </h1>
           </div>
         </div>
@@ -24,7 +24,7 @@
         class="Blurb_Wrapper">
         <div class="Blurb container-narrow">
           <h3 class="article-heading-4">
-            As a Design Computing student with experience in software engineering I'm interested in the creative fusion of these two disciplines.  I combine design thinking with feasibility to create wonderful exploratory experiences, aiding in projects from problem area analysis to completion. 
+            As a Design Computing student with experience in software engineering I aim to combine an understanding of user focused design with frontend development to understand all stakeholders needs and rapidly develop products that users will love. 
             <br>
           </h3>
         </div>
