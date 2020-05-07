@@ -23,7 +23,7 @@
         transform: translateY(-90px);
       }
       @include breakpoint('medium') {
-        transform: translateY(-120px);
+        transform: translateY(-150px);
       }
     }
     &__AfterHovered {
@@ -34,7 +34,7 @@
         transform: translateY(90px);
       }
       @include breakpoint('medium') {
-        transform: translateY(130px);
+        transform: translateY(110px);
       }
     }
 

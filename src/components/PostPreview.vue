@@ -31,14 +31,14 @@
           </h1>
         </g-link>
       </div>
-       <div class="PostPreview_DescriptionBlock container">
-      <h3 class="PostPreview_ShortDescription">
-        {{ postdata.shortdescription }}
-      </h3>
-      <h3 class="PostPreview_Date">
-        {{ month }}<br>{{ year }}
-      </h3>
-    </div>
+      <div class="PostPreview_DescriptionBlock container">
+        <h3 class="PostPreview_ShortDescription">
+          {{ postdata.shortdescription }}
+        </h3>
+        <h3 class="PostPreview_Date">
+          {{ month }}<br>{{ year }}
+        </h3>
+      </div>
     </div>
   </div>
 </template>

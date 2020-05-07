@@ -25,28 +25,30 @@ $element-height-d: 400px;
     
     &_Title {
         color: $primary-color;
-        mix-blend-mode: exclusion;
+        text-decoration-line: none;
         pointer-events: all;
         width: fit-content;
 
         &:hover {
+            @extend .MultiColored;
             cursor: pointer;
             text-decoration-line: none;
         }
 
         &__Stroke {
             width: fit-content;
+            text-decoration-line: none;
             mix-blend-mode: hard-light;
             color: transparent;
             position: absolute;
             -webkit-text-stroke: 2px transparent;
         }
         #{$hoverModifier} &__Stroke {
+            @extend .MultiColored;
             text-decoration-line: none;
             transition: -webkit-text-stroke-width ease-in-out 0.2s;
             transition: -webkit-text-stroke-color ease-in-out 0.2s;
             -webkit-text-stroke: 1px white;
-            text-shadow: 0 0 0px rgba(255, 255, 255, 0.4);
         }
     }
 
