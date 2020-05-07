@@ -1,0 +1,39 @@
+.ScrollArrow {
+  &_Container {
+    animation: up-down 5s infinite;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    margin-left: -12px;
+    width: 24px;
+    height: 24px;
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  &_Icon {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-left: 1px solid $color-black;
+    border-bottom: 1px solid $color-black;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    box-sizing: border-box;
+    .ScrollArrow_Container:hover & {
+      border-left: 2px solid $color-black;
+      border-bottom: 2px solid $color-black;  
+    }
+  }
+
+  &_Title {
+
+  }
+}
+
+@keyframes up-down {
+  0% {transform: translateY(-10px)}
+  50% {transform: translateY(10px)}
+  100% {transform: translateY(-10px)}
+}

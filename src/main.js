@@ -3,9 +3,12 @@
 
 import './styles/main.scss';
 
+import VueScrollTo from 'vue-scrollto';
 import DefaultLayout from '~/layouts/Default.vue'
 
 export default function (Vue, { router }) {
+  Vue.use(VueScrollTo);
+  
   if (process.isClient) {
     const getPerlinBackgroundTarget = () => {
       return document.getElementById('Hero_CanvasContainer');

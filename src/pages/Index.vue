@@ -18,6 +18,7 @@
             </h1>
           </div>
         </div>
+        <ScrollArrow target="#about" />
       </div>
       <div 
         id="about" 
@@ -43,12 +44,14 @@
 
 <script>
 import PostPreviewList from '../components/PostPreviewList';
+import ScrollArrow from '../components/ScrollArrow';
 export default {
   metaInfo: {
     title: 'cgm.codes'
   },
   components: {
-    PostPreviewList
+    PostPreviewList,
+    ScrollArrow
   },
   computed: {
     posts: function () {
