@@ -24,7 +24,7 @@
             </g-link>
             <a 
               class="Header_NavLink"
-              href="/connor_guy_meehan_cv_creative_technologist.pdf">
+              href="https://docs.google.com/document/d/1_2ZPFByC7vNtfa4bk4kTMDWpCkOgG_7pYNeWm0qb40U/edit?usp=sharing">
               resume
             </a>
             <IconCabinet
