@@ -1,80 +1,68 @@
-@mixin multicolored-background {
-  .Theme__Orange & {
-    background-color: $orange-color;
-    &:hover {
-      background-color: lighten($orange-color, 10%);
-    }
+@mixin multicolored($properties...) {
+  @debug $properties;
+
+  // If no custom properties passed, set it to modify color
+  @if length($properties) == 0 {
+    $properties: ('color');
   }
-  .Theme__Green & {
-    background-color: $green-color;
-    &:hover {
-      background-color: lighten($green-color, 10%);
+
+  @each $property in $properties {
+    .Theme__Orange & {
+      #{$property}: $orange-color;
+      &:hover {
+        #{$property}: lighten($orange-color, 10%);
+      }
     }
-  }
-  .Theme__Blue & {
-    background-color: $blue-color;
-    &:hover {
-      background-color: lighten($blue-color, 10%);
+    .Theme__Green & {
+      #{$property}: $green-color;
+      &:hover {
+        #{$property}: lighten($green-color, 10%);
+      }
     }
-  }
-  .Theme__Pink & {
-    background-color: $pink-color;
-    &:hover {
-      background-color: lighten($pink-color, 10%);
+    .Theme__Blue & {
+      #{$property}: $blue-color;
+      &:hover {
+        #{$property}: lighten($blue-color, 10%);
+      }
+    }
+    .Theme__Pink & {
+      #{$property}: $pink-color;
+      &:hover {
+        #{$property}: lighten($pink-color, 10%);
+      }
     }
   }
 }
 
-@mixin multicolored {
-  .Theme__Orange & {
-    color: $orange-color;
-    &:hover {
-      color: lighten($orange-color, 10%);
-    }
+@mixin multicolored_invert($properties...) {
+  @if length($properties) == 0 {
+    $properties: ('color');
   }
-  .Theme__Green & {
-    color: $green-color;
-    &:hover {
-      color: lighten($green-color, 10%);
-    }
-  }
-  .Theme__Blue & {
-    color: $blue-color;
-    &:hover {
-      color: lighten($blue-color, 10%);
-    }
-  }
-  .Theme__Pink & {
-    color: $pink-color;
-    &:hover {
-      color: lighten($pink-color, 10%);
-    }
-  }
-}
 
-@mixin multicolored_invert {
-  .Theme__Orange & {
-    color: invert($orange-color);
-    &:hover {
-      color: darken(invert($orange-color), 10%);
+  @each $property in $properties {    
+    .Theme__Orange & {
+      #{$property}: invert($orange-color);
+      &:hover {
+        #{$property}: darken(invert($orange-color), 10%);
+      }
     }
-  }
-  .Theme__Green & {
-    color: invert($green-color);
-    &:hover {
-      color: darken(invert($green-color), 10%);
+    .Theme__Green & {
+      #{$property}: invert($green-color);
+      &:hover {
+        #{$property}: darken(invert($green-color), 10%);
+      }
     }
-  }
-  .Theme__Blue & {
-    color: invert($blue-color);
-    &:hover {
-      color: darken(invert($blue-color), 10%);
+    .Theme__Blue & {
+      #{$property}: invert($blue-color);
+      &:hover {
+        #{$property}: darken(invert($blue-color), 10%);
+      }
     }
-  }
-  .Theme__Pink & {
-    color: invert($pink-color);
-    &:hover {
-      color: darken(invert($pink-color), 10%);
+    .Theme__Pink & {
+      #{$property}: invert($pink-color);
+      &:hover {
+        #{$property}: darken(invert($pink-color), 10%);
+      }
     }
   }
 }

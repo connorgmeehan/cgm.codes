@@ -2,10 +2,10 @@
   &_Container {
     margin-top: 10px;
     @include breakpoint('small') {
-      margin-top: 65px;
+      margin-top: 75px;
     }
     @include breakpoint('medium') {
-      margin-top: 130px;
+      margin-top: 150px;
     }
   }
   &_Preview {

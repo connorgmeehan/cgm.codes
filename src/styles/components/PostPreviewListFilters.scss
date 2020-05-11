@@ -30,7 +30,7 @@
     &__Active {
       color: white;
       border: transparent 1px solid;
-      @include multicolored-background;
+      @include multicolored('background-color');
     }
   }
 

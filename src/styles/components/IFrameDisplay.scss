@@ -3,15 +3,14 @@
   padding-bottom: $spacing-1;
 
   &_Button {
-    color: invert($primary-color);
-    border: 1px solid invert($primary-color);
+    @include multicolored('color', 'border-color');
+    border: 1px solid;
     padding: $spacing-1;
     margin: 0 auto;
     width: fit-content;
     
     &:hover {
       cursor: pointer;
-      background-color: darken($primary-color, 10%);
     }
   }
 
@@ -35,15 +34,14 @@
   &_CloseButton {
     position: absolute;
     right: 2px;
-    background-color: $primary-color;
-    color: invert($primary-color);
+    @include multicolored('color');
+    background-color: $background-color;
     padding-right: 10px;
     border-bottom-left-radius: 5px;
     top: -2px;
 
     &:hover {
       cursor: pointer;
-      background-color: darken($primary-color, 10%);
     }
   }
 }
