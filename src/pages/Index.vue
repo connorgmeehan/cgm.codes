@@ -12,9 +12,9 @@
 
               I study <a href="https://sydney.edu.au/courses/courses/uc/bachelor-of-design-computing.html" class="u--hyphens-auto">Design Computing</a> @ <a href="https://sydney.edu.au/">The University of Sydney</a>. <br>
 
-              I'm a Jr. Frontend Engineer @ <a href="http://www.pacificmags.com.au/">Pacific Magazines</a>.
+              I'm a Creative Developer @ <a href="http://www.codeoncanvas.cc/">Code On Canvas</a>.
 
-              <br>I am passionate about building functional user centric interfaces.
+              <br>I am passionate about the creative application of new technlogies.
             </h1>
           </div>
         </div>
