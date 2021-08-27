@@ -10,7 +10,9 @@
             <h1>
               Hi my name is Connor. <br>
 
-              I study <a href="https://sydney.edu.au/courses/courses/uc/bachelor-of-design-computing.html" class="u--hyphens-auto">Design Computing</a> @ <a href="https://sydney.edu.au/">The University of Sydney</a>. <br>
+              I study <a
+                href="https://sydney.edu.au/courses/courses/uc/bachelor-of-design-computing.html"
+                class="u--hyphens-auto">Design Computing</a> @ <a href="https://sydney.edu.au/">The University of Sydney</a>. <br>
 
               I'm a Creative Developer @ <a href="http://www.codeoncanvas.cc/">Code On Canvas</a>.
 
@@ -34,7 +36,9 @@
         id="work"
         class="Works_Wrapper">
         <div class="Works">
-          <h2 class="Works_Title">Previous Work</h2>
+          <h2 class="Works_Title">
+            Previous Work
+          </h2>
           <PostPreviewList :posts="posts" />
         </div>  
       </div>
