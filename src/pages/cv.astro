@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Default.astro';
+import { Image } from 'astro:assets';
+
+import PopoverIcon from '../components/PopoverIcon.astro';
+
+import icReact from '../assets/icons/tech/ic-react.svg';
+import icVue from '../assets/icons/tech/ic-vue.svg';
+import icThree from '../assets/icons/tech/ic-three-js.svg';
+import icVite from '../assets/icons/tech/ic-vite.svg';
+import icNetlify from '../assets/icons/tech/ic-netlify.svg';
+import icWebgl from '../assets/icons/tech/ic-webgl.svg';
+import icAws from '../assets/icons/tech/ic-amazon.svg';
+import icAzure from '../assets/icons/tech/ic-azure-cloud.svg';
+import icServerless from '../assets/icons/tech/ic-serverless.svg';
+import icEs6 from '../assets/icons/tech/ic-es6.png';
+import icCSharp from '../assets/icons/tech/ic-csharp.svg';
+import icLess from '../assets/icons/tech/ic-less.svg';
+import icUmbraco from '../assets/icons/tech/ic-umbraco.svg';
+
+---
+
+<Layout
+	title="Connor Meehan CV"
+	description="CV of Connor Meehan | Senior Creative Technologist"
+    bodyClass="text-[16px] md:text-xl"
+>
+    <h1 class="text-2xl md:text-5xl text-gray-800"> Connor Meehan </h1>
+    <h2 class="text-xl md:text-3xl mb-16 text-gray-600"> Senior Creative Technologist @ EyejackApp </h2>
+
+	<div class="relative mt-16 md:mt-24 mb-20 md:mb-28">
+        <div class="absolute w-[calc(100%+32px)] md:w-[calc(100%+96px)] h-[calc(100%+32px)] md:h-[calc(100%+96px)] -left-4 md:-left-12 -top-4 md:-top-12 bg-white rounded-md z-0 shadow-gray-200 shadow-2xl"/>
+        <p class="z-10 mb-0 relative">
+            Hello! I'm a Senior Creative Technologist Working at EyeJack on our internal SaaS product and client work.
+            I am a chronic tinkerer with a curious mind and strive to write practical,
+            expressive, modular code to implement  silky smooth user experiences.  
+        </p>
+	</div>
+
+    <h3 class="text-2xl md:text-4xl mb-8"> What am I like? </h3>
+    <p>
+        I started developing when I was 12 and now I go to bed watching conference talks on development techniques,
+        software architectures, patterns and new technologies. I really love learning theory (software, experience
+        design and more).  As a result I've been exposed to a lot of libraries and tools, and while I do not claim to
+        be a master in any, I always try to understand the characteristics of each, how does this work under the hood, where 
+        does this excel, and when is this applicable to my code?
+    </p>
+    <p>
+        When it comes time to apply this theory in my code I trend towards minimalism and simplicity.
+        Writing explicit, linear code that expresses both developer-intent and data flow.  This is a little 
+        contradictory but I also love the process of code optimisation, digging into runtime internals, re-using memory
+        to reduce allocations, etc.  And while this can often come at the cost of code expressiveness I think I've found
+        a happy medium over my years.
+    </p>
+    <p>
+        At this point I have come to the understanding that software and libraries are just tools and all are flawed
+        in some way.  Unless they use are a paradigm shift, most are extremly similar, solving the same problems with different syntax.
+        I am honing the brash young developer that once was and replacing him with a measured developer.  A developer that
+        places these tools within the context of the team, the product and the users.
+    </p>
+
+    <h3 class="text-2xl md:text-4xl mt-16 mb-8" style="page-break-before: always;"> Work History </h3>
+
+    <h4><a href="https://eyejack.io" target="_blank">EyeJack App</a></h4>
+    <h5 class="text-lg md:text-2xl text-gray-600">Senior Creative Technologist | Sep 2022 - Present</h5>
+    <ul class="list-disc list-inside md:list-outside flex flex-col items-start gap-1">
+        <li>Architecting projects for internal products and client work.</li>
+        <li>Pre-empting issues or gotchas with project requirements and planning workarounds early.</li>
+        <li>Communicating with project managers, designers and clients in their own language.</li>
+        <li>Developing highly interactive and stateful webapp as part of a SaaS product.</li>
+        <li>Jumping into unfamiliar codebases to identify and fix issues quickly. </li>
+        <li>Valuing and investing in the team via feedback, training and guidance of juniors.</li>
+        <li>Setting up and maintaining CI/CD pipelines.</li>
+    </ul>
+
+
+    <div class="my-12" />
+
+    <h4><a href="https://codeoncanvas.cc" target="_blank">codeoncanvas</a></h4>
+    <h5 class="text-lg md:text-2xl text-gray-600">Creative Developer | May 2020 - Sep 2022</h5>
+	<div class="bg-gray-200 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 overflow-x-scroll overflow-y-hidden">
+        <div class="flex flex-nowrap gap-4 items-center w-fit">
+            <PopoverIcon image={icVue} width={32} alt="Vue.js" />
+            <PopoverIcon image={icReact} width={32} alt="React" />
+            <PopoverIcon image={icVite} width={32} alt="Vite" />
+            <PopoverIcon image={icAws} width={32} alt="AWS" />
+            <PopoverIcon image={icServerless} width={32} alt="Serverless (AWS)" />
+            <PopoverIcon image={icNetlify} width={32} alt="Netlify" />
+            <PopoverIcon image={icWebgl} width={32} alt="WebGL" />
+            <PopoverIcon image={icThree} width={32} alt="THREE.js" />
+        </div>
+    </div>
+    <ul class="list-disc list-inside md:list-outside flex flex-col items-start gap-1">
+        <li>Transforming designs and feature requirements to code without hand-holding from designers.</li>
+        <li>Developing and being accountable for a deadline.</li>
+        <li>Experimented with a <span class="italic">LOT</span> of architectures, libaries and solutions (often because of project requirements but also because it was fun and projects would only need to be maintained for a month).</li>
+    </ul>
+
+    <div class="my-12" style="page-break-after: always"/>
+
+    <h4><a href="https://www.sevenwestmedia.com.au/" target="_blank">Seven West Media</a></h4>
+    <h5 class="text-lg md:text-2xl text-gray-600">Junior Fullstack Engineer | Aug 2018 - May 2020</h5>
+	<div class="bg-gray-200 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 overflow-x-scroll overflow-y-hidden">
+        <div class="flex flex-nowrap gap-4 items-center w-fit">
+            <PopoverIcon image={icEs6} width={32} alt="ES6 JS" />
+            <PopoverIcon image={icLess} width={32} alt="LESS CSS" />
+            <PopoverIcon image={icCSharp} width={32} alt="CSharp" />
+            <PopoverIcon image={icUmbraco} width={32} alt="Umbraco CMS" />
+            <PopoverIcon image={icAws} width={32} alt="AWS" />
+            <PopoverIcon image={icAzure} width={32} alt="Azure Cloud" />
+        </div>
+    </div>
+    <ul class="list-disc list-inside md:list-outside flex flex-col items-start gap-1">
+        <li>Asking good questions to learn fast (never forgotten)</li>
+        <li>Working with a feature branch based workflow</li>
+        <li>Agile development methodology for sustainable development</li>
+        <li>My first exposure to 'real' JS (Vanilla ES6, React, Vue) and C# (ASP.NET)</li>
+    </ul>
+</Layout>

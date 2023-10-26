@@ -1,0 +1,16 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+const { title, description, bodyClass } = Astro.props;
+---
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+    </head>
+    <body class={'bg-gray-100 dark:bg-gray-800 ' + bodyClass}>
+        <Header title={title} />
+        <main class="py-4 px-2 md:py-8 md:px-4">
+            <slot />
+        </main>
+    </body>
+</html>

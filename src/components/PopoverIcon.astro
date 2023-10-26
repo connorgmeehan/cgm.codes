@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+
+const { image, alt, extraClass} = Astro.props
+---
+
+<div class={ "group relative hover:bg-gray-50 p-2 box-content rounded-l-lg transition-all" + (extraClass ?? ' w-9 h-9') }>
+    <div class={[
+        "absolute h-9 group-hover:z-10 pointer-events-none flex items-center text-2xl",
+        "left-full top-1/2 -translate-y-1/2 w-fit whitespace-nowrap bg-gray-50 p-2 pr-4 box-content rounded-r-lg",
+        "opacity-0 group-hover:opacity-100 -translate-x-6 group-hover:-translate-x-0 transition-all",
+    ].join(" ")}>
+        {alt}
+    </div>
+    <div class={[
+        "absolute h-9 pointer-events-none flex items-center text-2xl",
+        "left-full top-1/2 -translate-y-1/2 w-fit whitespace-nowrap bg-gray-50 p-2 pr-6 box-content rounded-r-lg opacity-0",
+    ].join(" ")}>
+        {alt}
+    </div>
+    <Image src={image} height={32} alt={alt} class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-125 transition-all w-9 h-9" />
+</div>
+
