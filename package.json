@@ -24,5 +24,8 @@
     "@typescript-eslint/parser": "^6.9.0",
     "eslint": "^8.52.0",
     "eslint-plugin-solid": "^0.13.0"
+  },
+  "engine": {
+      "node": "20.x"
   }
 }
