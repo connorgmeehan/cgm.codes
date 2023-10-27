@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 
-const { image, alt, extraClass, width = 64} = Astro.props
+const { image, alt, extraClass, width = 128} = Astro.props
 ---
 
 <div class={ "group relative hover:bg-gray-50 focus:bg-gray-50 p-2 box-content rounded-l-lg transition-all w-9 h-9" + (extraClass ? ' ' + extraClass : '') } tabindex="0">

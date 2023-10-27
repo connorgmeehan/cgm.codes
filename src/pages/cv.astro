@@ -17,7 +17,7 @@ import icPixi from '../assets/icons/tech/ic-pixi.svg';
 import icWebgl from '../assets/icons/tech/ic-webgl.svg';
 import icWebxr from '../assets/icons/tech/ic-webxr.png';
 import icAws from '../assets/icons/tech/ic-amazon.svg';
-import icCdk from '../assets/icons/tech/ic-cdk.png';
+import icCdk from '../assets/icons/tech/ic-cdk.svg';
 import icAzure from '../assets/icons/tech/ic-azure-cloud.svg';
 import icServerless from '../assets/icons/tech/ic-serverless.svg';
 import icEs6 from '../assets/icons/tech/ic-es6.png';
@@ -27,7 +27,7 @@ import icUmbraco from '../assets/icons/tech/ic-umbraco.svg';
 import icTailwind from '../assets/icons/tech/ic-tailwind.svg';
 import icCloudflare from '../assets/icons/tech/ic-cloudflare.svg';
 import icRust from '../assets/icons/tech/ic-rust.svg';
-import icBevy from '../assets/icons/tech/ic-bevy.png';
+import icBevy from '../assets/icons/tech/ic-bevy.svg';
 import icWasm from '../assets/icons/tech/ic-wasm.svg';
 import icLua from '../assets/icons/tech/ic-lua.svg'
 import icGithub from '../assets/icons/tech/ic-github.svg'
@@ -81,18 +81,19 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
         <h5 class="text-lg md:text-2xl text-gray-600">Personal Project | Feb 2023 - Present</h5>
         <div class="bg-gray-200 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 overflow-x-scroll overflow-y-hidden">
             <div class="flex flex-nowrap gap-4 items-center w-fit">
-                <PopoverIcon image={icSolid} width={64} alt="Solid JS" />
-                <PopoverIcon image={icVite} width={64} alt="Vite" />
-                <PopoverIcon image={icTailwind} width={64} alt="Tailwind CSS" />
-                <PopoverIcon image={icPixi} width={64} alt="Pixi JS" />
-                <PopoverIcon image={icRust} width={64} alt="Rust" />
-                <PopoverIcon image={icWasm} width={64} alt="WASM" />
-                <PopoverIcon image={icBevy} width={64} alt="Bevy" />
-                <PopoverIcon image={icCloudflare} width={64} alt="Cloudflare" />
+                <PopoverIcon image={icSolid} alt="Solid JS" />
+                <PopoverIcon image={icVite} alt="Vite" />
+                <PopoverIcon image={icTailwind} alt="Tailwind CSS" />
+                <PopoverIcon image={icPixi} alt="Pixi JS" />
+                <PopoverIcon image={icRust} alt="Rust" />
+                <PopoverIcon image={icWasm} alt="WASM" />
+                <PopoverIcon image={icBevy} alt="Bevy" />
+                <PopoverIcon image={icGithub} alt="Github" extraClass="fill-black" />
+                <PopoverIcon image={icCloudflare} alt="Cloudflare" />
             </div>
         </div>
         <input type="checkbox" id="bb-collapse" class="peer hidden">
-        <div class="max-h-[0px] overflow-hidden transition-all peer-checked:max-h-[100vh] -ml-6 -mr-6 px-6">
+        <div class="overflow-hidden transition-all max-h-[0px] peer-checked:max-h-[100vh] opacity-0 peer-checked:opacity-100 -ml-6 -mr-6 px-6">
             <ul class="list-disc list-inside md:list-outside flex flex-col items-start gap-1">
                 <li>Bobbin Bear is a side project to build an online embroidery file editor for use in <a class="underline" href="https://en.wikipedia.org/wiki/Machine_embroidery#Computerized_machine_embroidery" target="_blank">machine embroidery</a></li>
                 <li>Started out building on webtech, made a custom react-three-fiber style renderer for Pixi and SolidJS</li>
@@ -111,14 +112,15 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
     <h5 class="text-lg md:text-2xl text-gray-600">Senior Creative Technologist | Sep 2022 - Present</h5>
 	<div class="bg-gray-200 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 overflow-x-scroll overflow-y-hidden">
         <div class="flex flex-nowrap gap-4 items-center w-fit">
-            <PopoverIcon image={icReact} width={64} alt="React" />
-            <PopoverIcon image={icVite} width={64} alt="Vite" />
-            <PopoverIcon image={icTailwind} width={64} alt="Tailwind CSS" />
-            <PopoverIcon image={icAws} width={64} alt="AWS" />
-            <PopoverIcon image={icCdk} width={64} alt="CDK (AWS)" />
-            <PopoverIcon image={icWebgl} width={64} alt="WebGL" />
-            <PopoverIcon image={icThree} width={64} alt="THREE.js" />
-            <PopoverIcon image={icWebxr} width={64} alt="WebXR" />
+            <PopoverIcon image={icReact} alt="React" />
+            <PopoverIcon image={icVite} alt="Vite" />
+            <PopoverIcon image={icTailwind} alt="Tailwind CSS" />
+            <PopoverIcon image={icAws} alt="AWS" />
+            <PopoverIcon image={icCdk} alt="CDK (AWS)" />
+            <PopoverIcon image={icWebgl} alt="WebGL" />
+            <PopoverIcon image={icThree} alt="THREE.js" />
+            <PopoverIcon image={icWebxr} alt="WebXR" />
+            <PopoverIcon image={icGithub} alt="Github" extraClass="fill-black" />
         </div>
     </div>
     <ul class="list-disc list-inside md:list-outside flex flex-col items-start gap-1">
@@ -138,9 +140,9 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
         <h5 class="text-lg md:text-2xl text-gray-600">Github Maintainer | Feb 2022</h5>
         <div class="bg-gray-200 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 overflow-x-scroll overflow-y-hidden">
             <div class="flex flex-nowrap gap-4 items-center w-fit">
-                <PopoverIcon image={icLua} width={64} alt="Lua" />
-                <PopoverIcon image={icNeovim} width={64} alt="Neovim" />
-                <PopoverIcon image={icGithub} width={64} alt="Github" extraClass="fill-black" />
+                <PopoverIcon image={icLua} alt="Lua" />
+                <PopoverIcon image={icNeovim} alt="Neovim" />
+                <PopoverIcon image={icGithub} alt="Github" extraClass="fill-black" />
             </div>
         </div>
         <input type="checkbox" id="doom-collapse" class="peer hidden">
@@ -164,14 +166,15 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
     <h5 class="text-lg md:text-2xl text-gray-600">Creative Developer | May 2020 - Sep 2022</h5>
 	<div class="bg-gray-200 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 overflow-x-scroll overflow-y-hidden">
         <div class="flex flex-nowrap gap-4 items-center w-fit">
-            <PopoverIcon image={icVue} width={64} alt="Vue.js" />
-            <PopoverIcon image={icReact} width={64} alt="React" />
-            <PopoverIcon image={icVite} width={64} alt="Vite" />
-            <PopoverIcon image={icAws} width={64} alt="AWS" />
-            <PopoverIcon image={icServerless} width={64} alt="Serverless (AWS)" />
-            <PopoverIcon image={icNetlify} width={64} alt="Netlify" />
-            <PopoverIcon image={icWebgl} width={64} alt="WebGL" />
-            <PopoverIcon image={icThree} width={64} alt="THREE.js" />
+            <PopoverIcon image={icVue} alt="Vue.js" />
+            <PopoverIcon image={icReact} alt="React" />
+            <PopoverIcon image={icVite} alt="Vite" />
+            <PopoverIcon image={icAws} alt="AWS" />
+            <PopoverIcon image={icServerless} alt="Serverless (AWS)" />
+            <PopoverIcon image={icNetlify} alt="Netlify" />
+            <PopoverIcon image={icWebgl} alt="WebGL" />
+            <PopoverIcon image={icThree} alt="THREE.js" />
+            <PopoverIcon image={icGithub} alt="Github" extraClass="fill-black" />
         </div>
     </div>
     <ul class="list-disc list-inside md:list-outside flex flex-col items-start gap-1">
@@ -186,12 +189,12 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
     <h5 class="text-lg md:text-2xl text-gray-600">Junior Fullstack Engineer | Aug 2018 - May 2020</h5>
 	<div class="bg-gray-200 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 overflow-x-scroll overflow-y-hidden">
         <div class="flex flex-nowrap gap-4 items-center w-fit">
-            <PopoverIcon image={icEs6} width={64} alt="ES6 JS" />
-            <PopoverIcon image={icLess} width={64} alt="LESS CSS" />
-            <PopoverIcon image={icCSharp} width={64} alt="CSharp" />
-            <PopoverIcon image={icUmbraco} width={64} alt="Umbraco CMS" />
-            <PopoverIcon image={icAws} width={64} alt="AWS" />
-            <PopoverIcon image={icAzure} width={64} alt="Azure Cloud" />
+            <PopoverIcon image={icEs6} alt="ES6 JS" />
+            <PopoverIcon image={icLess} alt="LESS CSS" />
+            <PopoverIcon image={icCSharp} alt="CSharp" />
+            <PopoverIcon image={icUmbraco} alt="Umbraco CMS" />
+            <PopoverIcon image={icAws} alt="AWS" />
+            <PopoverIcon image={icAzure} alt="Azure Cloud" />
         </div>
     </div>
     <ul class="list-disc list-inside md:list-outside flex flex-col items-start gap-1">
