@@ -7,10 +7,10 @@ const { title } = Astro.props;
 <header>
 	<nav class="bg-white flex justify-center">
         <div class="container flex items-center p-4">
-            <h2 class="text-lg font-bold mr-2"><a href="/">{SITE_TITLE}</a></h2>
+            <h2 class="text-lg font-bold mr-2 mb-0"><a href="/">{SITE_TITLE}</a></h2>
             {title && (
-                <h2 class="text-lg mr-2">|</h2>
-                <h2 class="mr-auto text-lg">{title}</h2>
+                <h2 class="text-lg mr-2 mb-0">|</h2>
+                <h2 class="mr-auto text-lg mb-0">{title}</h2>
             )}
             <div class="flex gap-4 items-center">
                 <a href="https://github.com/connorgmeehan" target="_blank">

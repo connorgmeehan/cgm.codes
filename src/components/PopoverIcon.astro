@@ -1,14 +1,15 @@
 ---
 import { Image } from 'astro:assets';
 
-const { image, alt, extraClass} = Astro.props
+const { image, alt, extraClass, width = 64} = Astro.props
 ---
 
-<div class={ "group relative hover:bg-gray-50 p-2 box-content rounded-l-lg transition-all" + (extraClass ?? ' w-9 h-9') }>
+<div class={ "group relative hover:bg-gray-50 focus:bg-gray-50 p-2 box-content rounded-l-lg transition-all w-9 h-9" + (extraClass ? ' ' + extraClass : '') } tabindex="0">
+     
     <div class={[
-        "absolute h-9 group-hover:z-10 pointer-events-none flex items-center text-2xl",
+        "absolute h-9 group-hover:z-10 group-focus:z-10 pointer-events-none flex items-center text-2xl",
         "left-full top-1/2 -translate-y-1/2 w-fit whitespace-nowrap bg-gray-50 p-2 pr-4 box-content rounded-r-lg",
-        "opacity-0 group-hover:opacity-100 -translate-x-6 group-hover:-translate-x-0 transition-all",
+        "opacity-0 group-hover:opacity-100 group-focus:opacity-100 -translate-x-6 group-hover:-translate-x-0 group-focus:-translate-x-0 transition-all",
     ].join(" ")}>
         {alt}
     </div>
@@ -18,6 +19,6 @@ const { image, alt, extraClass} = Astro.props
     ].join(" ")}>
         {alt}
     </div>
-    <Image src={image} height={32} alt={alt} class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-125 transition-all w-9 h-9" />
+    <Image src={image} width={width} alt={alt} class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-125 group-focus:scale-125 transition-all w-9 h-9" />
 </div>
 
