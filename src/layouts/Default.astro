@@ -7,9 +7,9 @@ const { title, description, bodyClass } = Astro.props;
 	<head>
 		<BaseHead title={title} description={description} />
     </head>
-    <body class={'bg-gray-100 dark:bg-gray-800 ' + bodyClass}>
+    <body class={'bg-gray-100 dark:bg-gray-800 min-h-screen flex flex-col relative' + bodyClass ?? ''}>
         <Header title={title} />
-        <main class="py-4 px-2 md:py-8 md:px-4">
+        <main class="py-4 px-2 md:py-8 md:px-4 flex-grow relative">
             <slot />
         </main>
     </body>
