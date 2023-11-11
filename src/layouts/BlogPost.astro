@@ -1,4 +1,6 @@
 ---
+import '../styles/blog-styles.css';
+
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
@@ -8,6 +10,10 @@ import FormattedDate from '../components/FormattedDate.astro';
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+
+const IMAGE_EXTENSIONS = ['png', 'jpeg', 'jpg', 'webp'];
+const isHeroImageVideo = heroImage && !IMAGE_EXTENSIONS.some(ext => heroImage.endsWith(ext));
+
 ---
 
 <html lang="en">
@@ -15,13 +21,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<BaseHead title={title} description={description} />
 		<style>
 			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
+				width: 100%;
 				margin: 0;
 			}
 			.hero-image {
 				width: 100%;
 			}
+			.hero-image video,
 			.hero-image img {
 				display: block;
 				margin: 0 auto;
@@ -51,31 +57,33 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.last-updated-on {
 				font-style: italic;
 			}
+
 		</style>
 	</head>
 
 	<body>
 		<Header />
 		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
+			<article class="w-full flex flex-col justify-center">
+				<div class="hero-image relative min-h-[300px] flex justify-center items-center">
+                    { heroImage && isHeroImageVideo && <video muted autoplay loop width={1020} src={heroImage} /> }
+					{heroImage && !isHeroImageVideo && <img width={1020} height={510} src={heroImage} alt="" />}
 				</div>
+                <div class="relative px-8 py-4 md:px-10 md:py-8 bg-white max-w-[720px] w-[90vw] left-1/2 -translate-x-1/2 -mt-24">
+                    <h1 class="text-4xl md:text-6xl ">{title}</h1>
+                    <div class="date">
+                        <FormattedDate date={pubDate} />
+                        {
+                            updatedDate && (
+                                <div class="last-updated-on">
+                                    Last updated on <FormattedDate date={updatedDate} />
+                                </div>
+                            )
+                        }
+                    </div>
+                </div>
 				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
+                    <blockquote class="mb-8">{description}</blockquote>
 					<slot />
 				</div>
 			</article>

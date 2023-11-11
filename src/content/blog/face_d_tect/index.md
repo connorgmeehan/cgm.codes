@@ -52,7 +52,7 @@ Building off the idea of generating empathy with our users towards marginalized 
 
 #### Concept 1: Harassment Trails
 
-> You are walking pas a large digital screen.  As you walk by you realise male figures are appearing beside you.  When you look at them, harassing rhetoric in speech bubbles appears above their heads.  At the end of the display is a paypass terminal asking for donations.
+> You are walking past a large digital screen.  As you walk by you realise male figures are appearing beside you.  When you look at them, harassing rhetoric in speech bubbles appears above their heads.  At the end of the display is a paypass terminal asking for donations.
 
 <EmbeddedMultiImage :data="[{ src: '/face-d_tect/concept-art-harassment-trails.jpg', alt: 'Exploring ideas for the narrative of the static visualisation', type: 'halfwidth'}]" />
 
@@ -96,7 +96,6 @@ Benjamin's concept, Black Mirror, was tested in a similar way to mine by both Be
 <EmbeddedMultiImage :data="[{ src: '/face-d_tect/testing-black-mirror.jpg', alt: 'Exploring ideas for the narrative of the static visualisation', type: 'halfwidth'}]" />
 
 While participants like the idea, again we found that the message was not communicated clearly without associated information and the interactive elements were not as involved in the design as the subject learning outcomes allowed we decided to scrap it as well.
-
 
 #### Black Mirror
 

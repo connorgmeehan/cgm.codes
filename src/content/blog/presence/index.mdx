@@ -3,7 +3,7 @@
   "title": "Presence",
   "shortdescription": "Interactive lighting display built as a result of winning a designathon at the University of Sydney.",
   "pubDate": "2018-05-10",
-  "video": "/presence-showcase.webm",
+  "heroImage": "/blog/presence-showcase.webm",
   "team": [
     { "name": "Soomin Lee", "link": "https://au.linkedin.com/in/soominleedesign", },
     { "name": "Jessica Amy Fernandez", "link": "https://www.linkedin.com/in/jessica-amy-fernandez", },
@@ -24,11 +24,14 @@
 }
 ---
 
-import EmbeddedTweet from '~/components/EmbeddedTweet';
+import EmbeddedTweet from '../../../components/generics/EmbeddedTweet.astro';
+import GalleryImage from '../../../components/generics/GalleryImage.tsx';
 
 ## Showcase
 
-<EmbeddedTweet id="1187141240254390272" position="centre" />
+<div class="flex justify-center">
+    <EmbeddedTweet id="1187141240254390272" />
+</div>
 
 ## Pitch
 
@@ -38,18 +41,25 @@ We wanted to connect current students and professors of the building to the inha
 
 I was responsible for the concept generation and the development of the interactive mockup as well as partially responsible for the pitch and technical analysis.
 
-![Concept art of what the final design would look like in the space](./images/concept-design.png)
+import ConceptDesignImg from './images/concept-design.png';
+
+<GalleryImage image={ConceptDesignImg} alt='Concept art of what the final design would look like in the space' />
+
 ###### Concept art of the final design by Jessica Amy Fernandez
 
 ## Technical Implementation
 
 We began by exploring hardware options.  I reached out to a user on the openFrameworks community slack asking if he had experience with lighting displays.  He passed me on to a friend who recommended [Advatek's](https://www.advateklights.com/) lighting controllers.  We additionally planned on running the display on a [Raspberry Pi 3B+](https://www.raspberrypi.org/) and he expressed concern over its computing power.  These concerns proved to be sound later on.
 
-<EmbeddedTweet id="1016487785706840064" position="centre" />
+<div class="flex justify-center">
+    <EmbeddedTweet id="1016487785706840064" />
+</div>
 
 I began researching the best way to track passersby via an overhead webcam.  I used the excellent [ofxCv](https://github.com/kylemcdonald/ofxCv) addon for openFrameworks that provided handy wrappers for many of computer vision library openCV's functions as well as exposed the c++ API.  The implementation we initially landed upon was to use dense optical flow to build a heat map of movement and then run the heatmap through a contours finder to generate individual shapes representing each user that we could use to render a light above their head.
 
-<EmbeddedTweet id="1022283702146031616" position="centre" />
+<div class="flex justify-center">
+    <EmbeddedTweet id="1022283702146031616" />
+</div>
 
 This proved to be incredibly slow as it required complex calculations on every pixel of the image and as a result the display had to be run on my personal computer until I could refactor the logic.
 
@@ -59,7 +69,10 @@ Jessica and Keegan were hugely helpful with the construction and installation of
 
 ## The first implementation
 
-<EmbeddedTweet :ids="['1022434970084638721', '1023020453160341504']" position="left" />
+<div class="flex gap-4">
+    <EmbeddedTweet id='1022434970084638721' position="left" />
+    <EmbeddedTweet id='1023020453160341504' position="left" />
+</div>
 
 ## Problems faced
 

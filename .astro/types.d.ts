@@ -185,13 +185,6 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
-"codeflow/index.md": {
-	id: "codeflow/index.md";
-  slug: "codeflow";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".md"] };
 "face_d_tect/index.md": {
 	id: "face_d_tect/index.md";
   slug: "face_d_tect";
@@ -199,34 +192,48 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"koala_n_joey/index.md": {
-	id: "koala_n_joey/index.md";
+"face_d_tect_2/index.mdx": {
+	id: "face_d_tect_2/index.mdx";
+  slug: "face_d_tect_2";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
+"gammaflow/index.mdx": {
+	id: "gammaflow/index.mdx";
+  slug: "gammaflow";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
+"koala_n_joey/index.mdx": {
+	id: "koala_n_joey/index.mdx";
   slug: "koala_n_joey";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
-} & { render(): Render[".md"] };
-"presence/index.md": {
-	id: "presence/index.md";
+} & { render(): Render[".mdx"] };
+"presence/index.mdx": {
+	id: "presence/index.mdx";
   slug: "presence";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
-} & { render(): Render[".md"] };
-"sea_of_tweets/index.md": {
-	id: "sea_of_tweets/index.md";
+} & { render(): Render[".mdx"] };
+"sea_of_tweets/index.mdx": {
+	id: "sea_of_tweets/index.mdx";
   slug: "sea_of_tweets";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
-} & { render(): Render[".md"] };
-"ulaanbaatar/index.md": {
-	id: "ulaanbaatar/index.md";
+} & { render(): Render[".mdx"] };
+"ulaanbaatar/index.mdx": {
+	id: "ulaanbaatar/index.mdx";
   slug: "ulaanbaatar";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 };
 "blog_old": {
 "first-post.md": {
