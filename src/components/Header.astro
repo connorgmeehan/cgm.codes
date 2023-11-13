@@ -5,7 +5,7 @@ const { title } = Astro.props;
 ---
 
 <header>
-	<nav class="bg-white flex justify-center">
+	<nav class="flex justify-center">
         <div class="container flex items-center p-4">
             <div class="flex items-center mr-auto">
                 <h2 class="text-lg font-bold mr-2 mb-0"><a href="/">{SITE_TITLE}</a></h2>
@@ -15,6 +15,11 @@ const { title } = Astro.props;
                 )}
             </div>
             <div class="flex gap-4 items-center">
+                <div class="flex gap-4 mr-2">
+                    <a href="/cv" class="underline">
+                        cv
+                    </a>
+                </div>
                 <a href="https://github.com/connorgmeehan" target="_blank">
                     <span class="sr-only">Go to my github repo</span>
                     <svg viewBox="0 0 16 16" aria-hidden="true" width="24" height="24"

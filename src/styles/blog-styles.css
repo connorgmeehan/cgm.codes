@@ -35,19 +35,22 @@ pre > code {
 	all: unset;
 }
 .prose blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0px;
-    @apply text-lg md:text-xl;
-    @apply -mx-6 my-6 p-6 md:-mx-8 md:my-8 md:p-8 bg-gray-100 rounded-md;
+    @apply text-lg md:text-xl font-semibold;
 }
 .prose blockquote > p {
     @apply mb-0;
 }
 
+.prose ul {
+    @apply list-disc mb-4;
+}
 .prose ol {
     @apply list-decimal mb-4;
 }
 .prose ol li {
     @apply mb-1;
+}
+
+.prose a {
+    @apply underline;
 }

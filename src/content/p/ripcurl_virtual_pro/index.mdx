@@ -1,0 +1,68 @@
+---
+{
+  "title": "Ripcurl Virtual Pro",
+  "description": "Ripcurl Virtual Pro was a data visualisation to accompany a global, virtual surf competition.  I was tasked with designing and implementing a data visualisation using user data from Ripcurl surf-tracking smart watches.",
+  "pubDate": "2023-05-01",
+  "heroImage": "/blog/ripcurl-showcase.mp4",
+  "tags": ["Development", "Design"],
+  "state": "draft",
+}
+---
+
+import LongestWaveVideo from './longest_wave.mp4';
+import WaveSpeedVideo from './wave_speed.mp4';
+
+<div class="flex gap-4 justify-center">
+<video src={LongestWaveVideo} autoplay muted playsInline loop class="w-full md:w-[300px] relative md:ml-4" />
+<video src={WaveSpeedVideo} autoplay muted playsInline loop class="w-full md:w-[300px] relative md:ml-4" />
+</div>
+
+## Project Requirements
+
+The project involved gathering raw surf data from 1,600 surfers, parsing and extracting interesting
+data points from the data, pre-rendering a personalised, engaging, and sharable video from these
+datapoints, pre-rendering these videos and uploading them to the cloud to be accessible, building
+a microsite to present the information, and notifying users via email when the promotion ended.
+
+I was tasked with parsing and extracting the data, the design and implementation of the personalised
+videos, managing the rendering and storage of these videos and providing all of my work in a way that
+could be used to email the entrants. 
+
+## Implementation
+
+I chose to implement the project using web tech, primarily [Three.js](https://threejs.org/), [React](https://react.dev/), 
+and [React Three Fiber](https://github.com/pmndrs/react-three-fiber).  While this was a great choice for real-time rendering
+and quick iterations, it did pose an issue when it came time to render, which I'll cover later.
+
+After parsing the data, extracting points of interest and providing it to the client to choose their most interesting data points
+I began concept generation for the visualisations. 
+
+import WiresSummaryImg from './wires_summary.jpg';
+import GalleryImage from '../../../components/generics/GalleryImage.tsx';
+
+<GalleryImage client:idle image={WiresSummaryImg} />
+
+The particle movement and lifetimes were built using my own WebGL compute shader that acted like a rolling buffer over 
+the same n-sized texture.  With this approach I was able to get a smooth 60fps with around 6 million particles and highly
+customisable visuals through by modifying the uniform values.  The video had to be 90 seconds long and display each visualisation
+at a fixed time so I also built a fairly simple framework for the config, play back, and debugging of the timeline.  
+
+## Issues Faced
+
+While the Web-tech approach worked great for developing and iterating on the visuals, when it came time to export to videos it
+became more a burden.  I ran into issues getting the image data from the canvas into memory at a viable framerate.  We had three options, 
+use `toDataUrl` and receive every frame as base64 encoded string, use `toBlob` and have to deal with async rendering or a third solution
+using the electron api.  After testing I found that `toDataUrl` and `toBlob` had comparable performance and decided to continue with the
+`toDataUrl` approach.  
+
+Later on in the optimisation stage, I had the idea of using electron's ability to screenshot itself and a message bus to manage frame 
+syncronising which would have yielded higher performance.  However, under time constraints we had to opt for the quicker solution, to simply run N instances of the app at once.
+I built a manager process that would provision renderers, re-encode image sequences (and provide good video size/quality tradeoffs) and
+upload the data to S3 to be sourced via a microsite.
+
+It's a tough call whether a different technology would have been a better choice. On one hand I would have had access to a lot more
+power and optimisation potential but on the other hand it would have been a big risk to undertake a new technology on an agency job 
+with a set release date.  After investing my own time into it for personal projects, If I were to rebuild it now I would have used
+[Bevy](https://bevyengine.org/) and [Rust](https://www.rust-lang.org/) for the particle simulation and rendering.  That would have given
+me native performance, highly customisable particle behaviour via its ECS and the ability to interface directly with
+[libffmpeg](https://www.ffmpeg.org/) for encoding.

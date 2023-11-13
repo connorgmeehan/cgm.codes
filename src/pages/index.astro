@@ -1,12 +1,28 @@
 ---
 import Layout from '../layouts/Default.astro';
 import Footer from '../components/Footer.astro';
+
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('p'))
+    .filter(entry => {
+        // return  entry.data.state === 'published' ||import.meta.env.DEV;
+    return true
+    })
+    .sort( (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+import { ProjectsView } from '../features/projects_view/index';
 ---
 
 <Layout description="Connor Guy Meehan Codes">
-    <h1>Howdy!</h1>
-    <p>
-        This is a work in progress, please checkout my <a class="underline" href="./cv">CV</a>.  It's the only page that's done.
-    </p>
-    <Footer extraClass="absolute bottom-0 left-1/2 -translate-x-1/2 w-full" />
+    <section class="min-h-[80vh]">
+        <h1>Howdy!</h1>
+        <p>
+            This is a work in progress, please checkout my <a class="underline" href="./cv">CV</a>.  It's the only page that's done.
+        </p>
+    </section>
+    <section class="pb-20">
+        <ProjectsView client:idle collection={posts} />
+    </section>
+    <Footer extraClass="" />
 </Layout>

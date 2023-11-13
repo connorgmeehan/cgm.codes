@@ -1,0 +1,39 @@
+---
+{
+  "title": "Nature Illuminated",
+  "description": "I built the Nature Illuminated project as the main developer during my time at EyeJack. The brief was to implement an AR treasurehunt in the Chinese Gardens of Friendship, meaning users should be able to launch an experience on the browser of their mobile device before viewing and collecting unique artworks and animations.",
+  "pubDate": "2022-05-01",
+  "heroImage": "/blog/dragons-showcase.mp4",
+  "tags": ["Development"],
+  "state": "draft",
+}
+---
+
+import KoiVideo from './koi_showcase.mp4';
+
+<video src={KoiVideo} autoplay muted playsInline loop />
+
+## Implementation
+
+We chose the following technologies to implement the project.
+
+- [8thwall](https://www.8thwall.com/) for AR tracking.  Although the WebXR standard threatens to dethrone it, 8thwall is still the best on solution 
+for customer facing AR experiences.
+- [Vue](https://vuejs.org/) for implementing the UI.  This was the UI library that we at EyeJack had the most experience and that was the main reason for sticking with it.
+While I do think most UI frameworks are fairly similar, Vue's implicit data bindings and terse syntax make it especially good for short timeline agency work. 
+- [Three.js](https://threejs.org/) for rendering.  Three.js is a great library with a fantastic ecosystem.  I, and the EyeJack agency as a whole, had plenty of experience using it and it was chosen for that reason.
+
+import WaterDragonVideo from './waterdragon_showcase.mp4';
+
+<video src={WaterDragonVideo} autoplay muted playsInline loop />
+
+## Issues faced
+
+At the time of the project, 8thwall didn't have a solved solution for the Bloom effect in AR.
+I posted a solution on the 8thwall slack and helped another user implement
+it which 8thwall later transformed into the [official Three.js Unreal Bloom example](https://www.8thwall.com/playground/postprocessing-bloom)
+(credits to [mbalex99](https://github.com/mbalex99) for the [initial shader implementation](https://github.com/mbalex99/threejs-unrealbloompass-transparent-background-example).
+
+Once the bloom was implemented we ran into another issue, performance.  It turns out running SLAM tracking in the browser uses a lot of resources.
+After working with the 3d modelers to ensure that the 3d assets were optimised I spent days making various micro optimisations to make sure it ran
+smoothly on older devices.  

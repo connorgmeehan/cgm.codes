@@ -184,58 +184,7 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		"blog": {
-"face_d_tect/index.md": {
-	id: "face_d_tect/index.md";
-  slug: "face_d_tect";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".md"] };
-"face_d_tect_2/index.mdx": {
-	id: "face_d_tect_2/index.mdx";
-  slug: "face_d_tect_2";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
-"gammaflow/index.mdx": {
-	id: "gammaflow/index.mdx";
-  slug: "gammaflow";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
-"koala_n_joey/index.mdx": {
-	id: "koala_n_joey/index.mdx";
-  slug: "koala_n_joey";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
-"presence/index.mdx": {
-	id: "presence/index.mdx";
-  slug: "presence";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
-"sea_of_tweets/index.mdx": {
-	id: "sea_of_tweets/index.mdx";
-  slug: "sea_of_tweets";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
-"ulaanbaatar/index.mdx": {
-	id: "ulaanbaatar/index.mdx";
-  slug: "ulaanbaatar";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
-};
-"blog_old": {
+		"blog_old": {
 "first-post.md": {
 	id: "first-post.md";
   slug: "first-post";
@@ -270,6 +219,57 @@ declare module 'astro:content' {
   body: string;
   collection: "blog_old";
   data: any
+} & { render(): Render[".mdx"] };
+};
+"p": {
+"face_d_tect/index.mdx": {
+	id: "face_d_tect/index.mdx";
+  slug: "face_d_tect";
+  body: string;
+  collection: "p";
+  data: InferEntrySchema<"p">
+} & { render(): Render[".mdx"] };
+"gammaflow/index.mdx": {
+	id: "gammaflow/index.mdx";
+  slug: "gammaflow";
+  body: string;
+  collection: "p";
+  data: InferEntrySchema<"p">
+} & { render(): Render[".mdx"] };
+"koala_n_joey/index.mdx": {
+	id: "koala_n_joey/index.mdx";
+  slug: "koala_n_joey";
+  body: string;
+  collection: "p";
+  data: InferEntrySchema<"p">
+} & { render(): Render[".mdx"] };
+"nature_illuminated/index.mdx": {
+	id: "nature_illuminated/index.mdx";
+  slug: "nature_illuminated";
+  body: string;
+  collection: "p";
+  data: InferEntrySchema<"p">
+} & { render(): Render[".mdx"] };
+"presence/index.mdx": {
+	id: "presence/index.mdx";
+  slug: "presence";
+  body: string;
+  collection: "p";
+  data: InferEntrySchema<"p">
+} & { render(): Render[".mdx"] };
+"sea_of_tweets/index.mdx": {
+	id: "sea_of_tweets/index.mdx";
+  slug: "sea_of_tweets";
+  body: string;
+  collection: "p";
+  data: InferEntrySchema<"p">
+} & { render(): Render[".mdx"] };
+"ulaanbaatar/index.mdx": {
+	id: "ulaanbaatar/index.mdx";
+  slug: "ulaanbaatar";
+  body: string;
+  collection: "p";
+  data: InferEntrySchema<"p">
 } & { render(): Render[".mdx"] };
 };
 
