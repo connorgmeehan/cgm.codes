@@ -184,42 +184,14 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		"blog_old": {
-"first-post.md": {
-	id: "first-post.md";
-  slug: "first-post";
+		"blog": {
+"001-hello.md": {
+	id: "001-hello.md";
+  slug: "001-hello";
   body: string;
-  collection: "blog_old";
-  data: any
+  collection: "blog";
+  data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"markdown-style-guide.md": {
-	id: "markdown-style-guide.md";
-  slug: "markdown-style-guide";
-  body: string;
-  collection: "blog_old";
-  data: any
-} & { render(): Render[".md"] };
-"second-post.md": {
-	id: "second-post.md";
-  slug: "second-post";
-  body: string;
-  collection: "blog_old";
-  data: any
-} & { render(): Render[".md"] };
-"third-post.md": {
-	id: "third-post.md";
-  slug: "third-post";
-  body: string;
-  collection: "blog_old";
-  data: any
-} & { render(): Render[".md"] };
-"using-mdx.mdx": {
-	id: "using-mdx.mdx";
-  slug: "using-mdx";
-  body: string;
-  collection: "blog_old";
-  data: any
-} & { render(): Render[".mdx"] };
 };
 "p": {
 "face_d_tect/index.mdx": {
@@ -236,9 +208,30 @@ declare module 'astro:content' {
   collection: "p";
   data: InferEntrySchema<"p">
 } & { render(): Render[".mdx"] };
+"goodman_values_cube/index.mdx": {
+	id: "goodman_values_cube/index.mdx";
+  slug: "goodman_values_cube";
+  body: string;
+  collection: "p";
+  data: InferEntrySchema<"p">
+} & { render(): Render[".mdx"] };
 "koala_n_joey/index.mdx": {
 	id: "koala_n_joey/index.mdx";
   slug: "koala_n_joey";
+  body: string;
+  collection: "p";
+  data: InferEntrySchema<"p">
+} & { render(): Render[".mdx"] };
+"little_hotelier_design/index.mdx": {
+	id: "little_hotelier_design/index.mdx";
+  slug: "little_hotelier_design";
+  body: string;
+  collection: "p";
+  data: InferEntrySchema<"p">
+} & { render(): Render[".mdx"] };
+"marvel_mech_strike/index.mdx": {
+	id: "marvel_mech_strike/index.mdx";
+  slug: "marvel_mech_strike";
   body: string;
   collection: "p";
   data: InferEntrySchema<"p">
@@ -253,6 +246,13 @@ declare module 'astro:content' {
 "presence/index.mdx": {
 	id: "presence/index.mdx";
   slug: "presence";
+  body: string;
+  collection: "p";
+  data: InferEntrySchema<"p">
+} & { render(): Render[".mdx"] };
+"ripcurl_virtual_pro/index.mdx": {
+	id: "ripcurl_virtual_pro/index.mdx";
+  slug: "ripcurl_virtual_pro";
   body: string;
   collection: "p";
   data: InferEntrySchema<"p">

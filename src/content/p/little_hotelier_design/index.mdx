@@ -1,0 +1,45 @@
+---
+{
+  "title": "Little Hotelier Design Tool",
+  "description": "During my time at Code on Canvas I was tasked to design and develop a generative design tool for Little Hotelier.  The goal was to allow anyone to generate branded media using a number of preset colours, logo avatar poses and effects.",
+  "pubDate": "2021-06-01",
+  "heroImage": "/blog/littlehotelier-showcase.png",
+  "tags": ["Development", "Design"],
+  "state": "published",
+}
+---
+
+import GalleryImage from '../../../components/generics/GalleryImage.tsx';
+
+import WalkthroughVideo from './little-hotelier-walkthrough.mp4';
+
+<video src={WalkthroughVideo} autoplay playsinline muted loop class="my-8" />
+
+With a delivery timeline of 5 weeks I did not have a lot of time to invest in the design
+of the project so I fell back on a simple [Ant Design](https://ant.design/) based layout and style.
+Although simple, I am fairly happy with the result.
+
+import Help1Video from './help-1.mp4';
+
+<div class="flex gap-2 my-8 justify-center">
+    <video class="w-1/3" src={Help1Video} autoplay playsinline muted loop />
+</div>
+
+One thing I wanted to be sure to invest in was usability.  I implemented hotkeys and mouse controls
+for the most common actions, panning, tilting and rotating the figure.  Additionally, I suggested and
+got approval the inclusion of a help menu within the app to aid onboarding new users within the organisation.
+
+import ExportImg from './export_size.png';
+
+<GalleryImage client:idle image={ExportImg} />
+
+The app was built using [Electron](https://www.electronjs.org/) and [Vue](https://vuejs.org/) and, [Three.js](https://threejs.org/) (but only for the editor).
+The Editor would read the source SVG, use the current state of all of the warp, pan, rotate, etc, controls to modify the geometry of the SVG and then return
+it to an SVG for export.  To export you simply draw the SVG to a canvas and download the pixel data or download it directly.  
+This allowed us to also support the complex Pencil effect for SVGs via the in-built Fractal Noise filter. 
+
+import PencilImg from './pencil-effect.png';
+
+<GalleryImage client:idle image={PencilImg} alt="SVG Pencil Effect in action" />
+
+This project was implemented during my time at [Code on Canvas](https://codeoncanvas.cc/).

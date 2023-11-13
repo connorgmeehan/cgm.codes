@@ -14,10 +14,11 @@ export default function GalleryImage(props: GalleryImageProps) {
     return <div class={clsx(props.class)}>
         <img class="cursor-pointer" src={props.image.src} onClick={() => setOpen(true)} alt={props.alt}>
         </img>
+        <p aria-hidden class='text-gray-600 text-lg'>{props.alt}</p>
         <Show when={open()}>
             <Overlay onClose={() => setOpen(false)}>
                 <div class="relative max-w-[100vw] max-h-[100vh]">
-                    <button class="absolute top-4 right-4">
+                    <button class="absolute top-4 right-4" onClick={() => setOpen(false)}>
                         Close
                     </button>
                     <img src={props.image.src} alt={props.alt}/>

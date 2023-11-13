@@ -54,3 +54,7 @@ pre > code {
 .prose a {
     @apply underline;
 }
+
+.prose code {
+    @apply bg-gray-100 outline outline-gray-300 outline-1;
+}
