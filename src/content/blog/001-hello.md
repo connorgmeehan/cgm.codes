@@ -4,6 +4,7 @@ description: 'A brief introduction to my plan for this blog'
 pubDate: 'Nov 13 2023'
 heroImage: '/blog-placeholder-3.jpg'
 state: 'published'
+tags: []
 ---
 
 As someone who has more ideas than time to do them I have wanted a blog for a while.  I come up with a lot of project
