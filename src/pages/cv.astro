@@ -38,10 +38,10 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
 <Layout
 	title="Connor Meehan CV"
 	description="CV of Connor Meehan | Senior Creative Technologist"
-    bodyClass="text-[16px] md:text-xl"
+    bodyClass="text-[16px] md:text-xl dark:text-gray-200"
 >
-    <h1 class="text-2xl md:text-5xl text-gray-800"> Connor Meehan </h1>
-    <h2 class="text-xl md:text-3xl mb-16 text-gray-600"> Senior Creative Technologist @ EyeJack </h2>
+    <h1 class="text-2xl md:text-5xl text-gray-800 dark:text-gray-100"> Connor Meehan </h1>
+    <h2 class="text-xl md:text-3xl mb-16 text-gray-600 dark:text-gray-400"> Senior Creative Technologist @ EyeJack </h2>
 
 	<p class="font-semibold mb-16">
         Hello! I'm a Senior Creative Technologist Working at EyeJack on our internal SaaS product and client work.
@@ -71,41 +71,9 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
 
     <h3 class="text-2xl md:text-4xl mt-16 mb-8" style="page-break-before: always;"> History </h3>
 
-    <div class="group-[collapsible]">
-        <h4 class="underline text-1xl md:text-3xl"><a href="https://bobbinbear.com" target="_blank">Bobbin Bear</a></h4>
-        <h5 class="text-lg md:text-2xl text-gray-600">Personal Project | Feb 2023 - Present</h5>
-        <div class="bg-gray-200 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 overflow-x-scroll overflow-y-hidden">
-            <div class="flex flex-nowrap gap-4 items-center w-fit">
-                <PopoverIcon image={icSolid} alt="Solid JS" />
-                <PopoverIcon image={icVite} alt="Vite" />
-                <PopoverIcon image={icTailwind} alt="Tailwind CSS" />
-                <PopoverIcon image={icPixi} alt="Pixi JS" />
-                <PopoverIcon image={icRust} alt="Rust" />
-                <PopoverIcon image={icWasm} alt="WASM" />
-                <PopoverIcon image={icBevy} alt="Bevy" />
-                <PopoverIcon image={icGithub} alt="Github" extraClass="fill-black" />
-                <PopoverIcon image={icCloudflare} alt="Cloudflare" />
-            </div>
-        </div>
-        <input type="checkbox" id="bb-collapse" class="peer hidden">
-        <div class="overflow-hidden transition-all max-h-[0px] peer-checked:max-h-[100vh] opacity-0 peer-checked:opacity-100 -ml-6 -mr-6 px-6">
-            <ul class="list-disc list-inside md:list-outside flex flex-col items-start gap-1">
-                <li>Bobbin Bear is a side project to build an online embroidery file editor for use in <a class="underline" href="https://en.wikipedia.org/wiki/Machine_embroidery#Computerized_machine_embroidery" target="_blank">machine embroidery</a></li>
-                <li>Started out building on webtech, made a custom react-three-fiber style renderer for Pixi and SolidJS</li>
-                <li>Realised the project requirements demanded better performance + better support for hard problems like text/font shaping.  Switched to rust for these reasons.</li>
-                <li>Very early stages and broken right now, but learning rust has improved my code dramatically.</li>
-            </ul>
-        </div>
-        <label for="bb-collapse" class="peer-checked:[&>*]:rotate-180">
-            <Image src={icChevronDown} alt="Expand BobbinBear dot points" width={32} height={32} class="relative left-1/2 -translate-x-1/2 p-2 transition-transform cursor-pointer hover:bg-gray-300 rounded-full" />
-        </label>
-    </div>
-
-    <div class="my-12" />
-
     <h4 class="underline text-1xl md:text-3xl"><a href="https://eyejack.io" target="_blank">EyeJack App</a></h4>
-    <h5 class="text-lg md:text-2xl text-gray-600">Senior Creative Technologist | Sep 2022 - Present</h5>
-	<div class="bg-gray-200 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 overflow-x-scroll overflow-y-hidden">
+    <h5 class="text-lg md:text-2xl text-gray-600 dark:text-gray-400">Senior Creative Technologist | Sep 2022 - Present</h5>
+	<div class="bg-gray-200 dark:bg-gray-800 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 dark:shadow-gray-900 overflow-x-scroll overflow-y-hidden">
         <div class="flex flex-nowrap gap-4 items-center w-fit">
             <PopoverIcon image={icReact} alt="React" />
             <PopoverIcon image={icVite} alt="Vite" />
@@ -131,9 +99,41 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
     <div class="my-12" />
 
     <div class="group-[collapsible]">
+        <h4 class="underline text-1xl md:text-3xl"><a href="https://bobbinbear.com" target="_blank">Bobbin Bear</a></h4>
+        <h5 class="text-lg md:text-2xl text-gray-600 dark:text-gray-400">Personal Project | Feb 2023 - Present</h5>
+        <div class="bg-gray-200 dark:bg-gray-800 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 dark:shadow-gray-900 overflow-x-scroll overflow-y-hidden">
+            <div class="flex flex-nowrap gap-4 items-center w-fit">
+                <PopoverIcon image={icSolid} alt="Solid JS" />
+                <PopoverIcon image={icVite} alt="Vite" />
+                <PopoverIcon image={icTailwind} alt="Tailwind CSS" />
+                <PopoverIcon image={icPixi} alt="Pixi JS" />
+                <PopoverIcon image={icRust} alt="Rust" />
+                <PopoverIcon image={icWasm} alt="WASM" />
+                <PopoverIcon image={icBevy} alt="Bevy" />
+                <PopoverIcon image={icGithub} alt="Github" extraClass="fill-black" />
+                <PopoverIcon image={icCloudflare} alt="Cloudflare" />
+            </div>
+        </div>
+        <input type="checkbox" id="bb-collapse" class="peer hidden">
+        <div class="overflow-hidden transition-all max-h-[0px] peer-checked:max-h-[100vh] opacity-0 peer-checked:opacity-100 -ml-6 -mr-6 px-6">
+            <ul class="list-disc list-inside md:list-outside flex flex-col items-start gap-1">
+                <li>Bobbin Bear is a side project to build an online embroidery file editor for use in <a class="underline" href="https://en.wikipedia.org/wiki/Machine_embroidery#Computerized_machine_embroidery" target="_blank">machine embroidery</a></li>
+                <li>Started out building on webtech, made a custom react-three-fiber style renderer for Pixi and SolidJS</li>
+                <li>Realised the project requirements demanded better performance + better support for hard problems like text/font shaping.  Switched to rust for these reasons.</li>
+                <li>Very early stages and broken right now, but learning rust has improved my code dramatically.</li>
+            </ul>
+        </div>
+        <label for="bb-collapse" class="peer-checked:[&>*]:rotate-180">
+            <Image src={icChevronDown} alt="Expand BobbinBear dot points" width={32} height={32} class="relative left-1/2 -translate-x-1/2 p-2 transition-transform cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-200 rounded-full dark:filter dark:invert" />
+        </label>
+    </div>
+
+    <div class="my-12" />
+
+    <div class="group-[collapsible]">
         <h4 class="underline text-1xl md:text-3xl"><a href="https://github.com/doom-neovim/doom-nvim" target="_blank">Doom Nvim</a></h4>
-        <h5 class="text-lg md:text-2xl text-gray-600">Github Maintainer | Feb 2022</h5>
-        <div class="bg-gray-200 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 overflow-x-scroll overflow-y-hidden">
+        <h5 class="text-lg md:text-2xl text-gray-600 dark:text-gray-400">Github Maintainer | Feb 2022</h5>
+        <div class="bg-gray-200 dark:bg-gray-800 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 dark:shadow-gray-900 overflow-x-scroll overflow-y-hidden">
             <div class="flex flex-nowrap gap-4 items-center w-fit">
                 <PopoverIcon image={icLua} alt="Lua" />
                 <PopoverIcon image={icNeovim} alt="Neovim" />
@@ -151,15 +151,15 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
             </ul>
         </div>
         <label for="doom-collapse" class="peer-checked:[&>*]:rotate-180">
-            <Image src={icChevronDown} alt="Expand Doom Neovim project dot points" width={32} height={32} class="relative left-1/2 -translate-x-1/2 p-2 transition-transform cursor-pointer hover:bg-gray-300 rounded-full" />
+            <Image src={icChevronDown} alt="Expand Doom Neovim project dot points" width={32} height={32} class="relative left-1/2 -translate-x-1/2 p-2 transition-transform cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-200 rounded-full dark:filter dark:invert" />
         </label>
     </div>
 
     <div class="my-12" />
 
-    <h4 class="underline"><a href="https://codeoncanvas.cc" target="_blank">codeoncanvas</a></h4>
-    <h5 class="text-lg md:text-2xl text-gray-600">Creative Developer | May 2020 - Sep 2022</h5>
-	<div class="bg-gray-200 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 overflow-x-scroll overflow-y-hidden">
+    <h4 class="underline text-1xl md:text-3xl"><a href="https://codeoncanvas.cc" target="_blank">codeoncanvas</a></h4>
+    <h5 class="text-lg md:text-2xl text-gray-600 dark:text-gray-400">Creative Developer | May 2020 - Sep 2022</h5>
+	<div class="bg-gray-200 dark:bg-gray-800 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 dark:shadow-gray-900 overflow-x-scroll overflow-y-hidden">
         <div class="flex flex-nowrap gap-4 items-center w-fit">
             <PopoverIcon image={icVue} alt="Vue.js" />
             <PopoverIcon image={icReact} alt="React" />
@@ -180,9 +180,9 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
 
     <div class="my-12" style="page-break-after: always"/>
 
-    <h4 class="underline"><a href="https://www.sevenwestmedia.com.au/" target="_blank">Seven West Media</a></h4>
-    <h5 class="text-lg md:text-2xl text-gray-600">Junior Fullstack Engineer | Aug 2018 - May 2020</h5>
-	<div class="bg-gray-200 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 overflow-x-scroll overflow-y-hidden">
+    <h4 class="underline text-1xl md:text-3xl"><a href="https://www.sevenwestmedia.com.au/" target="_blank">Seven West Media</a></h4>
+    <h5 class="text-lg md:text-2xl text-gray-600 dark:text-gray-400">Junior Fullstack Engineer | Aug 2018 - May 2020</h5>
+	<div class="bg-gray-200 dark:bg-gray-800 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 dark:shadow-gray-900 overflow-x-scroll overflow-y-hidden">
         <div class="flex flex-nowrap gap-4 items-center w-fit">
             <PopoverIcon image={icEs6} alt="ES6 JS" />
             <PopoverIcon image={icLess} alt="LESS CSS" />

@@ -4,18 +4,18 @@ import { Image } from 'astro:assets';
 const { image, alt, extraClass, width = 128} = Astro.props
 ---
 
-<div class={ "group relative hover:bg-gray-50 focus:bg-gray-50 p-2 box-content rounded-l-lg transition-all w-9 h-9" + (extraClass ? ' ' + extraClass : '') } tabindex="0">
+<div class={ "group relative hover:bg-gray-50 focus:bg-gray-50 hover:dark:bg-gray-800 focus:dark:bg-gray-800 p-2 box-content rounded-l-lg transition-all w-9 h-9" + (extraClass ? ' ' + extraClass : '') } tabindex="0">
      
     <div class={[
         "absolute h-9 group-hover:z-10 group-focus:z-10 pointer-events-none flex items-center text-2xl",
-        "left-full top-1/2 -translate-y-1/2 w-fit whitespace-nowrap bg-gray-50 p-2 pr-4 box-content rounded-r-lg",
+        "left-full top-1/2 -translate-y-1/2 w-fit whitespace-nowrap bg-gray-50 dark:bg-gray-800 p-2 pr-4 box-content rounded-r-lg",
         "opacity-0 group-hover:opacity-100 group-focus:opacity-100 -translate-x-6 group-hover:-translate-x-0 group-focus:-translate-x-0 transition-all",
     ].join(" ")}>
         {alt}
     </div>
     <div class={[
         "absolute h-9 pointer-events-none flex items-center text-2xl",
-        "left-full top-1/2 -translate-y-1/2 w-fit whitespace-nowrap bg-gray-50 p-2 pr-6 box-content rounded-r-lg opacity-0",
+        "left-full top-1/2 -translate-y-1/2 w-fit whitespace-nowrap bg-gray-50 dark:bg-gray-800 p-2 pr-6 box-content rounded-r-lg opacity-0",
     ].join(" ")}>
         {alt}
     </div>
