@@ -7,6 +7,8 @@ import PopoverIcon from '../components/PopoverIcon.astro';
 
 import icChevronDown from '../assets/icons/ic-chevron-down.svg';
 
+import icAward from '../assets/icons/tech/ic-award.svg'
+
 import icSolid from '../assets/icons/tech/ic-solid.svg';
 import icReact from '../assets/icons/tech/ic-react.svg';
 import icVue from '../assets/icons/tech/ic-vue.svg';
@@ -50,14 +52,11 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
 	</p>
 
     <h3 class="text-2xl md:text-4xl mb-8"> What am I like? </h3>
-    <p>
-        Hey!, my name's Connor and I'm currently living in Melbourne Australia.  My current hobbies are cooking and gardening (and I want
-        to get back into practicing french) but the real underlying hobby is a love of learning. I studied 
-        <a href="https://rp-handbooks.sydney.edu.au/handbooks/archive/2021/architecture/undergraduate/b_design_computing.shtml.html" target="_blank" class="underline font-bold">Design Computing</a> at the 
-        <a href="https://www.sydney.edu.au/" target="_blank" class="underline font-bold">Univesity of Sydney</a> (essentially an interaction design
-        degree) giving me a drive for simplicity and intuitiveness in everything I create. I am also a self taught engineer, starting from
-        making games as a 12 year old and upskilling through projects based learning, lots of watching conference talks on youtube, and the
-        bulk of my learning from my 6 years experience in the industry.
+    <p> Hey!, my name's Connor and I'm currently living in Melbourne Australia.  </p>
+    <p> I like to cook, garden, build things and learn languages. </p>
+    <p> I studied <a href="https://rp-handbooks.sydney.edu.au/handbooks/archive/2021/architecture/undergraduate/b_design_computing.shtml.html" target="_blank" class="underline font-bold">Design Computing</a> at the 
+        <a href="https://www.sydney.edu.au/" target="_blank" class="underline font-bold">University of Sydney</a> (essentially an interaction design
+        degree).  I am also a self taught engineer, starting as a 12 year old who wanted to make a game and ending up addicted to the problem solving of engineering.
     </p>
     <h3 class="text-2xl md:text-4xl mb-8"> What about at work? </h3>
     <p>
@@ -73,6 +72,13 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
 
     <h4 class="underline text-1xl md:text-3xl"><a href="https://eyejack.io" target="_blank">EyeJack App</a></h4>
     <h5 class="text-lg md:text-2xl opacity-80">Senior Creative Technologist | Sep 2022 - Present</h5>
+    <div class="flex items-start gap-2 my-2">
+        <div class="flex items-center gap-2">
+            <svg fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="overflow: visible; color: currentcolor;" height="1em" width="1em"><path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"></path><path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"></path></svg>
+            <span class="opacity-75">Highlight:</span>
+        </div>
+        One of two engineers to build and ship a SaaS product from zero 
+    </div>
 	<div class="bg-gray-200 dark:bg-gray-800 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 dark:shadow-gray-900 overflow-x-scroll overflow-y-hidden">
         <div class="flex flex-nowrap gap-4 items-center w-fit">
             <PopoverIcon image={icReact} alt="React" />
@@ -83,7 +89,7 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
             <PopoverIcon image={icWebgl} alt="WebGL" />
             <PopoverIcon image={icThree} alt="THREE.js" />
             <PopoverIcon image={icWebxr} alt="WebXR" />
-            <PopoverIcon image={icGithub} alt="Github" extraClass="fill-black" />
+            <PopoverIcon image={icGithub} alt="Github" extraClass="fill-gray-200 dark:fill-gray-800" />
         </div>
     </div>
     <ul class="list-disc list-inside md:list-outside flex flex-col items-start gap-1">
@@ -101,6 +107,13 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
     <div class="group-[collapsible]">
         <h4 class="underline text-1xl md:text-3xl"><a href="https://bobbinbear.com" target="_blank">Bobbin Bear</a></h4>
         <h5 class="text-lg md:text-2xl opacity-80">Personal Project | Feb 2023 - Present</h5>
+        <div class="flex items-start gap-2 my-2">
+            <div class="flex items-center gap-2">
+                <svg fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="overflow: visible; color: currentcolor;" height="1em" width="1em"><path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"></path><path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"></path></svg>
+                <span class="opacity-75">Highlight:</span>
+            </div>
+            Writing saner code in other languages after learning rust.
+        </div>
         <div class="bg-gray-200 dark:bg-gray-800 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 dark:shadow-gray-900 overflow-x-scroll overflow-y-hidden">
             <div class="flex flex-nowrap gap-4 items-center w-fit">
                 <PopoverIcon image={icSolid} alt="Solid JS" />
@@ -133,6 +146,13 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
     <div class="group-[collapsible]">
         <h4 class="underline text-1xl md:text-3xl"><a href="https://github.com/doom-neovim/doom-nvim" target="_blank">Doom Nvim</a></h4>
         <h5 class="text-lg md:text-2xl opacity-80">Github Maintainer | Feb 2022</h5>
+        <div class="flex items-start gap-2 my-2">
+            <div class="flex items-center gap-2">
+                <svg fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="overflow: visible; color: currentcolor;" height="1em" width="1em"><path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"></path><path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"></path></svg>
+                <span class="opacity-75">Highlight:</span>
+            </div>
+            New-found appreciation for OSS maintainers
+        </div>
         <div class="bg-gray-200 dark:bg-gray-800 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 dark:shadow-gray-900 overflow-x-scroll overflow-y-hidden">
             <div class="flex flex-nowrap gap-4 items-center w-fit">
                 <PopoverIcon image={icLua} alt="Lua" />
@@ -159,6 +179,13 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
 
     <h4 class="underline text-1xl md:text-3xl"><a href="https://codeoncanvas.cc" target="_blank">codeoncanvas</a></h4>
     <h5 class="text-lg md:text-2xl opacity-80">Creative Developer | May 2020 - Sep 2022</h5>
+    <div class="flex items-start gap-2 my-2">
+        <div class="flex items-center gap-2">
+            <svg fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="overflow: visible; color: currentcolor;" height="1em" width="1em"><path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"></path><path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"></path></svg>
+            <span class="opacity-75">Highlight:</span>
+        </div>
+        Successfully deliverring ~1 client project per month
+    </div>
 	<div class="bg-gray-200 dark:bg-gray-800 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 dark:shadow-gray-900 overflow-x-scroll overflow-y-hidden">
         <div class="flex flex-nowrap gap-4 items-center w-fit">
             <PopoverIcon image={icVue} alt="Vue.js" />
@@ -182,6 +209,13 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
 
     <h4 class="underline text-1xl md:text-3xl"><a href="https://www.sevenwestmedia.com.au/" target="_blank">Seven West Media</a></h4>
     <h5 class="text-lg md:text-2xl opacity-80">Junior Fullstack Engineer | Aug 2018 - May 2020</h5>
+    <div class="flex items-start gap-2 my-2">
+        <div class="flex items-center gap-2">
+            <svg fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="overflow: visible; color: currentcolor;" height="1em" width="1em"><path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"></path><path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"></path></svg>
+            <span class="opacity-75">Highlight:</span>
+        </div>
+        Major developer in redesign of site
+    </div>
 	<div class="bg-gray-200 dark:bg-gray-800 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 dark:shadow-gray-900 overflow-x-scroll overflow-y-hidden">
         <div class="flex flex-nowrap gap-4 items-center w-fit">
             <PopoverIcon image={icEs6} alt="ES6 JS" />
