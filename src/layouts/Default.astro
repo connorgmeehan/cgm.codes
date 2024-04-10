@@ -1,15 +1,35 @@
 ---
+import { SEO } from "astro-seo";
+
 import BaseHead from '../components/BaseHead.astro';
 import Body from '../components/Body.astro';
 import Header from '../components/Header.astro';
 import { ViewTransitions } from 'astro:transitions';
 
-const { title, description, bodyClass } = Astro.props;
+const { title, description, bodyClass, nofollow, noindex } = Astro.props;
 ---
 <html lang="en" class="dark">
 	<head>
 		<BaseHead title={title} description={description} />
         <ViewTransitions />
+        <SEO
+            title="A Very Descriptive Title"
+            description="A heavily optimized description full of well-researched keywords."
+            twitter={{
+                creator: "@connorgm"
+            }}
+            noindex={noindex}
+            nofollow={nofollow}
+            extend={{
+                // extending the default link tags
+                link: [{ rel: "icon", href: "/favicon.ico" }],
+                // extending the default meta tags
+                meta: [
+                    { name: "twitter:title", content: title },
+                    { name: "twitter:description", content: description },
+                ],
+            }}
+        />
     </head>
     <Body bodyClass={bodyClass}>
         <Header title={title} />
