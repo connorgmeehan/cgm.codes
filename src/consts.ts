@@ -3,3 +3,8 @@
 
 export const SITE_TITLE = 'cgm.codes';
 export const SITE_DESCRIPTION = 'Welcome to my website!';
+
+
+function prefersDarkTheme() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches.toString();
+}

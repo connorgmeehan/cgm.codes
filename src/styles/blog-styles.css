@@ -1,5 +1,5 @@
 main {
-    @apply text-gray-800 w-full;
+    @apply w-full;
 }
 main h1,
 main h2,
@@ -56,5 +56,5 @@ pre > code {
 }
 
 .prose code {
-    @apply bg-gray-100 outline outline-gray-300 outline-1;
+    @apply bg-gray-100 dark:bg-gray-700 outline outline-gray-300 dark:outline-gray-900 outline-1;
 }

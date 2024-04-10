@@ -73,3 +73,21 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
+
+/**
+* Theme Switcher
+*/
+.theme-toggle * {
+    transform-origin: center;
+    transition: transform 0.4s ease;
+}
+
+.theme-toggle.dark > *:first-child {
+    transform: rotate(-90deg);
+}
+.theme-toggle.dark > svg > g > circle {
+    transform: scale(1.4);
+}
+.theme-toggle__around:first-child path {
+    transform: translate3d(-12px, -14px, 0);
+}

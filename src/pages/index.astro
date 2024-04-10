@@ -21,7 +21,7 @@ import { ProjectsView } from '../features/projects_view/index';
         </h1>
     </section>
     <section class="pb-20">
-        <ProjectsView client:only collection={posts} />
+        <ProjectsView client:idle collection={posts} />
     </section>
     <Footer extraClass="" />
 </Layout>

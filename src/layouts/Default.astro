@@ -1,16 +1,20 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import Body from '../components/Body.astro';
 import Header from '../components/Header.astro';
+import { ViewTransitions } from 'astro:transitions';
+
 const { title, description, bodyClass } = Astro.props;
 ---
 <html lang="en" class="dark">
 	<head>
 		<BaseHead title={title} description={description} />
+        <ViewTransitions />
     </head>
-    <body class={'bg-gray-100 dark:bg-gray-800 dark:text-gray-100 min-h-screen flex flex-col relative' + bodyClass ?? ''}>
+    <Body bodyClass={bodyClass}>
         <Header title={title} />
         <main class="py-4 px-2 md:py-8 md:px-4 flex-grow relative">
             <slot />
         </main>
-    </body>
+    </Body>
 </html>

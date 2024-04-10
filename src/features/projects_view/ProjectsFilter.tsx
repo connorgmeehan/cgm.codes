@@ -21,7 +21,7 @@ export function ProjectsFilter(props: ProjectsFilterProps) {
             <div 
                 class="rounded-xl px-4 cursor-pointer outline outline-gray-300 outline-1 hover:outline-offset-2" 
                 classList={{
-                    'bg-gray-200': props.currentFilters.includes(tag),
+                    'bg-gray-200 dark:bg-gray-700': props.currentFilters.includes(tag),
                 }}
                 onClick={() => handleClick(tag)}
                 >
