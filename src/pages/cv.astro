@@ -40,7 +40,7 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
 <Layout
 	title="Connor Meehan CV"
 	description="CV of Connor Meehan | Senior Creative Technologist"
-    bodyClass="text-[16px] md:text-xl"
+    bodyClass="text-[16px] md:text-xl print:text-sm"
 >
     <h1 class="text-2xl md:text-5xl"> Connor Meehan </h1>
     <h2 class="text-xl md:text-3xl mb-16 opacity-80"> Senior Creative Technologist @ EyeJack </h2>
@@ -69,99 +69,105 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
 
     <h3 class="text-2xl md:text-4xl mt-16 mb-8" style="page-break-before: always;"> History </h3>
 
-    <h4 class="underline text-1xl md:text-3xl"><a href="https://eyejack.io" target="_blank">EyeJack App</a></h4>
-    <h5 class="text-lg md:text-2xl opacity-80">Senior Creative Technologist | Sep 2022 - Present</h5>
-    <div class="flex items-start gap-2 my-2">
-        <div class="flex items-center gap-2">
-            <svg fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="overflow: visible; color: currentcolor;" height="1em" width="1em"><path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"></path><path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"></path></svg>
-            <span class="opacity-75">Highlight:</span>
+    <div class="break-inside-avoid">
+        <h4 class="underline text-1xl md:text-3xl"><a href="https://eyejack.io" target="_blank">EyeJack App</a></h4>
+        <h5 class="text-lg md:text-2xl opacity-80">Senior Creative Technologist | Sep 2022 - Present</h5>
+        <div class="flex items-start gap-2 my-2">
+            <div class="flex items-center gap-2">
+                <svg fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="overflow: visible; color: currentcolor;" height="1em" width="1em"><path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"></path><path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"></path></svg>
+                <span class="opacity-75">Highlight:</span>
+            </div>
+            One of two engineers to build and ship a SaaS product from zero 
         </div>
-        One of two engineers to build and ship a SaaS product from zero 
-    </div>
-	<div class="bg-gray-200 dark:bg-gray-800 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 dark:shadow-gray-900 overflow-x-scroll overflow-y-hidden">
-        <div class="flex flex-nowrap gap-4 items-center w-fit">
-            <PopoverIcon image={icReact} alt="React" />
-            <PopoverIcon image={icVite} alt="Vite" />
-            <PopoverIcon image={icTailwind} alt="Tailwind CSS" />
-            <PopoverIcon image={icAws} alt="AWS" />
-            <PopoverIcon image={icCdk} alt="CDK (AWS)" />
-            <PopoverIcon image={icWebgl} alt="WebGL" />
-            <PopoverIcon image={icThree} alt="THREE.js" />
-            <PopoverIcon image={icWebxr} alt="WebXR" />
-            <PopoverIcon image={icGithub} alt="Github" extraClass="fill-gray-200 dark:fill-gray-800" />
+        <div class="bg-gray-200 dark:bg-gray-800 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 dark:shadow-gray-900 overflow-x-scroll overflow-y-hidden">
+            <div class="flex flex-nowrap gap-4 items-center w-fit">
+                <PopoverIcon image={icReact} alt="React" />
+                <PopoverIcon image={icVite} alt="Vite" />
+                <PopoverIcon image={icTailwind} alt="Tailwind CSS" />
+                <PopoverIcon image={icAws} alt="AWS" />
+                <PopoverIcon image={icCdk} alt="CDK (AWS)" />
+                <PopoverIcon image={icWebgl} alt="WebGL" />
+                <PopoverIcon image={icThree} alt="THREE.js" />
+                <PopoverIcon image={icWebxr} alt="WebXR" />
+                <PopoverIcon image={icGithub} alt="Github" extraClass="fill-gray-200 dark:fill-gray-800" />
+            </div>
         </div>
+        <ul class="list-disc list-inside md:list-outside flex flex-col items-start gap-1">
+            <li>Architecting projects for internal products and client work.</li>
+            <li>Pre-empting issues or gotchas with project requirements and planning workarounds early.</li>
+            <li>Communicating with project managers, designers and clients in their own language.</li>
+            <li>Developing highly interactive and stateful webapp as part of a SaaS product.</li>
+            <li>Jumping into unfamiliar codebases to identify and fix issues quickly. </li>
+            <li>Valuing and investing in the team via feedback, training and guidance of juniors.</li>
+            <li>Setting up and maintaining CI/CD pipelines.</li>
+        </ul>
     </div>
-    <ul class="list-disc list-inside md:list-outside flex flex-col items-start gap-1">
-        <li>Architecting projects for internal products and client work.</li>
-        <li>Pre-empting issues or gotchas with project requirements and planning workarounds early.</li>
-        <li>Communicating with project managers, designers and clients in their own language.</li>
-        <li>Developing highly interactive and stateful webapp as part of a SaaS product.</li>
-        <li>Jumping into unfamiliar codebases to identify and fix issues quickly. </li>
-        <li>Valuing and investing in the team via feedback, training and guidance of juniors.</li>
-        <li>Setting up and maintaining CI/CD pipelines.</li>
-    </ul>
 
-    <div class="my-12" style="page-break-after: always"/>
+    <div class="my-12" />
 
-    <h4 class="underline text-1xl md:text-3xl"><a href="https://codeoncanvas.cc" target="_blank">codeoncanvas</a></h4>
-    <h5 class="text-lg md:text-2xl opacity-80">Creative Developer | May 2020 - Sep 2022</h5>
-    <div class="flex items-start gap-2 my-2">
-        <div class="flex items-center gap-2">
-            <svg fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="overflow: visible; color: currentcolor;" height="1em" width="1em"><path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"></path><path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"></path></svg>
-            <span class="opacity-75">Highlight:</span>
+    <div class="break-inside-avoid">
+        <h4 class="underline text-1xl md:text-3xl"><a href="https://codeoncanvas.cc" target="_blank">codeoncanvas</a></h4>
+        <h5 class="text-lg md:text-2xl opacity-80">Creative Developer | May 2020 - Sep 2022</h5>
+        <div class="flex items-start gap-2 my-2">
+            <div class="flex items-center gap-2">
+                <svg fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="overflow: visible; color: currentcolor;" height="1em" width="1em"><path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"></path><path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"></path></svg>
+                <span class="opacity-75">Highlight:</span>
+            </div>
+            Successfully deliverring ~1 client project per month
         </div>
-        Successfully deliverring ~1 client project per month
-    </div>
-	<div class="bg-gray-200 dark:bg-gray-800 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 dark:shadow-gray-900 overflow-x-scroll overflow-y-hidden">
-        <div class="flex flex-nowrap gap-4 items-center w-fit">
-            <PopoverIcon image={icVue} alt="Vue.js" />
-            <PopoverIcon image={icReact} alt="React" />
-            <PopoverIcon image={icVite} alt="Vite" />
-            <PopoverIcon image={icAws} alt="AWS" />
-            <PopoverIcon image={icServerless} alt="Serverless (AWS)" />
-            <PopoverIcon image={icNetlify} alt="Netlify" />
-            <PopoverIcon image={icWebgl} alt="WebGL" />
-            <PopoverIcon image={icThree} alt="THREE.js" />
-            <PopoverIcon image={icGithub} alt="Github" extraClass="fill-black" />
+        <div class="bg-gray-200 dark:bg-gray-800 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 dark:shadow-gray-900 overflow-x-scroll overflow-y-hidden">
+            <div class="flex flex-nowrap gap-4 items-center w-fit">
+                <PopoverIcon image={icVue} alt="Vue.js" />
+                <PopoverIcon image={icReact} alt="React" />
+                <PopoverIcon image={icVite} alt="Vite" />
+                <PopoverIcon image={icAws} alt="AWS" />
+                <PopoverIcon image={icServerless} alt="Serverless (AWS)" />
+                <PopoverIcon image={icNetlify} alt="Netlify" />
+                <PopoverIcon image={icWebgl} alt="WebGL" />
+                <PopoverIcon image={icThree} alt="THREE.js" />
+                <PopoverIcon image={icGithub} alt="Github" extraClass="fill-black" />
+            </div>
         </div>
+        <ul class="list-disc list-inside md:list-outside flex flex-col items-start gap-1">
+            <li>Transforming designs and feature requirements to code without hand-holding from designers.</li>
+            <li>Developing and being accountable for a deadline.</li>
+            <li>Scaffolding a new project from scratch every month or two I got to experiment with a <span class="italic">LOT</span> of architectures, libaries and solutions.</li>
+        </ul>
     </div>
-    <ul class="list-disc list-inside md:list-outside flex flex-col items-start gap-1">
-        <li>Transforming designs and feature requirements to code without hand-holding from designers.</li>
-        <li>Developing and being accountable for a deadline.</li>
-        <li>Scaffolding a new project from scratch every month or two I got to experiment with a <span class="italic">LOT</span> of architectures, libaries and solutions.</li>
-    </ul>
 
-    <div class="my-12" style="page-break-after: always"/>
+    <div class="my-12" />
 
-    <h4 class="underline text-1xl md:text-3xl"><a href="https://www.sevenwestmedia.com.au/" target="_blank">Seven West Media</a></h4>
-    <h5 class="text-lg md:text-2xl opacity-80">Junior Fullstack Engineer | Aug 2018 - May 2020</h5>
-    <div class="flex items-start gap-2 my-2">
-        <div class="flex items-center gap-2">
-            <svg fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="overflow: visible; color: currentcolor;" height="1em" width="1em"><path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"></path><path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"></path></svg>
-            <span class="opacity-75">Highlight:</span>
+    <div class="break-inside-avoid">
+        <h4 class="underline text-1xl md:text-3xl"><a href="https://www.sevenwestmedia.com.au/" target="_blank">Seven West Media</a></h4>
+        <h5 class="text-lg md:text-2xl opacity-80">Junior Fullstack Engineer | Aug 2018 - May 2020</h5>
+        <div class="flex items-start gap-2 my-2">
+            <div class="flex items-center gap-2">
+                <svg fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="overflow: visible; color: currentcolor;" height="1em" width="1em"><path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"></path><path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"></path></svg>
+                <span class="opacity-75">Highlight:</span>
+            </div>
+            Major developer in redesign of site
         </div>
-        Major developer in redesign of site
-    </div>
-	<div class="bg-gray-200 dark:bg-gray-800 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 dark:shadow-gray-900 overflow-x-scroll overflow-y-hidden">
-        <div class="flex flex-nowrap gap-4 items-center w-fit">
-            <PopoverIcon image={icEs6} alt="ES6 JS" />
-            <PopoverIcon image={icLess} alt="LESS CSS" />
-            <PopoverIcon image={icCSharp} alt="CSharp" />
-            <PopoverIcon image={icUmbraco} alt="Umbraco CMS" />
-            <PopoverIcon image={icAws} alt="AWS" />
-            <PopoverIcon image={icAzure} alt="Azure Cloud" />
+        <div class="bg-gray-200 dark:bg-gray-800 p-2 my-4 rounded-md border-t-white shadow-inner shadow-gray-300 dark:shadow-gray-900 overflow-x-scroll overflow-y-hidden">
+            <div class="flex flex-nowrap gap-4 items-center w-fit">
+                <PopoverIcon image={icEs6} alt="ES6 JS" />
+                <PopoverIcon image={icLess} alt="LESS CSS" />
+                <PopoverIcon image={icCSharp} alt="CSharp" />
+                <PopoverIcon image={icUmbraco} alt="Umbraco CMS" />
+                <PopoverIcon image={icAws} alt="AWS" />
+                <PopoverIcon image={icAzure} alt="Azure Cloud" />
+            </div>
         </div>
+        <ul class="list-disc list-inside md:list-outside flex flex-col items-start gap-1">
+            <li>Asking good questions to learn fast (never forgotten)</li>
+            <li>Working with a feature branch based workflow</li>
+            <li>Agile development methodology for sustainable development</li>
+            <li>My first exposure to 'real' JS (Vanilla ES6, React, Vue) and C# (ASP.NET)</li>
+        </ul>
     </div>
-    <ul class="list-disc list-inside md:list-outside flex flex-col items-start gap-1">
-        <li>Asking good questions to learn fast (never forgotten)</li>
-        <li>Working with a feature branch based workflow</li>
-        <li>Agile development methodology for sustainable development</li>
-        <li>My first exposure to 'real' JS (Vanilla ES6, React, Vue) and C# (ASP.NET)</li>
-    </ul>
 
     <h3 class="text-2xl md:text-4xl mt-16 mb-8" style="page-break-before: always;"> Non-commercial </h3>
 
-    <div class="group-[collapsible]">
+    <div class="group-[collapsible] break-inside-avoid">
         <h4 class="underline text-1xl md:text-3xl"><a href="https://bobbinbear.com" target="_blank">Bobbin Bear</a></h4>
         <h5 class="text-lg md:text-2xl opacity-80">Personal Project | Feb 2023 - Present</h5>
         <div class="flex items-start gap-2 my-2">
@@ -200,7 +206,7 @@ import icNeovim from '../assets/icons/tech/ic-neovim.svg'
 
     <div class="my-12" />
 
-    <div class="group-[collapsible]">
+    <div class="group-[collapsible] break-inside-avoid">
         <h4 class="underline text-1xl md:text-3xl"><a href="https://github.com/doom-neovim/doom-nvim" target="_blank">Doom Nvim</a></h4>
         <h5 class="text-lg md:text-2xl opacity-80">Github Maintainer | Feb 2022</h5>
         <div class="flex items-start gap-2 my-2">
