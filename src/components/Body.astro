@@ -3,7 +3,8 @@ const { bodyClass } = Astro.props;
 ---
 <body class={'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 ' + 
     'min-h-screen flex flex-col relative transition-all ' + 
-    'sm:text-xl' + bodyClass ?? ''}>
+    'print:container' +
+    'sm:text-xl ' + bodyClass ?? ''}>
     <slot></slot>
 </body>
 <script>
